@@ -9,6 +9,7 @@ Collection of macOS/Linux configuration files.
 ```shell
 DOTFILES_DIR="dotfiles"
 REPO_URL="git@github.com:PasiBergman/dotfiles.git"
+MY_SHELL_RC_FILE=".zshrc"
 ```
 
 - Make sure, that ythere is an `dotfiles` alias. Note! Change the git-dir value based on the directory that you'll later choose to clone the dotfiles repository to.
