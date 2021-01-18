@@ -1,0 +1,164 @@
+{
+  // suggestions
+  // "suggest.echodocSupport": true,
+  // TODO add more labels and give them cool glyphs
+  "suggest.completionItemKindLabels": {
+    "text": "t",
+    "method": "m",
+    "function": ""
+  },
+  "snippets.priority": 1,
+  //"yank.priority": 1,
+  "suggest.languageSourcePriority": 99,
+  "coc.source.file.priority": 2,
+  "coc.source.around.priority": 3,
+  "coc.source.buffer.priority": 4,
+
+  // diagnostics
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": " ",
+  // "diagnostic.displayByAle": true,
+  // "diagnostic.virtualText": true, // this won't work with codelens when error on same line
+
+  // codelens
+  "codeLens.enable": true,
+
+  // list
+  "list.indicator": ">",
+  "list.selectedSignText": " ",
+
+  // autoformat
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "html",
+    "yaml",
+    "json",
+    "python"
+  ],
+  "coc.preferences.hoverTarget": "float",
+
+  // python config
+  //"python.analysis.autoImportCompletions": true,
+  //"python.analysis.autoSearchPaths": true,
+  //"python.analysis.diagnosticMode": "openFilesOnly",
+  //"python.analysis.stubPath": "typings",
+  "python.analysis.typeshedPaths": [],
+  //"python.analysis.diagnosticSeverityOverrides": {},
+  //"python.analysis.typeCheckingMode": "basic",
+  //"python.analysis.useLibraryCodeForTypes": true,
+  //"python.pythonPath": "python",
+  "python.venvPath": "",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "black",
+  "python.formatting.blackArgs": [],
+  "python.formatting.autopep8Path": "autopep8",
+  "python.formatting.autopep8Args": [],
+  "python.formatting.yapfPath": "yapf",
+  "python.formatting.yapfArgs": [],
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.linting.banditEnabled": false,
+  "python.linting.mypyEnabled": false,
+  /* "python.linting.pytypeEnabled": false, */
+  "python.linting.prospectorEnabled": false,
+  "python.linting.pydocstyleEnabled": false,
+  "python.linting.pylamaEnabled": false,
+  "python.linting.pylintEnabled": false,
+  //"pyright.disableCompletion": false,
+  //"pyright.disableLanguageServices": false,
+  //"pyright.disableOrganizeImports": false,
+
+  // snippets
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  //"snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+
+  // emmet
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+
+  // CSS (disable since I'm also using stylelintplus)
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+
+  // explorer
+  "explorer.width": 36,
+  "explorer.quitOnOpen": true,
+  "explorer.debug": false,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": "labeling",
+  "explorer.icon.enableVimDevicons": false,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.git.showIgnored": true,
+  "explorer.datetime.format": "dd.MM.yyyy HH:mm:ss",
+  "explorer.file.git.showUntrackedFiles": true,
+  "explorer.git.icon.status.unmerged": "C",
+  "explorer.git.icon.rootStatus.modified": "M",
+  "explorer.git.icon.rootStatus.ahead": "⇡",
+  "explorer.git.icon.rootStatus.behind": "⇣",
+  "explorer.git.icon.rootStatus.added": "A",
+  "explorer.git.icon.rootStatus.stashed": "S",
+  "explorer.git.icon.rootStatus.deleted": "D",
+  "explorer.git.icon.rootStatus.conflicted": "≠",
+  "explorer.git.icon.status.modified": "M",
+  "explorer.git.icon.status.added": "A",
+  // "explorer.git.icon.status.mixed": "◎",
+  "explorer.git.icon.status.deleted": "D",
+  "explorer.git.icon.status.renamed": "R",
+  "explorer.git.icon.status.copied": "C",
+  "explorer.git.icon.status.untracked": "U",
+  /* "ˣ" */
+  "explorer.git.icon.status.ignored": "⌀",
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "explorer.sources": [
+    {
+      "name": "bookmark",
+      "expand": false
+    },
+    {
+      "name": "buffer",
+      "expand": true
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+
+  //"languageserver": {
+  //  "lua": {
+  //    "command": "/home/chris/.luambenvs/neovim4/bin/lua-lsp",
+  //    "filetypes": ["lua"],
+  //    "trace.server": "verbose"
+  //  }
+  //},
+
+  "bookmark.sign": "",
+
+  //coc-emoji
+  "coc.source.emoji.filetypes": ["markdown"]
+
+  // lua
+  //"lua.useSumnekoLs": true,
+  //"lua.commandPath": "/home/chris/.luambenvs/neovim3/bin/lua-lsp"
+  //"lua.enable": true,
+  //"Lua.completion.enable": true,
+  //"Lua.runtime.version": "Lua 5.1",
+  //"Lua.runtime.path": ["?.lua", "?/init.lua", "?/?.lua"],
+  //"lua.version": "5.1"
+  //"lua.commandPath": "/home/chris/.vscode-insiders/extensions/sumneko.lua-1.0.5/server/bin/Linux/lua-language-server"
+
+  // TODO b:coc_suggest_disable=1 GOYO
+  // TODO add to paths.vim g:coc_node_path
+}
+

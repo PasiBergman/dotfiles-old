@@ -1,0 +1,92 @@
+# =============================================================================
+# Confiuration for Termite terminal emulator
+# =============================================================================
+[options]
+allow_bold = true
+#audible_bell = false
+bold_is_bright = true
+cell_height_scale = 1.00
+cell_width_scale = 1.00
+clickable_url = true
+#dynamic_title = true
+# font = mononoki Nerd Font Mono 10
+# font = SauceCodePro Nerd Font 10
+font = JetBrainsMono Nerd Font 10
+# font = NotoSansMono Nerd Font 10
+fullscreen = true
+#icon_name = terminal
+#mouse_autohide = false
+#scroll_on_output = false
+#scroll_on_keystroke = true
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 20000
+#search_wrap = true
+#urgent_on_bell = true
+hyperlinks = true
+# "system", "on" or "off"
+cursor_blink = on
+# "block", "underline" or "ibeam"
+cursor_shape = block
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = firefox
+
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+size_hints = false
+
+# "off", "left" or "right"
+scrollbar = off
+
+[colors]
+# If both of these2are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+cursor = #dcdccc
+cursor_foreground = #dcdccc
+
+# foreground = #DDDCDC
+foreground_bold = #D5D5D6
+
+# 20% background transparency (requires a compositor)
+# background = rgba(0, 0, 0, 0.75)
+background = #1C1C1C
+# background = #0A0A0A
+
+# If unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# Colors from color0 to color254 can be set
+color0 = #010000
+color1 = #F7655E
+color2 = #01C58C
+color3 = #EBE70F
+color4 = #65AEDE
+color5 = #E08ADF
+color6 = #2CC4E3
+color7 = #EAEAEA
+color8 = #676666
+color9 = #F7655D
+color10 = #01C58C
+color11 = #EBE70F
+color12 = #67ADDD
+color13 = #E08ADF
+color14 = #2CC4E3
+color15 = #EBEAEA
+
+[hints]
+font = Monospace 12
+foreground = #dcdccc
+background = #3f3f3f
+active_foreground = #e68080
+active_background = #3f3f3f
+padding = 2
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+
+# vim: ft=dosini cms=#%s
