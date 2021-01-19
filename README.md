@@ -18,33 +18,32 @@ MY_SHELL_RC_FILE=".zshrc"
 alias dotfiles='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
 ```
 
-- Make  dotfiles directory to `.gitignore` file to avoit recursion problems.
+- Make dotfiles directory to `.gitignore` file to avoit recursion problems.
 
 ```shell
 cd $HOME && echo "$DOTFILES_DIR" >> .gitignore
 ```
 
-- Clonet dotfiles to a **bare** (i.e. empty) repository in your `$HOME/$DOTFILES_DIR` path.
+- Clone dotfiles to a **bare** (i.e. empty) repository in your `$HOME/$DOTFILES_DIR` path.
 
 ```shell
 git clone --bare $REPO_URL $HOME/$DOTFILES_DIR
 ```
 
-- Checkout the repository content to $HOME directory. Note!  You may get an error about `untracked working tree`, it means that the chekcout would overwrite existing files, which are listed in the error message.  Remove or move the existing files to safe location and repeat the repository checkout.
+- Checkout the repository content to $HOME directory. Note! You may get an error about `untracked working tree`, it means that the chekcout would overwrite existing files, which are listed in the error message. Remove or move the existing files to safe location and repeat the repository checkout.
 
 ```shell
 cd $HOME
 dotfiles checkout
 ```
 
-- Use flag `showUntrackedFiles` with value `no` to disable listing untracked files. 
+- Use flag `showUntrackedFiles` with value `no` to disable listing untracked files.
 
 ```shell
 dotfiles config --local status.showUntrackedFiles no
 ```
 
-- Done. Use command `dotfiles` (instead of `git`) to **add**, **commit**, **push** etc. dotfiles.¨
-
+- Done. Use command `dotfiles` (instead of `git`) to **add**, **commit**, **push** etc. dotfiles.
 
 ## Initial creation of the repository
 
@@ -64,7 +63,7 @@ echo "alias dotfiles='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'" >> 
 
 Example:
 
-```shell
+````shell
 cd $HOME
 dotfiles status
 dotfiles add .config/nvim/init.vim
@@ -73,4 +72,8 @@ dotfiles add .zshrc
 dotfiles commit -m "Add zshrc"
 dotfiles pull
 dotfiles push
-```
+
+## Credits
+
+https://www.atlassian.com/git/tutorials/dotfiles```
+````

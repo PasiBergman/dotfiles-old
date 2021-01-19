@@ -16,7 +16,7 @@ export LANGUAGE=en_US
 # Command history
 SAVEHIST=50000
 HISTSIZE=50000
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="$HOME/.cache/.zsh_history"
 setopt appendhistory
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
