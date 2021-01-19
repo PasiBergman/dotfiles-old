@@ -24,7 +24,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     " Nvim sets the project root path
     " Plug 'airblade/vim-rooter'
-    " vim-sleuth plugin automatically adjusts 'shiftwidth' and 'expandtab' 
+    " vim-sleuth plugin automatically adjusts 'shiftwidth' and 'expandtab'
     " heuristically based on the current file
     Plug 'tpope/vim-sleuth'
     " Better Syntax Support
@@ -51,7 +51,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " OmniSharp for C# support
     Plug 'OmniSharp/omnisharp-vim'
     " Fzf
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+    Plug 'junegunn/fzf.vim'
     Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
     Plug 'stsewd/fzf-checkout.vim'
     " Git
