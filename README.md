@@ -63,7 +63,7 @@ echo "alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'" >> $HOME
 
 Example:
 
-````shell
+```shell
 cd $HOME
 dot status
 dot add .config/nvim/init.vim
@@ -72,8 +72,8 @@ dot add .zshrc
 dot commit -m "Add zshrc"
 dot pull
 dot push
+```
 
 ## Credits
 
-https://www.atlassian.com/git/tutorials/dotfiles```
-````
+https://www.atlassian.com/git/tutorials/dotfiles
