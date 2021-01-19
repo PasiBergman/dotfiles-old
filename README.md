@@ -12,13 +12,13 @@ REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 MY_SHELL_RC_FILE=".zshrc"
 ```
 
-- Make sure, that ythere is an `dotfiles` alias. Note! Change the git-dir value based on the directory that you'll later choose to clone the dotfiles repository to.
+- Make sure, that there is an `dot` alias. Note! Change the git-dir value based on the directory that you'll later choose to clone the dotfiles repository to.
 
 ```shell
-alias dotfiles='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
 ```
 
-- Make dotfiles directory to `.gitignore` file to avoit recursion problems.
+- Add dotfiles directory to `.gitignore` file to avoid recursion problems.
 
 ```shell
 cd $HOME && echo "$DOTFILES_DIR" >> .gitignore
@@ -34,16 +34,16 @@ git clone --bare $REPO_URL $HOME/$DOTFILES_DIR
 
 ```shell
 cd $HOME
-dotfiles checkout
+dot checkout
 ```
 
 - Use flag `showUntrackedFiles` with value `no` to disable listing untracked files.
 
 ```shell
-dotfiles config --local status.showUntrackedFiles no
+dot config --local status.showUntrackedFiles no
 ```
 
-- Done. Use command `dotfiles` (instead of `git`) to **add**, **commit**, **push** etc. dotfiles.
+- Done. Use command `dot` (instead of `git`) to **add**, **commit**, **push** etc. dotfiles.
 
 ## Initial creation of the repository
 
@@ -54,9 +54,9 @@ REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 
 cd $HOME
 git init --bare $HOME/$DOTFILES_DIR
-alias dotfiles='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
-dotfiles config --local status.showUntrackedFiles no
-echo "alias dotfiles='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'" >> $HOME/$MY_SHELL_RC_FILE
+alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
+dot config --local status.showUntrackedFiles no
+echo "alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'" >> $HOME/$MY_SHELL_RC_FILE
 ```
 
 ## Usage
@@ -65,13 +65,13 @@ Example:
 
 ````shell
 cd $HOME
-dotfiles status
-dotfiles add .config/nvim/init.vim
-dotfiles commit -m "Add nvim configuration"
-dotfiles add .zshrc
-dotfiles commit -m "Add zshrc"
-dotfiles pull
-dotfiles push
+dot status
+dot add .config/nvim/init.vim
+dot commit -m "Add nvim configuration"
+dot add .zshrc
+dot commit -m "Add zshrc"
+dot pull
+dot push
 
 ## Credits
 
