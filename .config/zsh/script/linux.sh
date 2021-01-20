@@ -13,7 +13,7 @@ alias ls='ls --color=auto'
 # =============================
 
 packages() {
-    FILENAME=$(echo $HOST | sed -e '/afrodite-//g')
+    FILENAME=$(echo $HOST | sed -e 's/afrodite-//g')
     case "$HOST" in
         afrodite-arch)
             SETUP_FOLDER="$HOME/.config/setup/arch"
@@ -29,11 +29,11 @@ packages() {
 
     echo "List of explicit packages from main repository"
     echo "----------------------------------------------"
-    pacman -Qqn | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqn.txt"
+    pacman -Qqen | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqn.txt"
     echo ""
     echo "List of explicit packages from AUR"
     echo "----------------------------------------------"
-    pacman -Qqm | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqm.txt"
+    pacman -Qqem | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqm.txt"
     echo ""
     echo "# List of unneeded dependencies (orphans)"
     echo "# ----------------------------------------------"
