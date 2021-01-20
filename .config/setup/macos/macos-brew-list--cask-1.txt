@@ -1,3 +1,4 @@
+amethyst
 azure-data-studio
 dotnet-sdk
 dotnet-sdk3-1-400
