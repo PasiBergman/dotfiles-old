@@ -72,7 +72,7 @@ packages() {
     SETUP_FOLDER="$HOME/.config/setup/macos"
     [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
 
-    brew bundle dump --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    brew bundle dump --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt --force
     echo "Brew bundle dump"
     echo "----------------------------------------------"
     cat $SETUP_FOLDER/macos-brew-bundle-dump.txt
@@ -85,16 +85,27 @@ packages() {
     echo "----------------------------------------------"
     brew list --cask -1 | tee "${SETUP_FOLDER}/macos-brew-list--cask-1.txt"
     echo ""
+    echo "List of App Store apps"
+    echo "----------------------------------------------"
+    mas list | tee "${SETUP_FOLDER}/macos-mas-list.txt"
+    echo ""
 }
 
-package-install () {
+packages-install () {
     SETUP_FOLDER="$HOME/.config/setup/macos"
     [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
-
-    brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    echo ""
+    echo "Installing Homebrew apps"
+    # brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    echo ""
+    echo "Installing Mac App Store apps:"
+    while read p; do
+        grep $p $SETUP_FOLDER/macos-mas-list.txt
+        mas install $p
+    done <<< $(awk '{print $1}' $SETUP_FOLDER/macos-mas-list.txt)
 }
 
-package-cleanup () {
+packages-cleanup () {
     SETUP_FOLDER="$HOME/.config/setup/macos"
     [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
 
