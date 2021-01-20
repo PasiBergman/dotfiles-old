@@ -27,8 +27,8 @@ packages() {
             ;;
     esac
 
-    [ -d "$SETUP_FOLDER" ] || mkdir -p "$SETUP_FOLDER"
-
+    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+    echo ""
     echo "List of explicit packages from main repository"
     echo "----------------------------------------------"
     pacman -Qeqn | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qeqn.txt"
@@ -40,6 +40,7 @@ packages() {
     echo "# List of unneeded dependencies (orphans)"
     echo "# ----------------------------------------------"
     pacman -Qdt | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qdt.txt"
+    echo ""
 }
 
 
