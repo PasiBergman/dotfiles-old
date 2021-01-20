@@ -1,0 +1,13 @@
+# kubctl aliases
+alias ks="kubectl --namespace kube-system"
+alias ksgp="kubectl --namespace kube-system get pod"
+alias ke="kubectl exec"
+alias kse="kubectl --namespace kube-system exec"
+alias kseti="kubectl -it --namespace kube-system exec"
+alias ksdelp="kubectl --namespace kube-system delete pods"
+alias ksl="kubectl --namespace kube-system logs"
+alias klft1="kubectl --follow --tail=1 logs"
+alias ksft1="kubectl --namespace kube-system --follow --tail=1 logs"
+alias kslf="kubectl logs --follow --namespace kube-system"
+alias kalias="cat ~/.oh-my-zsh/plugins/kubectl/README.md | grep '|'"
+alias kontext="kubectl config current-context"

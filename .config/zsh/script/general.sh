@@ -1,13 +1,45 @@
-alias ls="ls --color=auto"
+# =====================
+# Functions
+# =====================
+
+b64() {
+    echo "$1 base64 encoded:"
+    echo -n $1 | base64
+}
+b64d() {
+    echo "$1 decoded from base64:"
+    echo -n $1 | base64 -D
+}
+
+sha256() {
+    /usr/bin/shasum -a 256 $1
+}
+
+# =====================
+# Aliases
+# =====================
+
+# Reverse aliases. Open these filetypes with nvim
+alias -s {cs,ts,js,html,htm,md,json,yml,yaml,vue}=nvim
 
 # Nvim
 alias vim="nvim"
 alias vi="nvim"
 
-# Reverse aliases. Open these filetypes with nvim
-alias -s {cs,ts,js,html,htm,md,json,yml,yaml,vue}=nvim
+# Hardware
+alias cpu-info="$HOME/.config/zsh/script/cpu-info.sh"
+alias mem=$'ps axc -o cmd,%mem --sort=-%mem | head -n 15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
+alias cpu=$'ps axc -o cmd,%cpu --sort=-%cpu | head -n 15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
 
 # Utils
-alias cpu-info="$HOME/.config/zsh/script/cpu-info.sh"
-alias mem=$'ps axc -o cmd,%mem --sort=-%mem | head -15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
-alias cpu=$'ps axc -o cmd,%cpu --sort=-%cpu | head -15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
+alias sää='curl -s "https://wttr.in/Kukkumäki,Espoo?MF1&lang=fi"'
+
+# Fzf
+alias historyfzf="history 0 | fzf"
+alias fzfhistory="history 0 | fzf"
+alias fzfhist="history 0 | fzf"
+
+# dotnet
+alias dotnetclean="find . -name bin -exec rm -R -f {} \; && find . -name obj -exec rm -R -f {} \; && dotnet clean"
+
+

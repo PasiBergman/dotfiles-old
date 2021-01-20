@@ -1,5 +1,12 @@
-#!/usr/bin/bash
-echo ""
+#
+# Get Raspberry Pi CPU temperature and frequency
+#
+echo " "
+if [[ "$(uname -a)" != *"raspi"* ]]; then
+    echo "Only for Raspberry Pi."
+    return
+fi
+
 while [ true ]
 do
     NOW=$(date +"%Y-%m-%d %T")

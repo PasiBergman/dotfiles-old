@@ -62,4 +62,4 @@ fi
 # Use specified node version
 nvm use $NODE_VERSION 1>/dev/null
 # System information
-echo "" && pfetch
+echo " " && pfetch
