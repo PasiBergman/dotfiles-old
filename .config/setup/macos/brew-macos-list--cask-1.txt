@@ -1,0 +1,13 @@
+azure-data-studio
+dotnet-sdk
+dotnet-sdk3-1-400
+font-hack-nerd-font
+font-jetbrains-mono-nerd-font
+font-menlo-for-powerline
+font-meslo-for-powerline
+font-sauce-code-pro-nerd-font
+font-source-code-pro
+google-chrome
+iterm2
+microsoft-azure-storage-explorer
+visual-studio-code

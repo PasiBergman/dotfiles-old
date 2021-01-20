@@ -1,6 +1,7 @@
 # Git aliases
 alias g='git'
 alias glog='git log --oneline --all --graph --decorate'
+alias gitlog='git log --oneline --all --graph --decorate'
 alias gst='git status'
 
 alias ga='git add'
