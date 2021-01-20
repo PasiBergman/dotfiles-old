@@ -67,3 +67,38 @@ zf() {
         echo "$PWD" && \
         tree -L 1
 }
+
+packages() {
+    SETUP_FOLDER="$HOME/.config/setup/macos"
+    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+
+    brew bundle dump --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    echo "Brew bundle dump"
+    echo "----------------------------------------------"
+    cat $SETUP_FOLDER/macos-brew-bundle-dump.txt
+    echo ""
+    echo "List of brew bundle dump"
+    echo "----------------------------------------------"
+    brew leaves | tee "${SETUP_FOLDER}/macos-brew-leaves.txt"
+    echo ""
+    echo "List of brew --cask"
+    echo "----------------------------------------------"
+    brew list --cask -1 | tee "${SETUP_FOLDER}/macos-brew-list--cask-1.txt"
+    echo ""
+}
+
+package-install () {
+    SETUP_FOLDER="$HOME/.config/setup/macos"
+    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+
+    brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+}
+
+package-cleanup () {
+    SETUP_FOLDER="$HOME/.config/setup/macos"
+    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+
+    brew bundle cleanup --file $SETUP_FOLDER/macos-brew-bundle-dump.txt --verbose
+    read -s -k '?Press any key to continue with uninstallation or ctrl-c to stop.'
+    brew bundle cleanup --file $SETUP_FOLDER/macos-brew-bundle-dump.txt --verbose --force
+}
