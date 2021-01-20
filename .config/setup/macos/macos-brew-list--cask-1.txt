@@ -1,3 +1,4 @@
+amethyst
 azure-data-studio
 dotnet-sdk
 dotnet-sdk3-1-400
@@ -10,4 +11,5 @@ font-source-code-pro
 google-chrome
 iterm2
 microsoft-azure-storage-explorer
+pdf-expert
 visual-studio-code

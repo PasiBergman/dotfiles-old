@@ -6,6 +6,7 @@ DOTFILES_DIR="dotfiles"
 dotfiles_dirs_to_monitor=( \
     "$HOME/.config/i3" \
     "$HOME/.config/nvim" \
+    "$HOME/.config/setup" \
     "$HOME/.config/termite" \
     "$HOME/.config/tmux" \
     "$HOME/.config/zsh" \

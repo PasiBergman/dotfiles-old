@@ -1,5 +1,4 @@
 ack
-automake
 azure-cli
 bat
 cmake
@@ -11,20 +10,16 @@ jq
 lazydocker
 luajit
 luarocks
+mas
 neovim
 nvm
-perl
 pfetch
 pkg-config
-python@3.9
 ripgrep
 rsync
-ruby
 tig
 tmux
 tree
-universal-ctags/universal-ctags/universal-ctags
-wfxr/code-minimap/code-minimap
 z
 zsh
 zsh-autosuggestions

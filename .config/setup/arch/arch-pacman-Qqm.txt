@@ -1,0 +1,16 @@
+azure-cli
+brave-bin
+nerd-fonts-hack
+nerd-fonts-jetbrains-mono
+nerd-fonts-meslo
+nerd-fonts-mononoki
+nerd-fonts-noto-sans-mono
+nerd-fonts-noto-sans-regular-complete
+nerd-fonts-roboto-mono
+nerd-fonts-source-code-pro
+nerd-fonts-ubuntu-mono
+pfetch-git
+polybar
+xeventbind-git
+yay
+ytop-bin
