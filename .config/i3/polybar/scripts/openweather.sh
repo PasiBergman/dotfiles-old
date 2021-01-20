@@ -12,20 +12,19 @@ sunriseOrSunset() {
         echo "  $sunset_time"
     fi
 }
-
-api_key="cat $HOME/.config/.openweather"
-
+#
+# https://openweathermap.org/current
+#
+# Get API key
+api_key=$(cat $HOME/.config/.openweather)
 # Espoo
 request="https://api.openweathermap.org/data/2.5/weather?q=Espoo&appid=${api_key}&units=metric"
-location="Espoo"
-# Kukkumäki
-request="https://api.openweathermap.org/data/2.5/weather?lat=60.179968&lon=24.675675&appid=ec0f26c7022b924b27a850fec5107671&units=metric"
-location="Kukkumäki"
 # Request weather informatioconn
 openweather=$(curl --silent --connect-timeout 6 "$request")
 
-# openweather='{"coord":{"lon":24.6757,"lat":60.18},"weather":[{"id":701,"main":"Mist","description":"mist","icon":"50n"}],"base":"stations","main":{"temp":-15,"feels_like":-19.86,"temp_min":-15,"temp_max":-15,"pressure":1018,"humidity":92},"visibility":3500,"wind":{"speed":2.06,"deg":280},"clouds":{"all":75},"dt":1610866167,"sys":{"type":1,"id":1332,"country":"FI","sunrise":1610867218,"sunset":1610891725},"timezone":7200,"id":660158,"name":"Espoo","cod":200}'
-
+if [ -n "$1" ]; then
+    echo $openweather | jq .
+fi
 
 main_temp=$(echo $openweather | jq '.main.temp')
 main_temp=${main_temp%.*}
@@ -93,7 +92,7 @@ case "$weather_icon" in
     50n)
         icon_char=" "
         ;;
-    *)j
+    *)
         icon_char=""
         ;;
 esac
