@@ -17,6 +17,7 @@ git
 groff
 haveged
 htop
+jq
 libtool
 linux-raspberrypi
 m4
@@ -40,7 +41,11 @@ texinfo
 tig
 tmux
 vi
+vifm
+wget
 which
 wireless_tools
 wpa_supplicant
 zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
