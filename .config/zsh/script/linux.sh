@@ -18,7 +18,7 @@ packages() {
         afrodite-arch)
             SETUP_FOLDER="$HOME/.config/setup/arch"
             ;;
-        afrodite-raspi3)
+        afrodite-raspi*)
             SETUP_FOLDER="$HOME/.config/setup/raspi"
             ;;
         *)
@@ -27,19 +27,20 @@ packages() {
             ;;
     esac
 
-    [ -d $SETUP_FOLDER ] || mkdir -p $SETUP_FOLDER
-
+    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+    echo ""
     echo "List of explicit packages from main repository"
     echo "----------------------------------------------"
-    pacman -Qqen | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqn.txt"
+    pacman -Qeqn | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qeqn.txt"
     echo ""
     echo "List of explicit packages from AUR"
     echo "----------------------------------------------"
-    pacman -Qqem | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqm.txt"
+    pacman -Qeqm | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qeqm.txt"
     echo ""
     echo "# List of unneeded dependencies (orphans)"
     echo "# ----------------------------------------------"
     pacman -Qdt | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qdt.txt"
+    echo ""
 }
 
 
