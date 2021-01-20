@@ -89,6 +89,10 @@ packages() {
     echo "----------------------------------------------"
     mas list | tee "${SETUP_FOLDER}/macos-mas-list.txt"
     echo ""
+    echo "List of Setapp apps"
+    echo "----------------------------------------------"
+    ls -1 /Applications/Setapp | grep "\.app" | tee "${SETUP_FOLDER}/macos-setapp.txt"
+    echo ""
 }
 
 packages-install () {

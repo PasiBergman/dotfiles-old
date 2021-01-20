@@ -1,0 +1,17 @@
+Aquarelo.app
+CleanMyMac X.app
+CleanShot X.app
+CodeRunner.app
+Dash.app
+DevUtils.app.app
+Expressions.app
+ForkLift.app
+Gitfox.app
+Glyphfinder.app
+Marked.app
+PixelSnap.app
+Proxyman.app
+SSH Config Editor.app
+SnippetsLab.app
+Swish.app
+TextSniper.app

@@ -11,4 +11,5 @@ font-source-code-pro
 google-chrome
 iterm2
 microsoft-azure-storage-explorer
+pdf-expert
 visual-studio-code
