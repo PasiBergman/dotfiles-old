@@ -27,6 +27,8 @@ packages() {
             ;;
     esac
 
+    [ -d $SETUP_FOLDER ] || mkdir -p $SETUP_FOLDER
+
     echo "List of explicit packages from main repository"
     echo "----------------------------------------------"
     pacman -Qqen | tee "${SETUP_FOLDER}/${FILENAME}-pacman-Qqn.txt"
