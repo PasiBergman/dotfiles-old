@@ -3,6 +3,7 @@
 # Variables
 # ====================================
 COMPUTER_NAME="HFMAC57"
+LOCK_SCREEN_MESSAGE="pasi.bergman@hiq.fi | +358-45-349 3294 | $COMPUTER_NAME"
 
 # ------------------------------------
 # Preparations
@@ -34,6 +35,25 @@ defaults write com.apple.commerce AutoUpdate -bool true
 # Allow the App Store to reboot machine on macOS updates
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 
+# -------------------------------------
+# Security & Privacy
+# -------------------------------------
+# Require password immediately after sleep or screen saver begins
+sudo defaults write com.apple.screensaver askForPassword -int 1
+sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
+# Set lock screen message
+ sudo defaults write /Library/Preferences/com.apple.loginwindow \
+     LoginwindowText -string "$LOCK_SCREEN_MESSAGE"
+# Enable firewall, allow incoming for build-in applicatios and signed applications
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+sudo defaults write /Library/Preferences/com.apple.alf allowdownloadsignedenabled -int 1
+sudo defaults write /Library/Preferences/com.apple.alf allowsignedenabled -int 1
+# Enable firewall stealth mode
+sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+# Reveal IP address, hostname, OS version, etc. when clicking the clock
+# in the login window
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
 
 # -------------------------------------
 # Sharing
@@ -45,9 +65,6 @@ sudo scutil --set LocalHostName $COMPUTER_NAME
 sudo defaults write \
     /Library/Preferences/SystemConfiguration/com.apple.smb.server \
     NetBIOSName -string $COMPUTER_NAME
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 
 # -------------------------------------
@@ -65,6 +82,8 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Disable the crash reporter
 #defaults write com.apple.CrashReporter DialogType -string "none"
+# Mak Crash Reporter appear as a notification
+defaults write com.apple.CrashReporter UseUNC -int 1
 # Show wraning before removing from iCloud Drive
 defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 # View: As List
@@ -90,7 +109,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Finder: show hidden files by default
 #defaults write com.apple.finder AppleShowAllFiles -bool true
 # Finder: show all filename extensions
-# defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # Keep folders on top when sorting by name
@@ -148,6 +167,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \
 	Privileges -bool true
+# Keep Quick Look window in front
+defaults write com.apple.Finder QLHidePanelOnDeactivate -int 0
 
 
 # -------------------------------------
@@ -200,6 +221,9 @@ defaults write -globalDomain NSTableViewDefaultSizeMode -int 2
 defaults write com.apple.dock launchanim -bool false
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
+# Allow Handoff between this Mac and iCloud devices
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool true
+defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool true
 
 
 # -------------------------------------
@@ -273,9 +297,6 @@ sudo pmset -b sleep 15
 # -------------------------------------
 # Display
 # -------------------------------------
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Save screenshots to the $HOME/Screenshots
 [[ -d $HOME/Screenshots ]] || mkdir $HOME/Screenshots
 defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
@@ -398,6 +419,7 @@ sudo mdutil -E / > /dev/null
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+
 # -------------------------------------
 # Activity Monitor
 # -------------------------------------
@@ -411,6 +433,15 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
 
+
+# -------------------------------------
+# TextEdit
+# -------------------------------------
+# Use plain text as default
+defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.TextEdit ShowRuler -int 0
+
+
 # Kill affected apps
 for app in \
     "Dock" \
@@ -418,6 +449,7 @@ for app in \
     "Photos" \
     "SystemUIServer" \
     "cfprefsd" \
+    "TextEdit" \
     "Finder"; do
   killall "${app}" > /dev/null 2>&1
 done
