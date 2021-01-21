@@ -233,6 +233,8 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock showhidden -bool true
 # Don’t show recent applications in Dock
 # defaults write com.apple.dock show-recents -bool false
+# Dock on the left side of the screen
+defaults write com.apple.dock orientation -string "left"
 
 
 # -------------------------------------
