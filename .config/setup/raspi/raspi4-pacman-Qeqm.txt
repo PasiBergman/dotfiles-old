@@ -1,0 +1,10 @@
+aspnet-runtime-3.1
+aspnet-runtime-bin
+dotnet-host-bin
+dotnet-runtime-3.1
+dotnet-runtime-bin
+dotnet-sdk-3.1
+dotnet-targeting-pack-3.1
+netstandard-targeting-pack-bin
+pfetch
+yay
