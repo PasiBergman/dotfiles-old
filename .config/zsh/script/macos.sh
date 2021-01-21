@@ -18,6 +18,8 @@ bindkey "^[[4~" end-of-line
 alias pcap="sudo tcpdump -i en0 -s 0 -B 524288 -w /Users/pasi/Desktop/DumpFile01.pcap"
 # View captured packed file
 alias view-pcap="tcpdump -s 0 -n -e -x -vvv -r /Users/pasi/Desktop/DumpFile01.pcap"
+# Colors
+alias ls="ls -G"
 
 
 # ====================
