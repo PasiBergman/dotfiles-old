@@ -39,12 +39,7 @@ _bold_reset="%{%b%}"
 zstyle ':vcs_info:git*' formats " on ${_yellow} %b ${_red}  %u%c%m${_color_reset}"
 zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b (%a) %m%u%c "
 
-# export PS1='
-# %{%F{blue}%}%n%\@%m%{%f%} in %{%F{green}%}%{%B%}%~%{%b%}%{%f%}$(get_git_prompt)
-# $(get_virtualenv_info)$(get_prompt_char) '
 export PS1='
 ${_blue}%n%\@%m${cend} in ${_green}${_bold}%~${_bold_reset}${_color_reset}${vcs_info_msg_0_}
 $(get_virtualenv_info)$(get_prompt_char) '
-
-#${_bold}%~${_bold_reset}${_color_reset}$(get_git_prompt)
 
