@@ -1,27 +1,9 @@
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+precmd() {
+    vcs_info
+}
 setopt PROMPT_SUBST
-
-git_folder () {
-    git rev-parse --git-dir >/dev/null 2>/dev/null
-    return $?
-}
-
-git_commits_ahead () {
-    if git_folder; then
-
-    fi
-}
-
-git_dirty_count () {
-    if git_folder; then
-        git status --porcelain | wc -l
-    fi
-}
-
-git_current_branch () {
-    if git_folder; then
-        git branch --show-current
-    fi
-}
 
 get_prompt_char () {
     git_folder && echo '±' && return
@@ -45,7 +27,24 @@ get_git_prompt () {
     fi
 }
 
+_blue="%{$fg[blue]%}"
+_green="%{$fg[green]%}"
+_grey="%{$fg[grey]%}"
+_red="%{$fg[red]%}"
+_yellow="%{$fg[yellow]%}"
+_color_reset="%{%f%}"
+_bold="%{%B%}"
+_bold_reset="%{%b%}"
+
+zstyle ':vcs_info:git*' formats " on ${_yellow} %b ${_red}  %u%c%m${_color_reset}"
+zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b (%a) %m%u%c "
+
+# export PS1='
+# %{%F{blue}%}%n%\@%m%{%f%} in %{%F{green}%}%{%B%}%~%{%b%}%{%f%}$(get_git_prompt)
+# $(get_virtualenv_info)$(get_prompt_char) '
 export PS1='
-%{%F{blue}%}%n%\@%m%{%f%} in %{%F{green}%}%{%B%}%~%{%b%}%{%f%}$(get_git_prompt)
+${_blue}%n%\@%m${cend} in ${_green}${_bold}%~${_bold_reset}${_color_reset}${vcs_info_msg_0_}
 $(get_virtualenv_info)$(get_prompt_char) '
+
+#${_bold}%~${_bold_reset}${_color_reset}$(get_git_prompt)
 
