@@ -301,5 +301,5 @@ PasswordAuthentication no
 NEW_USERNAME="<new username>"
 sudo usermod -l $NEW_USERNAME alarm
 sudo mv /home/alarm /home/$NEW_USERNAME
-sudo chown -R $NEW_USERNAME:users /home/$NEW_USERNAME
+sudo chown -R ${NEW_USERNAME}:users /home/$NEW_USERNAME
 ```
