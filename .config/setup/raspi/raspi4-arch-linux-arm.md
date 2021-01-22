@@ -210,7 +210,7 @@ chsh -s $(which zsh)
 - Install Neovim dependencies
 
 ```shell
-# Change the Node.js version as needed
+# Change the Node.js version as needed. Must match with the version in the dofiles .zshrc file
 NODE_VERSION="14.15.4"
 
 pip3 install pynvim
@@ -224,8 +224,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install $NODE_VERSION
 nvm use $NODE_VERSION
 npm install -g npm
-npm install -g typescript
-npm install -g neovim
+npm install -g typescript neovim
 ```
 
 - Install `yay`
@@ -238,13 +237,14 @@ cd yay-git
 makepkg -si
 ```
 
-- Install .NET (Core) & ASP.NET Core 5x & 3.1
+- Install .NET (Core) & ASP.NET Core 5x & 3.1 (+ pfetch)
 
 ```shell
-yay -Sy netstandard-targeting-pack-bin \
+yay -S netstandard-targeting-pack-bin \
     aspnet-runtime-bin dotnet-host-bin dotnet-runtime-bin
-yay -Sy dotnet-sdk-3.1 aspnet-runtime-3.1 \
+yay -S dotnet-sdk-3.1 aspnet-runtime-3.1 \
     dotnet-runtime-3.1 dotnet-targeting-pack-3.1
+yay -S pfetch
 ```
 
 - Clone dotfiles
