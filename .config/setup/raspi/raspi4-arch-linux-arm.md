@@ -2,6 +2,8 @@
 
 ## Preparations and initial installation
 
+Preparations and initial installation is made on separate, running Linux computer/environment. 
+
 - Log in as root
 
 ```shell
@@ -95,7 +97,9 @@ umount boot root
 
 ## Configuration
 
-Insert prepared SD card (and USB disk if applicable).
+Configuration is done on Raspberry Pi after completing a SD card and/or USB drive preparations and initial installation.
+
+Insert prepared SD card (and USB disk if applicable) to Raspberry Pi and boot.
 
 - Login as `alarm` with password `alarm`. Which to `root` user. Root password is `root`
 
@@ -153,11 +157,12 @@ timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
 ```
 
-Add required locales by editing first the `/etc/locale.gen` file.
+Add required locales by editing first the `/etc/locale.gen` file. 
 
 ```shell
 nvim /etc/locale.gen
 ```
+- Remove comments from e.g. these lines (based on your need).
 
 ```txt
 en_US.UTF-8 UTF-8
@@ -175,13 +180,17 @@ echo "KEYMAP=fi" > /etc/vconsole.conf
 - Change hostname
 
 ```shell
-echo "afrodite-raspi4" > /etc/hostname
+# Change the PIHOSTNAME value as needed.
+PIHOSTNAME="afrodite-raspi4"
+echo $PIHOSTNAME > /etc/hostname
 ```
+
+- Add localhost and hostname to `/etc/hosts`
 
 ```shell
 echo "127.0.0.1     localhost" >> /etc/hosts
 echo "::1           localhost" >> /etc/hosts
-echo "127.0.1.1     afrodite-raspi4.localdomain    afrodite-raspi4" >> /etc/hosts
+echo "127.0.1.1     ${PIHOSTNAME}.localdomain    ${PIHOSTNAME}" >> /etc/hosts
 ```
 
 - Install more tools/programs
@@ -201,6 +210,9 @@ chsh -s $(which zsh)
 - Install Neovim dependencies
 
 ```shell
+# Change the Node.js version as needed
+NODE_VERSION="14.15.4"
+
 pip3 install pynvim
 pip3 install neovim-remote
 
@@ -209,8 +221,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
-nvm install 14.15.4
-nvm use 14.15.4
+nvm install $NODE_VERSION
+nvm use $NODE_VERSION
 npm install -g npm
 npm install -g typescript
 npm install -g neovim
