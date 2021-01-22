@@ -22,12 +22,12 @@ fdisk -l
 cfdisk /dev/sdX
 ```
 
-- Create the following partition table:
+- Create the following partition table. The size of the Linux partition (`/dev/sdX2`) is the rest of the storage.
 
 | Partition | Size | Bootable | Type                     |
 | --------- | ---- | -------- | ------------------------ |
-| /dev/sdX1 | 500M | \*       | W95 FAT32 (LBA) (Hidden) |
-| /dev/sdX2 | n G  |          | Linux                    |
+| /dev/sdX1 | 500M | Yes      | W95 FAT32 (LBA) (Hidden) |
+| /dev/sdX2 | x G  |          | Linux                    |
 
 - Format boot partition, create boot folder and mount the partition
 
