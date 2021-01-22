@@ -87,6 +87,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'dbeniamine/cheat.sh-vim'
     Plug 'mbbill/undotree'
     Plug 'Yggdroot/indentLine'
+    " Vimwiki
+    Plug 'vimwiki/vimwiki'
 endif
 
 call plug#end()

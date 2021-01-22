@@ -46,6 +46,7 @@ source $HOME/.config/nvim/plug-config/vim-vue-plugin.vim
 source $HOME/.config/nvim/plug-config/vim-hexokinase.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/indentLine.vim
+source $HOME/.config/nvim/plug-config/vimwiki.vim
 
 source $HOME/.config/nvim/themes/vim-code-dark.vim
 source $HOME/.config/nvim/themes/vim-airline.vim
