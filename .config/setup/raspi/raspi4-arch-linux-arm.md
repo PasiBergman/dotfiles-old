@@ -261,3 +261,45 @@ git clone --bare $REPO_URL $HOME/$DOTFILES_DIR
 cd $HOME
 dot checkout
 ```
+
+- Create `.ssh` folder and add `authorized_keys` file with the valid ssh rsa public key:
+
+- On main macOS/main computer:
+
+```shell
+cat ~/.ssh/id_rsa.pub | pbcopy
+```
+
+- On Arch Linux Arm / Raspberry Pi:
+
+```shell
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+nvim ~/.ssh/authorized_keys
+chmod 400 ~/.ssh/authorized_keys
+```
+
+- **Test SSH public key login** (i.e. without password) and **after** successful 
+login allow only public key authentication and disable ssh root login.
+
+```shell
+sudo nvim /etc/ssh/sshd_config
+sudo systemctl restart sshd
+```
+
+```text
+# Do not allow ssh login to root
+PermitRootLogin no
+
+# To disable tunneled clear text passwords, change to no here!
+PasswordAuthentication no
+```
+
+- Remove or change `alarm` account, e.g.
+
+```shell
+NEW_USERNAME="<new username>"
+sudo usermod -l $NEW_USERNAME alarm
+sudo mv /home/alarm /home/$NEW_USERNAME
+sudo chown -R $NEW_USERNAME:users /home/$NEW_USERNAME
+```
