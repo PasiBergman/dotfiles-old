@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_DIR="$HOME/VimWiki"
-SESSION_NAME="WimWiki"
+SESSION_NAME="VimWiki"
 WINDOW_NAME="nvim"
 
 TMUX_SESSIONS=`tmux list-sessions | grep $SESSION_NAME -c`

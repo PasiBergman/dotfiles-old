@@ -1,4 +1,6 @@
-# Git aliases
+# -----------------------------------
+# Aliases
+# -----------------------------------
 alias g='git'
 alias glog='git log --oneline --all --graph --decorate'
 alias gitlog='git log --oneline --all --graph --decorate'
@@ -50,10 +52,16 @@ alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 alias gcs='git commit -S'
 
-alias gd='git diff'
+alias gd='git difftool'
+alias gdiff='git difftool'
 alias gdca='git diff --cached'
 alias gdcw='git diff --cached --word-diff'
 alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
-alias gds='git diff --staged'
+alias gds='git difftool --staged'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
-alias gdw='git diff --word-diff'
+alias gdw='git difftool --word-diff'
+
+# -----------------------------------
+# Functions
+# -----------------------------------
+

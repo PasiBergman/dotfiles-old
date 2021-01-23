@@ -1,7 +1,23 @@
-[user]
-	email = pasi.bergman@iki.fi
-	name = Pasi Bergman
-[pull]
-	rebase = false
 [core]
-	commentChar = ";"
+    commentChar = ";"
+[user]
+    email = pasi.bergman@iki.fi
+    name = Pasi Bergman
+[pull]
+    rebase = true
+[color]
+    ui = auto
+[difftool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = nvimdiff
+    guitool = nvimdiff
+[mergetool "nvimmerge"]
+    cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[mergetool]
+	prompt = false
+[merge]
+    tool = nvimmerge
+    guitool = nvimmerge
+[difftool]
+	prompt = false
