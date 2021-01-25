@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.Infra"
-SESSION_NAME="Peli-Infra"
+SESSION_NAME="Peli-Infr"
 WINDOW_NAME="Nvim"
 
 TMUX_SESSIONS=`tmux list-sessions | grep $SESSION_NAME -c`

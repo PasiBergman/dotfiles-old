@@ -73,8 +73,8 @@
   //"pyright.disableOrganizeImports": false,
 
   // snippets
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
-  //"snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  // "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
 
   // emmet
   "emmet.includeLanguages": {
@@ -143,10 +143,12 @@
   //  }
   //},
 
-  "bookmark.sign": "",
+  //"bookmark.sign": "",
 
   //coc-emoji
-  "coc.source.emoji.filetypes": ["markdown"]
+  "coc.source.emoji.filetypes": ["markdown"],
+
+
 
   // lua
   //"lua.useSumnekoLs": true,
@@ -160,5 +162,9 @@
 
   // TODO b:coc_suggest_disable=1 GOYO
   // TODO add to paths.vim g:coc_node_path
+
+  "markdownlint.config": {
+    "MD013": false
+  }
 }
 
