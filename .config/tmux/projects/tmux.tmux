@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 PROJECT_DIR="$HOME/.config/tmux"
-SESSION_NAME="tmux"
-WINDOW_NAME="tmux"
+SESSION_NAME="Tmux"
+WINDOW_NAME="nvim"
 
 TMUX_SESSIONS=`tmux list-sessions | grep $SESSION_NAME -c`
 
