@@ -1,5 +1,6 @@
 azure-cli
 brave-bin
+neovim-nightly-bin
 nerd-fonts-hack
 nerd-fonts-jetbrains-mono
 nerd-fonts-meslo
@@ -13,4 +14,3 @@ pfetch-git
 polybar
 xeventbind-git
 yay
-ytop-bin

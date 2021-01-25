@@ -5,8 +5,10 @@ autoconf
 automake
 base
 bash-completion
+bat
 binutils
 bison
+bpytop
 dhcpcd
 dialog
 dkms
@@ -46,7 +48,6 @@ m4
 make
 materia-gtk-theme
 mtools
-neovim
 net-tools
 network-manager-applet
 networkmanager
