@@ -130,16 +130,17 @@ pacman -Syyu
 - Install initial programs
 
 ```shell
-pacman -S tmux git neovim base-devel sudo
+pacman -S tmux git neovim base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 -- Create user, add user to sudoers
 
 ```shell
-useradd -g users -G wheel <name>
-mkdir -p /home/<name>
-chown <name>:users /home/<name>
-passwd <name>
+MYUSERNAME='jack'
+useradd -g users -G wheel -s $(which zsh) $MYUSERNAME
+mkdir -p /home/$MYUSERNAME
+chown $MYUSERNAME:users "/home/$MYUSERNAME"
+passwd $MYUSERNAME
 visudo
 ```
 
@@ -197,8 +198,7 @@ echo "127.0.1.1     ${PIHOSTNAME}.localdomain    ${PIHOSTNAME}" >> /etc/hosts
 
 ```shell
 pacman -Sy ack bpytop fd fff fzf htop jq man-db \
-    python python-pip ripgrep tig vifm wget \
-    zsh zsh-autosuggestions zsh-syntax-highlighting
+    python python-pip ripgrep tig vifm wget
 ```
 
 - Change shell to `zsh`
