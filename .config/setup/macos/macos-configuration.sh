@@ -2,7 +2,7 @@
 # ====================================
 # Variables
 # ====================================
-COMPUTER_NAME="HFMAC57"
+COMPUTER_NAME="HFMAC112"
 LOCK_SCREEN_MESSAGE="pasi.bergman@hiq.fi | +358-45-349 3294 | $COMPUTER_NAME"
 
 # ------------------------------------
