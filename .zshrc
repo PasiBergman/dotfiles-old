@@ -1,3 +1,4 @@
+source $HOME/.zshenv
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
