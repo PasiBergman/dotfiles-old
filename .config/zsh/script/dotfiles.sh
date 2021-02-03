@@ -2,7 +2,7 @@
 # Envs
 # =============================
 
-DOTFILES_DIR="dotfiles"
+DOTFILES_DIR=".dotfiles"
 dotfiles_dirs_to_monitor=( \
     "$HOME/.config/i3" \
     "$HOME/.config/nvim" \

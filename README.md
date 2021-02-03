@@ -7,7 +7,7 @@ Collection of macOS/Linux configuration files.
 - Choose a folder name for your dotfiles and store the name to a variable. Store also the URL of the dotfiles repository
 
 ```shell
-DOTFILES_DIR="dotfiles"
+DOTFILES_DIR=".dotfiles"
 REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 MY_SHELL_RC_FILE=".zshrc"
 ```
@@ -48,7 +48,7 @@ dot config --local status.showUntrackedFiles no
 ## Initial creation of the repository
 
 ```shell
-DOTFILES_DIR="dotfiles"
+DOTFILES_DIR=".dotfiles"
 MY_SHELL_RC_FILE=".zshrc"
 REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 
