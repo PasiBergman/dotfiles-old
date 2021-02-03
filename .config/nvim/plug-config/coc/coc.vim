@@ -179,5 +179,10 @@ nmap <Leader>Bn <Plug>(coc-bookmark-next)
 nmap <Leader>Bp <Plug>(coc-bookmark-prev)
 nmap <Leader>Ba <Plug>(coc-bookmark-annotate)
 
+" coc-spell-checker
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+
 let g:coc_data_home="$HOME/.config/nvim/plug-config/coc/data"
 
