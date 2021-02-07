@@ -42,11 +42,16 @@ bindkey -M menuselect 'l' vi-forward-char
 
 
 # macOS vs. Linux
-if [[ $(uname) == "Darwin" ]] || [[ $(uname -n) == "kapsi" ]]; then
+if [[ $(uname) == "Darwin" ]]; then
     ZSH_PLUGINS_DIR="/usr/local/share"
     # nvm
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"
-else # i.e. Linux
+elif [[ $(uname -n) == "lakka" ]]; then
+    ZSH_PLUGINS_DIR="$HOME/.local/share"
+    # nvm
+    [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+else
+    # i.e. Linux
     ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
     # Nvm
     [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
