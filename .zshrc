@@ -42,7 +42,7 @@ bindkey -M menuselect 'l' vi-forward-char
 
 
 # macOS vs. Linux
-if [[ $(uname) == "Darwin" ]]; then
+if [[ $(uname) == "Darwin" ]] || [[ $(uname -n) == "kapsi" ]]; then
     ZSH_PLUGINS_DIR="/usr/local/share"
     # nvm
     [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"
@@ -60,6 +60,6 @@ fi
     source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Use specified node version
-nvm use $NODE_VERSION 1>/dev/null
+which nvm 1>/dev/null 2>&1 && nvm use $NODE_VERSION 1>/dev/null
 # System information
-echo " " && pfetch
+echo " " && which pfetch 1>/dev/null 2>&1 && pfetch

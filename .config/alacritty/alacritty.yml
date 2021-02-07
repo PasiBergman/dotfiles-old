@@ -72,23 +72,26 @@ window:
   save_to_clipboard: true
   live_config_reload: true
 key_bindings:
+  # https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-  # Ctrl-Space for tmux
-  - { key: Space, mods: Control, chars: "\x00" }
+  - { key: Space, mods: Control, chars: "\x00" } # Ctrl-Space for tmux
   - { key: Backslash, mods: Alt, chars: "|" }
   - { key: Backslash, mods: Alt|Shift, chars: "\\" }
   - { key: LBracket, mods: Alt|Shift, chars: "\x7B" }
   - { key: RBracket, mods: Alt|Shift, chars: "\x7D" }
+  - { key: RBracket, chars: "\x7E" }
+  - { key: Semicolon, mods: Alt, chars: "\x7E" }
   - { key: LBracket, mods: Alt, chars: "\x5B" }
   - { key: RBracket, mods: Alt, chars: "\x5D" }
   - { key: Semicolon, mods: Alt, chars: "\x40" }
   - { key: Apostrophe, mods: Alt, chars: "\x23" }
   - { key: Caret, mods: Alt, chars: "\x60" }
-  - { key: Key5, mods: Alt, chars: "\x7E" }
+  - { key: Key2, mods: Alt, chars: "@" }
+  - { key: Key4, mods: Alt, chars: "$" }
   - { key: N, mods: Command, action: SpawnNewInstance }
   - { key: Space, mods: Alt, chars: " " }
   - { key: Back, mods: Super, chars: "\x15" } # delete word/line
@@ -102,6 +105,6 @@ key_bindings:
       command:
         {
           program: "sh",
-          args: ["-c", "open ~/.config/alacritty/alacritty.yml"],
+          args: ["-c", "open $HOME/.config/alacritty/alacritty.yml"],
         },
     }
