@@ -71,12 +71,37 @@ window:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: true
   live_config_reload: true
-# key_bindings:
-#   - { key: V, mods: Control|Shift, action: Paste }
-#   - { key: C, mods: Control|Shift, action: Copy }
-#   - { key: Key0, mods: Control, action: ResetFontSize }
-#   - { key: Equals, mods: Control, action: IncreaseFontSize }
-#   # - { key: Add, mods: Control, action: IncreaseFontSize }
-#   # - { key: Subtract, mods: Control, action: DecreaseFontSize }
-#   - { key: Minus, mods: Control, action: DecreaseFontSize }
-#   - { key: N, mods: Control, action: SpawnNewInstance }
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  # Ctrl-Space for tmux
+  - { key: Space, mods: Control, chars: "\x00" }
+  - { key: Backslash, mods: Alt, chars: "|" }
+  - { key: Backslash, mods: Alt|Shift, chars: "\\" }
+  - { key: LBracket, mods: Alt|Shift, chars: "\x7B" }
+  - { key: RBracket, mods: Alt|Shift, chars: "\x7D" }
+  - { key: LBracket, mods: Alt, chars: "\x5B" }
+  - { key: RBracket, mods: Alt, chars: "\x5D" }
+  - { key: Semicolon, mods: Alt, chars: "\x40" }
+  - { key: Apostrophe, mods: Alt, chars: "\x23" }
+  - { key: Caret, mods: Alt, chars: "\x60" }
+  - { key: Key5, mods: Alt, chars: "\x7E" }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Space, mods: Alt, chars: " " }
+  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Left, mods: Alt, chars: "\x1bb" } # one word left
+  - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+  - {
+      key: Comma,
+      mods: Command,
+      command:
+        {
+          program: "sh",
+          args: ["-c", "open ~/.config/alacritty/alacritty.yml"],
+        },
+    }
