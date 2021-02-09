@@ -6,17 +6,18 @@ tap "isen-ng/dotnet-sdk-versions"
 brew "ack"
 brew "azure-cli"
 brew "bat"
+brew "ctags"
 brew "fd"
 brew "fzf"
 brew "git"
 brew "htop"
 brew "jq"
-brew "lazydocker"
 brew "luajit", args: ["HEAD"]
 brew "mas"
 brew "neovim", args: ["HEAD"]
 brew "nvm"
 brew "pfetch"
+brew "python@3.9"
 brew "ripgrep"
 brew "rsync"
 brew "tig"
@@ -27,9 +28,13 @@ brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
+cask "alacritty"
+cask "arq"
 cask "azure-data-studio"
+cask "cloudapp"
 cask "dotnet-sdk"
 cask "dotnet-sdk3-1-400"
+cask "fantastical"
 cask "font-hack-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-menlo-for-powerline"
@@ -38,29 +43,12 @@ cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 cask "google-chrome"
 cask "iterm2"
+cask "little-snitch"
 cask "microsoft-azure-storage-explorer"
+cask "microsoft-teams"
+cask "parallels"
+cask "parallels-toolbox"
+cask "paw"
 cask "pdf-expert"
+cask "setapp"
 cask "visual-studio-code"
-mas "1Blocker", id: 1107421413
-mas "1Password 7", id: 1333542190
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
-mas "Boop", id: 1518425043
-mas "Cardhop", id: 1290358394
-mas "CheatSheet", id: 529456740
-mas "com.iwaxx.Debookee-Tools", id: 1110355801
-mas "CotEditor", id: 1024640650
-mas "Kelir Pro", id: 1186597992
-mas "Lexi", id: 1462580127
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "NextDNS", id: 1464122853
-mas "OneDrive", id: 823766827
-mas "PCalc", id: 403504866
-mas "Presentify", id: 1507246666
-mas "ToothFairy", id: 1191449274
-mas "Tweetbot", id: 557168941
-mas "Vimari", id: 1480933944
-mas "Xcode", id: 497799835

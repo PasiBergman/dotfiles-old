@@ -1,4 +1,4 @@
-syntax enable                           " Enables syntax highlighing
+syntax enable                           " Enables syntax highlighting
 filetype plugin on                      " Enable filetype based configurations/mappings
 
 set noerrorbells                        " Do not make noise. Disabled, because iTerm has visible bell option.
@@ -26,7 +26,7 @@ end
 set shada=!,'100,n$HOME/.config/nvim/files/info/viminfo
 
 set iskeyword+=-                        " treat dash separated words as a word text object"
-set formatoptions-=cro                  " Stop newline continution of comments
+set formatoptions-=cro                  " Stop newline continuation of comments
 " set nowrap                              " Display long lines as just one line
 set whichwrap+=<,>,[,],h,l              " Wrap long line when cursor keys are used.
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -46,6 +46,7 @@ set cursorline                          " Enable highlighting of the current lin
 " set colorcolumn=+1                      " Mark the column textwidth+1
 set background=dark                     " tell vim what the background color looks like
 set showtabline=2                       " Always show tabs
+set scrolloff=8                         " Start screen scrolling when cursor is 8 rows from top/bottom
 " set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
@@ -71,4 +72,3 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " You can't stop me
 " cmap w!! w !sudo tee %
-

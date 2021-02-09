@@ -2,12 +2,12 @@ ack
 azure-cli
 bat
 cmake
+ctags
 fd
 fzf
 git
 htop
 jq
-lazydocker
 luajit
 luarocks
 mas
@@ -15,6 +15,7 @@ neovim
 nvm
 pfetch
 pkg-config
+python@3.9
 ripgrep
 rsync
 tig

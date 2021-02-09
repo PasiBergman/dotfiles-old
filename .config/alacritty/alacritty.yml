@@ -1,3 +1,9 @@
+# =============================================================================
+# Alacritty terminal emulator configuration file.
+#
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+# =============================================================================
+#
 # Colors (One Darker)
 colors:
   # Default colors
@@ -48,14 +54,14 @@ font:
 
   offset:
     x: 0
-    y: 0
+    y: 2
   glyph_offset:
     x: 0
     y: 0
 window:
   padding:
-    x: 2
-    y: 2
+    x: 4
+    y: 4
   # scrolling:
   #   # Maximum number of lines in the scroll back buffer.
   #   # Specifying '0' will disable scrolling.
@@ -67,6 +73,31 @@ window:
   # # If `true`, bold text is drawn using the bright color variants.
   # draw_bold_text_with_bright_colors: true
 
+# Visual Bell
+#
+# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
+# rung, the terminal background will be set to white and transition back to the
+# default background color. You can control the rate of this transition by
+# setting the `duration` property (represented in milliseconds). You can also
+# configure the transition function by setting the `animation` property.
+#
+# Values for `animation`:
+#   - Ease
+#   - EaseOut
+#   - EaseOutSine
+#   - EaseOutQuad
+#   - EaseOutCubic
+#   - EaseOutQuart
+#   - EaseOutQuint
+#   - EaseOutExpo
+#   - EaseOutCirc
+#   - Linear
+#
+# Specifying a `duration` of `0` will disable the visual bell.
+bell:
+  animation: EaseOutExpo
+  duration: 1
+
   # selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
   save_to_clipboard: true
@@ -75,6 +106,8 @@ key_bindings:
   # https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Q, mods: Command, action: Quit }
+  - { key: W, mods: Command, action: Quit }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }

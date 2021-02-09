@@ -1,6 +1,10 @@
+alacritty
+arq
 azure-data-studio
+cloudapp
 dotnet-sdk
 dotnet-sdk3-1-400
+fantastical
 font-hack-nerd-font
 font-jetbrains-mono-nerd-font
 font-menlo-for-powerline
@@ -9,6 +13,12 @@ font-sauce-code-pro-nerd-font
 font-source-code-pro
 google-chrome
 iterm2
+little-snitch
 microsoft-azure-storage-explorer
+microsoft-teams
+parallels
+parallels-toolbox
+paw
 pdf-expert
+setapp
 visual-studio-code
