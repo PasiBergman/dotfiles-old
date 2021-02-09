@@ -64,6 +64,8 @@ set list
 set langmenu=en_US
 let $LANG = 'en_US.UTF-8'
 language en_US.UTF-8
+" Normal mode map ö->{, ä->}, Ö->[, Ä->] to make better use of Finnish keyboard layout
+set langmap=öäÖÄ;{}[]
 
 " Do not load/use netrw file browser
 let loaded_netrwPlugin = 1

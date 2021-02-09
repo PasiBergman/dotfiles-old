@@ -12,12 +12,10 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 
 " iTerm2 key bindings makes Command-p as ' ==' (i.e. <Leader>==)
-" nmap <Leader>== :Files<CR>
-" nmap <C-p> :GFiles<CR>
-" nmap <leader>b :Buffers<CR>
-" nmap <leader>g :Rg<CR>
-" nmap <leader>t :Tags<CR>
-" nmap <leader>m :Marks<CR>
+nmap <Leader>== :Files<CR>
+nmap <C-p> :GFiles<CR>
+nmap <leader>g :Rg<CR>
+nmap <leader>fm :Marks<CR>
 
 nmap <Leader>f [fzf-p]
 xmap <Leader>f [fzf-p]
