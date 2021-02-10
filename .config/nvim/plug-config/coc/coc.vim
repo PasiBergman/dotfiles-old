@@ -164,13 +164,13 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
-" Disable uncompatibility warning on neovim <= v0.4 and vim <= 8.0
+" Disable compatibility warning on neovim <= v0.4 and vim <= 8.0
 let g:coc_disable_startup_warning = 1
 
 " Setup Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Use brighter red so that red-green colorbild can see the errors
+" Use brighter red so that red-green colorblind can see the errors
 hi CocErrorSign ctermfg=9 guifg=#ff5500
 
 " Bookmarks (coc-bookmark)

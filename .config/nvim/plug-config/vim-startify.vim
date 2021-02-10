@@ -1,9 +1,11 @@
-let g:startify_custom_header = [
-  \ '    _  _                 _        ',
-  \ '   | \| | ___  ___ __ __(_) _ __   ',
-  \ '   | .  |/ -_)/ _ \\ V /| || "  \  ',
-  \ '   |_|\_|\___|\___/ \_/ |_||_|_|_| ',
-\ ]
+" let g:startify_custom_header = [
+"   \ '    _  _                 _        ',
+"   \ '   | \| | ___  ___ __ __(_) _ __   ',
+"   \ '   | .  |/ -_)/ _ \\ V /| || "  \  ',
+"   \ '   |_|\_|\___|\___/ \_/ |_||_|_|_| ',
+" \ ]
+
+let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
 
 let g:startify_session_dir = '~/.config/nvim/session'
 

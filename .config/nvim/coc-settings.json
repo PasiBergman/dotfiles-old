@@ -85,7 +85,7 @@
   // CSS (disable since I'm also using stylelintplus)
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false,
+  "scss.validate": true,
   "wxss.validate": false,
 
   // explorer
@@ -165,6 +165,11 @@
 
   "markdownlint.config": {
     "MD013": false
-  }
+  },
+  "cSpell.userWords": [
+    "datetime",
+    "untracked",
+    "vsplit"
+  ]
 }
 
