@@ -68,7 +68,7 @@ language en_US.UTF-8
 set langmap=öäÖÄ;{}[]
 
 " Do not load/use netrw file browser
-let loaded_netrwPlugin = 1
+" let loaded_netrwPlugin = 1
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 

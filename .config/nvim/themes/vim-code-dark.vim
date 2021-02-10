@@ -16,6 +16,8 @@ hi DiffDelete ctermfg=12 ctermbg=52 guifg=Blue guibg=#FF3300
 hi DiffChange ctermbg=52 guibg=#333333
 hi DiffAdd ctermbg=237 guibg=#525B3D
 hi DiffText ctermbg=52 guibg=#FF3000 " #6F1313
+hi LspDiagnosticsDefaultError guifg=#ff5500
+hi LspDiagnosticsDefaultHint guifg=#444444
 
 hi CocErrorFloat ctermbg=52 guibg=#FF3000
 
