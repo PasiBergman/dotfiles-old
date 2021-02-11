@@ -42,4 +42,6 @@ alias fzfhist="history 0 | fzf"
 # dotnet
 alias dotnetclean="find . -name bin -exec rm -R -f {} \; && find . -name obj -exec rm -R -f {} \; && dotnet clean"
 
-
+# Lazygit
+alias lazygit="lazygit -ucd $HOME/.config/lazygit"
+alias lg="lazygit -ucd $HOME/.config/lazygit"
