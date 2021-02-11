@@ -5,6 +5,7 @@ cmake
 ctags
 fd
 fzf
+fzy
 git
 htop
 jq
@@ -12,10 +13,10 @@ luajit
 luarocks
 mas
 neovim
+ninja
 nvm
 pfetch
 pkg-config
-python@3.9
 ripgrep
 rsync
 tig
