@@ -23,8 +23,8 @@ source $HOME/.config/nvim/plug-config/vim-rooter.vim
 " source $HOME/.config/nvim/plug-config/vim-polyglot.vim
 source $HOME/.config/nvim/plug-config/vim-repeat.vim
 " source $HOME/.config/nvim/plug-config/vim-illuminate.vim
-" source $HOME/.config/nvim/plug-config/coc/coc.vim
-" source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
+source $HOME/.config/nvim/plug-config/coc/coc.vim
+source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
 source $HOME/.config/nvim/plug-config/omnisharp.vim
 source $HOME/.config/nvim/plug-config/completion-nvim.vim
 source $HOME/.config/nvim/plug-config/fzf.vim

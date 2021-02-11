@@ -29,15 +29,17 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
 
-  // autoformat
+  // autoformat (Prettier)
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "markdown",
-    "javascript",
     "html",
-    "yaml",
+    "javascript",
     "json",
-    "python"
+    "markdown",
+    "python",
+    "typescript",
+    "vue",
+    "yaml"
   ],
   "coc.preferences.hoverTarget": "float",
 
@@ -68,9 +70,6 @@
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pylamaEnabled": false,
   "python.linting.pylintEnabled": false,
-  //"pyright.disableCompletion": false,
-  //"pyright.disableLanguageServices": false,
-  //"pyright.disableOrganizeImports": false,
 
   // snippets
   // "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
@@ -81,12 +80,6 @@
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
-
-  // CSS (disable since I'm also using stylelintplus)
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": true,
-  "wxss.validate": false,
 
   // explorer
   "explorer.width": 36,
@@ -135,30 +128,10 @@
     }
   ],
 
-  //"languageserver": {
-  //  "lua": {
-  //    "command": "/home/chris/.luambenvs/neovim4/bin/lua-lsp",
-  //    "filetypes": ["lua"],
-  //    "trace.server": "verbose"
-  //  }
-  //},
-
   //"bookmark.sign": "",
 
   //coc-emoji
   "coc.source.emoji.filetypes": ["markdown"],
-
-
-
-  // lua
-  //"lua.useSumnekoLs": true,
-  //"lua.commandPath": "/home/chris/.luambenvs/neovim3/bin/lua-lsp"
-  //"lua.enable": true,
-  //"Lua.completion.enable": true,
-  //"Lua.runtime.version": "Lua 5.1",
-  //"Lua.runtime.path": ["?.lua", "?/init.lua", "?/?.lua"],
-  //"lua.version": "5.1"
-  //"lua.commandPath": "/home/chris/.vscode-insiders/extensions/sumneko.lua-1.0.5/server/bin/Linux/lua-language-server"
 
   // TODO b:coc_suggest_disable=1 GOYO
   // TODO add to paths.vim g:coc_node_path
@@ -167,9 +140,20 @@
     "MD013": false
   },
   "cSpell.userWords": [
+    "Alacritty",
     "datetime",
+    "floaterm",
+    "markdownlint",
+    "nvim",
+    "omnisharp",
+    "stylelint",
     "untracked",
+    "vetur",
     "vsplit"
-  ]
-}
+  ],
 
+  "prettier.eslintIntegration": true,
+  "prettier.disableLanguages": [],
+  "prettier.stylelintIntegration": true,
+  "prettier.statusItemText": "Prettier"
+}
