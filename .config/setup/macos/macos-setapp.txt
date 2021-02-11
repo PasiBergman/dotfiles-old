@@ -9,6 +9,7 @@ Expressions.app
 ForkLift.app
 Gitfox.app
 News Explorer.app
+OpenIn.app
 PixelSnap.app
 SSH Config Editor.app
 Sizzy.app

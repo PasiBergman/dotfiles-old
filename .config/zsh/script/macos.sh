@@ -78,14 +78,14 @@ packages() {
     echo "Brew bundle dump"
     echo "----------------------------------------------"
     cat $SETUP_FOLDER/macos-brew-bundle-dump.txt
-    echo ""
-    echo "List of brew bundle dump"
-    echo "----------------------------------------------"
-    brew leaves | tee "${SETUP_FOLDER}/macos-brew-leaves.txt"
-    echo ""
-    echo "List of brew --cask"
-    echo "----------------------------------------------"
-    brew list --cask -1 | tee "${SETUP_FOLDER}/macos-brew-list--cask-1.txt"
+    # echo ""
+    # echo "List of brew bundle dump"
+    # echo "----------------------------------------------"
+    # brew leaves | tee "${SETUP_FOLDER}/macos-brew-leaves.txt"
+    # echo ""
+    # echo "List of brew --cask"
+    # echo "----------------------------------------------"
+    # brew list --cask -1 | tee "${SETUP_FOLDER}/macos-brew-list--cask-1.txt"
     echo ""
     echo "List of App Store apps"
     echo "----------------------------------------------"
@@ -95,6 +95,14 @@ packages() {
     echo "----------------------------------------------"
     ls -1 /Applications/Setapp | grep "\.app" | tee "${SETUP_FOLDER}/macos-setapp.txt"
     echo ""
+    echo "List of NPM global applications"
+    echo "----------------------------------------------"
+    npm list -g --depth 0 | tee "${SETUP_FOLDER}/macos-npm-global-packages.txt"
+    echo ""
+    echo "List of Python 3 libraries"
+    echo "----------------------------------------------"
+    python3 -m pip list --format freeze | tee "${SETUP_FOLDER}/macos-python3-pip.txt"
+    echo ""
 }
 
 packages-install () {
@@ -102,7 +110,7 @@ packages-install () {
     [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
     echo ""
     echo "Installing Homebrew apps"
-    # brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
     echo ""
     echo "Installing Mac App Store apps:"
     while read p; do
