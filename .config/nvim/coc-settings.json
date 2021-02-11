@@ -1,14 +1,10 @@
 {
-  // suggestions
-  // "suggest.echodocSupport": true,
-  // TODO add more labels and give them cool glyphs
   "suggest.completionItemKindLabels": {
     "text": "t",
     "method": "m",
     "function": ""
   },
   "snippets.priority": 1,
-  //"yank.priority": 1,
   "suggest.languageSourcePriority": 99,
   "coc.source.file.priority": 2,
   "coc.source.around.priority": 3,
@@ -19,8 +15,6 @@
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
-  // "diagnostic.displayByAle": true,
-  // "diagnostic.virtualText": true, // this won't work with codelens when error on same line
 
   // codelens
   "codeLens.enable": true,
@@ -29,18 +23,6 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
 
-  // autoformat (Prettier)
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "html",
-    "javascript",
-    "json",
-    "markdown",
-    "python",
-    "typescript",
-    "vue",
-    "yaml"
-  ],
   "coc.preferences.hoverTarget": "float",
 
   // python config
@@ -130,30 +112,40 @@
 
   //"bookmark.sign": "",
 
-  //coc-emoji
-  "coc.source.emoji.filetypes": ["markdown"],
-
-  // TODO b:coc_suggest_disable=1 GOYO
-  // TODO add to paths.vim g:coc_node_path
-
   "markdownlint.config": {
     "MD013": false
   },
   "cSpell.userWords": [
     "Alacritty",
+    "autoload",
     "datetime",
     "floaterm",
+    "iskeyword",
     "markdownlint",
     "nvim",
     "omnisharp",
+    "runtimepath",
     "stylelint",
     "untracked",
     "vetur",
+    "vimls",
+    "vimruntime",
     "vsplit"
   ],
 
   "prettier.eslintIntegration": true,
   "prettier.disableLanguages": [],
   "prettier.stylelintIntegration": true,
-  "prettier.statusItemText": "Prettier"
+  "prettier.statusItemText": "Prettier",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "javascript",
+    "json",
+    "markdown",
+    "python",
+    "typescript",
+    "vue",
+    "yaml"
+  ]
 }
