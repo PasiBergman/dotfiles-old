@@ -38,17 +38,17 @@ colors:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style: Regular
 
   # The bold font face
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font Mono
     style: Medium
 
   # The italic font face
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Hack Nerd Font
     style: Italic
   size: 13.0
 
@@ -60,8 +60,8 @@ font:
     y: 0
 window:
   padding:
-    x: 4
-    y: 4
+    x: 2
+    y: 2
   # scrolling:
   #   # Maximum number of lines in the scroll back buffer.
   #   # Specifying '0' will disable scrolling.
@@ -104,29 +104,25 @@ bell:
   live_config_reload: true
 key_bindings:
   # https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: Q, mods: Command, action: Quit }
-  - { key: W, mods: Command, action: Quit }
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  # alacritty --print-events | grep "virtual_keycode\|ReceivedChar"
+  # Use scancode for more specific targeting (instead of 'Some')
+  - { key: V, mods: Control|Shift, action: Paste } # Ctrl-Shift-V
+  - { key: C, mods: Control|Shift, action: Copy } # Ctrl-Shift-C
+  - { key: Q, mods: Command, action: Quit } # Cmd-Q
+  - { key: W, mods: Command, action: Quit } # Cmd-W
+  - { key: Key0, mods: Control, action: ResetFontSize } # Ctrl-0
+  - { key: 27, mods: Control, action: IncreaseFontSize } # Ctrl-+
+  - { key: Minus, mods: Control, action: DecreaseFontSize } # Ctrl--
   - { key: Space, mods: Control, chars: "\x00" } # Ctrl-Space for tmux
-  - { key: Backslash, mods: Alt, chars: "|" }
-  - { key: Backslash, mods: Alt|Shift, chars: "\\" }
-  - { key: LBracket, mods: Alt|Shift, chars: "\x7B" }
-  - { key: RBracket, mods: Alt|Shift, chars: "\x7D" }
-  - { key: RBracket, chars: "\x7E" }
-  - { key: Semicolon, mods: Alt, chars: "\x7E" }
-  - { key: LBracket, mods: Alt, chars: "\x5B" }
-  - { key: RBracket, mods: Alt, chars: "\x5D" }
-  - { key: Semicolon, mods: Alt, chars: "\x40" }
-  - { key: Apostrophe, mods: Alt, chars: "\x23" }
-  - { key: Caret, mods: Alt, chars: "\x60" }
+  - { key: Backslash, mods: Alt, chars: "|" } # RAlt-7 => |
+  - { key: Backslash, mods: Alt|Shift, chars: "\\" } # RAlt-Shift-7 => \
+  - { key: 28, mods: Alt|Shift, chars: "\x7B" } # Scan code Alt-Shift-8 => {
+  - { key: 25, mods: Alt|Shift, chars: "\x7D" } # Scan code Alt-Shift-9 => }
+  - { key: 28, mods: Alt, chars: "\x5B" } # Scan code Alt-8 => [
+  - { key: 25, mods: Alt, chars: "\x5D" } # Scan code Alt-9 => ]
   - { key: Key2, mods: Alt, chars: "@" }
   - { key: Key4, mods: Alt, chars: "$" }
   - { key: N, mods: Command, action: SpawnNewInstance }
-  - { key: Space, mods: Alt, chars: " " }
   - { key: Back, mods: Super, chars: "\x15" } # delete word/line
   - { key: Left, mods: Alt, chars: "\x1bb" } # one word left
   - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
@@ -138,7 +134,7 @@ key_bindings:
       mods: Command,
       command:
         {
-          program: "sh",
-          args: ["-c", "open $HOME/.config/alacritty/alacritty.yml"],
+          program: "zsh",
+          args: ["nvim", "$HOME/.config/alacritty/alacritty.yml"],
         },
     }
