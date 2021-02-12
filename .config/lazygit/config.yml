@@ -83,12 +83,12 @@ keybinding:
     new: "n"
     edit: e
     openFile: o
-    scrollUpMain: <pgup>
-    scrollDownMain: <pgdown>
+    scrollUpMain: <c-u>
+    scrollDownMain: <c-d>
     scrollUpMain-alt1: K
     scrollDownMain-alt1: J
-    scrollUpMain-alt2: <c-u>
-    scrollDownMain-alt2: <c-d>
+    scrollUpMain-alt2: <c-b>
+    scrollDownMain-alt2: <c-f>
     executeCustomCommand: ":"
     createRebaseOptionsMenu: m
     pushFiles: P

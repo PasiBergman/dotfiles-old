@@ -1,9 +1,9 @@
 /Users/pbe/.nvm/versions/node/v14.15.4/lib
 ├── bash-language-server@1.17.0
 ├── neovim@4.9.0
-├── npm@6.14.11
-├── typescript@4.1.4
+├── npm@7.5.3
 ├── typescript-language-server@0.5.1
+├── typescript@4.1.4
 ├── vls@0.7.0
 ├── vscode-css-languageserver-bin@1.4.0
 ├── vscode-html-languageserver-bin@1.4.0

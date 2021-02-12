@@ -13,6 +13,7 @@ brew "fzy"
 brew "git"
 brew "htop"
 brew "jq"
+brew "lazygit"
 brew "luajit", args: ["HEAD"]
 brew "mas"
 brew "neovim", args: ["HEAD"]

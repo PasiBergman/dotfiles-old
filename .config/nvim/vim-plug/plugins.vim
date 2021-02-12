@@ -47,7 +47,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Snippets
-  Plug 'honza/vim-snippets'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
 
   " OmniSharp for C# support for LSP/CoC
   Plug 'OmniSharp/omnisharp-vim'
@@ -96,8 +97,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Vimwiki
   Plug 'vimwiki/vimwiki'
 
+  " Vue plugin
+  Plug 'posva/vim-vue'
+
   " Nvim sets the project root path
-  " Plug 'airblade/vim-rooter'
+  Plug 'airblade/vim-rooter'
+
+  if has("mac")
+    " Dash macOS app integration
+    Plug 'rizzatti/dash.vim'
+  endif
 
   " Auto pairs for '(' '[' '{'
   " Plug 'jiangmiao/auto-pairs'
@@ -114,13 +123,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Vue plugin
   " Plug 'leafOfTree/vim-vue-plugin'
 
+  " Snippets
+  " Plug 'honza/vim-snippets'
+
   " Cheatsheet (https://cht.sh) integration
   " Plug 'dbeniamine/cheat.sh-vim'
+
 
   " -------------------------------------
   " Nvim-Treesitter
   " -------------------------------------
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/completion-treesitter'
 
   " -------------------------------------
   " Language Server Protocol config (LSP)
@@ -128,4 +142,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
 
+  " Buffers completion
+  Plug 'steelsojka/completion-buffers'
+
 call plug#end()
+

@@ -19,5 +19,9 @@
 [merge]
     tool = nvimmerge
     guitool = nvimmerge
+	conflictStyle = diff3
 [difftool]
 	prompt = false
+[rerere]
+	enabled = true
+	autoupdate = true
