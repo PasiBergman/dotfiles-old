@@ -38,9 +38,12 @@ alias sää='curl -s "https://wttr.in/Kukkumäki,Espoo?MF1&lang=fi"'
 alias historyfzf="history 0 | fzf"
 alias fzfhistory="history 0 | fzf"
 alias fzfhist="history 0 | fzf"
+batfz() {
+    bat `fd -t file | fzf`
+}
 
 # dotnet
-alias dotnetclean="find . -name bin -exec rm -R -f {} \; && find . -name obj -exec rm -R -f {} \; && dotnet clean"
+alias dotnetclean="find . -name bin -exec rm -R -f {} \; 2>/dev/null && find . -name obj -exec rm -R -f {} \; 2>/dev/null && dotnet clean 2>/dev/null"
 
 # Lazygit
 alias lazygit="lazygit -ucd $HOME/.config/lazygit"

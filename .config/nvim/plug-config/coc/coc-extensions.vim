@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-snippets',
   \ 'coc-stylelintplus',
+  \ 'coc-yank',
   \ ]
 
 "  \ 'coc-pairs',
@@ -31,5 +32,4 @@ let g:coc_global_extensions = [
 "  \ 'coc-powershell',
 "  \ 'coc-sourcekit',
 "  \ 'coc-tasks',
-"  \ 'coc-yank',
 
