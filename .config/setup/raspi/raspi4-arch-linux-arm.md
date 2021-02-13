@@ -195,12 +195,6 @@ pacman -Sy ack bpytop fd fff fzf htop jq man-db \
     python python-pip ripgrep tig vifm wget
 ```
 
-- Change shell to `zsh`
-
-```shell
-chsh -s $(which zsh)
-```
-
 - Install Neovim dependencies
 
 ```shell
@@ -212,8 +206,8 @@ pip3 install neovim-remote
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+source "$NVM_DIR/nvm.sh"
+source "$NVM_DIR/bash_completion"
 
 nvm install $NODE_VERSION
 nvm use $NODE_VERSION
@@ -226,7 +220,7 @@ npm install -g typescript neovim
 ```shell
 cd /opt
 sudo git clone https://aur.archlinux.org/yay-git.git
-sudo chown -R <name>:users ./yay-git
+sudo chown -R pasi:users ./yay-git
 cd yay-git
 makepkg -si
 ```
@@ -234,12 +228,12 @@ makepkg -si
 - Install .NET (Core) & ASP.NET Core 5x & 3.1 (+ pfetch)
 
 ```shell
-yay -S neovim-nightly-git
-yay -S netstandard-targeting-pack-bin \
-    aspnet-runtime-bin dotnet-host-bin dotnet-runtime-bin
-yay -S dotnet-sdk-3.1 aspnet-runtime-3.1 \
-    dotnet-runtime-3.1 dotnet-targeting-pack-3.1
-yay -S pfetch
+yay -S neovim-nightly-git \
+    netstandard-targeting-pack-bin \
+    aspnet-runtime-bin dotnet-host-bin dotnet-runtime-bin \
+    dotnet-sdk-3.1 aspnet-runtime-3.1 \
+    dotnet-runtime-3.1 dotnet-targeting-pack-3.1 \
+    pfetch
 ```
 
 - Clone dotfiles
@@ -247,7 +241,7 @@ yay -S pfetch
 ```shell
 mkdir ~/.cache
 mkdir ~/.config
-DOTFILES_DIR="dotfiles"
+DOTFILES_DIR=".dotfiles"
 REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 MY_SHELL_RC_FILE=".zshrc"
 alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'
