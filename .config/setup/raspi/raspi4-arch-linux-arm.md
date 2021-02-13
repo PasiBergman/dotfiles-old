@@ -107,6 +107,12 @@ Insert prepared SD card (and USB disk if applicable) to Raspberry Pi and boot.
 su -
 ```
 
+- Setup keyboard layout
+
+```shell
+loadkeys fi
+```
+
 - Change the password of `root` and `alarm`
 
 ```shell
@@ -130,25 +136,18 @@ pacman -Syyu
 - Install initial programs
 
 ```shell
-pacman -S tmux git neovim base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
+pacman -S tmux git nano base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 -- Create user, add user to sudoers
 
 ```shell
-MYUSERNAME='jack'
+MYUSERNAME='pasi'
 useradd -g users -G wheel -s $(which zsh) $MYUSERNAME
 mkdir -p /home/$MYUSERNAME
 chown $MYUSERNAME:users "/home/$MYUSERNAME"
 passwd $MYUSERNAME
 visudo
-```
-
-- Setup keyboard layout
-
-```shell
-loadkeys fi
-
 ```
 
 - Update system clock and timezone
@@ -158,16 +157,11 @@ timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/Europe/Helsinki /etc/localtime
 ```
 
-Add required locales by editing first the `/etc/locale.gen` file. 
-
-```shell
-nvim /etc/locale.gen
-```
-- Remove comments from e.g. these lines (based on your need).
+Add required locales to `/etc/locale.gen` file. 
 
 ```txt
-en_US.UTF-8 UTF-8
-fi_FI.UTF-8 UTF-8
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+echo "fi_FI.UTF-8 UTF-8" >> /etc/locale.gen
 ```
 
 - Generate locales, set language and persist keyboard layout
@@ -240,6 +234,7 @@ makepkg -si
 - Install .NET (Core) & ASP.NET Core 5x & 3.1 (+ pfetch)
 
 ```shell
+yay -S neovim-nightly-git
 yay -S netstandard-targeting-pack-bin \
     aspnet-runtime-bin dotnet-host-bin dotnet-runtime-bin
 yay -S dotnet-sdk-3.1 aspnet-runtime-3.1 \
