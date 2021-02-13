@@ -228,8 +228,7 @@ makepkg -si
 - Install .NET (Core) & ASP.NET Core 5x & 3.1 (+ pfetch)
 
 ```shell
-yay -S neovim-nightly-git \
-    netstandard-targeting-pack-bin \
+yay -S netstandard-targeting-pack-bin \
     aspnet-runtime-bin dotnet-host-bin dotnet-runtime-bin \
     dotnet-sdk-3.1 aspnet-runtime-3.1 \
     dotnet-runtime-3.1 dotnet-targeting-pack-3.1 \
