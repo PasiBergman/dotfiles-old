@@ -235,6 +235,39 @@ yay -S netstandard-targeting-pack-bin \
     pfetch
 ```
 
+
+- Create `.ssh` folder and add `authorized_keys` file with the valid ssh rsa public key:
+
+```shell
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+
+- On main macOS/main computer:
+
+```shell
+cat ~/.ssh/id_rsa.pub | pbcopy
+```
+
+- Paste the key to authorized_keys file on the Raspberry Pi:
+
+```shell
+nvim ~/.ssh/authorized_keys
+chmod 400 ~/.ssh/authorized_keys
+```
+
+- On main macOS/main computer:
+
+```shell
+cat ~/.ssh/id_rsa | pbcopy
+```
+
+- Paste the key to id_rsa file on the Raspberry Pi:
+
+```shell
+nvim ~/.ssh/id_rsa
+chmod 400 ~/.ssh/id_rsa
+```
+
 - Clone dotfiles
 
 ```shell
@@ -250,22 +283,6 @@ cd $HOME
 dot checkout
 ```
 
-- Create `.ssh` folder and add `authorized_keys` file with the valid ssh rsa public key:
-
-- On main macOS/main computer:
-
-```shell
-cat ~/.ssh/id_rsa.pub | pbcopy
-```
-
-- On Arch Linux Arm / Raspberry Pi:
-
-```shell
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-nvim ~/.ssh/authorized_keys
-chmod 400 ~/.ssh/authorized_keys
-```
 
 - **Test SSH public key login** (i.e. without password) and **after** successful 
 login allow only public key authentication and disable ssh root login.
