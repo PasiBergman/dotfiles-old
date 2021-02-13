@@ -136,7 +136,7 @@ pacman -Syyu
 - Install initial programs
 
 ```shell
-pacman -S tmux git nano base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
+pacman -S tmux git neovim base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
 -- Create user, add user to sudoers
