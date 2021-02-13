@@ -309,3 +309,4 @@ sudo mv /home/alarm /home/$NEW_USERNAME
 sudo chown -R ${NEW_USERNAME}:users /home/$NEW_USERNAME
 sudo sed -i "s/alarm/${NEW_USERNAME}/g /etc/passwd"
 ```
+- Add SSH public key to new user's .ssh directory to allow sign-in.
