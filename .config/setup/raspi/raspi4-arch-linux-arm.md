@@ -26,7 +26,7 @@ cfdisk /dev/sdX
 
 | Partition | Size | Bootable | Id | Type                     |
 | --------- | ---- | -------- | -- | ------------------------ |
-| /dev/sdX1 | 500M | Yes      | c  | W95 FAT32 (LBA)          |
+| /dev/sdX1 | 256M |          | c  | W95 FAT32 (LBA)          |
 | /dev/sdX2 | x G  |          | 83 | Linux                    |
 
 - Format boot partition, create boot folder and mount the partition
@@ -139,17 +139,6 @@ pacman -Syyu
 pacman -S tmux git neovim base-devel sudo zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
 
--- Create user, add user to sudoers
-
-```shell
-MYUSERNAME='pasi'
-useradd -g users -G wheel -s $(which zsh) $MYUSERNAME
-mkdir -p /home/$MYUSERNAME
-chown $MYUSERNAME:users "/home/$MYUSERNAME"
-passwd $MYUSERNAME
-visudo
-```
-
 - Update system clock and timezone
 
 ```shell
@@ -195,6 +184,53 @@ pacman -Sy ack bpytop fd fff fzf htop jq man-db \
     python python-pip ripgrep tig vifm wget
 ```
 
+-- Create user, add user to sudoers
+
+```shell
+MYUSERNAME='pasi'
+useradd -g users -G wheel -s $(which zsh) $MYUSERNAME
+mkdir -p /home/$MYUSERNAME
+chown $MYUSERNAME:users "/home/$MYUSERNAME"
+passwd $MYUSERNAME
+visudo
+```
+
+**Logout and sign in as as new user**
+
+- Create `.ssh` folder and add `authorized_keys` file with the valid ssh rsa public key:
+
+```shell
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+```
+
+- On main macOS/main computer:
+
+```shell
+cat ~/.ssh/id_rsa.pub | pbcopy
+```
+
+- Paste the key to authorized_keys file on the Raspberry Pi:
+
+```shell
+nvim ~/.ssh/authorized_keys
+chmod 400 ~/.ssh/authorized_keys
+```
+
+- On main macOS/main computer:
+
+```shell
+cat ~/.ssh/id_rsa | pbcopy
+```
+
+- Paste the key to id_rsa file on the Raspberry Pi:
+
+```shell
+nvim ~/.ssh/id_rsa
+chmod 400 ~/.ssh/id_rsa
+```
+
+
 - Install Neovim dependencies
 
 ```shell
@@ -235,39 +271,6 @@ yay -S netstandard-targeting-pack-bin \
     pfetch
 ```
 
-
-- Create `.ssh` folder and add `authorized_keys` file with the valid ssh rsa public key:
-
-```shell
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-
-- On main macOS/main computer:
-
-```shell
-cat ~/.ssh/id_rsa.pub | pbcopy
-```
-
-- Paste the key to authorized_keys file on the Raspberry Pi:
-
-```shell
-nvim ~/.ssh/authorized_keys
-chmod 400 ~/.ssh/authorized_keys
-```
-
-- On main macOS/main computer:
-
-```shell
-cat ~/.ssh/id_rsa | pbcopy
-```
-
-- Paste the key to id_rsa file on the Raspberry Pi:
-
-```shell
-nvim ~/.ssh/id_rsa
-chmod 400 ~/.ssh/id_rsa
-```
-
 - Clone dotfiles
 
 ```shell
@@ -282,7 +285,6 @@ git clone --bare $REPO_URL $HOME/$DOTFILES_DIR
 cd $HOME
 dot checkout
 ```
-
 
 - **Test SSH public key login** (i.e. without password) and **after** successful 
 login allow only public key authentication and disable ssh root login.
