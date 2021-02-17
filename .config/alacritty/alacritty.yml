@@ -9,19 +9,18 @@ colors:
   # Default colors
   primary:
     background: "#1E1E1E"
-    # background: "#2E3440"
-    foreground: "#D8DEE9"
+    foreground: "#D4D4D4"
 
   # Normal colors
   normal:
-    black: "#3B4252"
-    red: "#D54646"
-    green: "#23D18B"
+    black: "#1E1E1E"
+    red: "#F44747"
+    green: "#608B4E"
     yellow: "#D7BA7D"
     blue: "#569CD6"
     magenta: "#C586C0"
-    cyan: "#29B8DB"
-    white: "#abb2bf"
+    cyan: "#9CDCFE"
+    white: "#D4D4D4"
 
   # Bright colors
   bright:
@@ -38,18 +37,49 @@ colors:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Hack Nerd Font
-    style: Regular
+    family: FiraCode Nerd Font
+    style: Light
+  #   style: Regular
+  # normal:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Regular
+  # normal:
+  #   family: Hack Nerd Font
+  #   style: Regular
+  # normal:
+  #   family: SauceCodePro Nerd Font Mono
+  #   style: Light
+  #   style: Regular
 
   # The bold font face
   bold:
-    family: Hack Nerd Font Mono
-    style: Bold
+    family: FiraCode Nerd Font
+    style: Regular
+  #   style: Bold
+  # bold:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Bold
+  # bold:
+  #   family: Hack Nerd Font
+  #   style: Bold
+  # bold:
+  #   family: SauceCodePro Nerd Font
+  #   style: Bold
 
   # The italic font face
   italic:
-    family: Hack Nerd Font
-    style: Italic
+    family: FiraCode Nerd Font
+    style: Regular
+  # italic:
+  #   family: JetBrainsMono Nerd Font
+  #   style: Italic
+  # italic:
+  #   family: Hack Nerd Font
+  #   style: Italic
+  # italic:
+  #   family: SauceCodePro Nerd Font
+  #   style: Light Italic
+  #   style: Italic
   size: 13.0
 
   offset:
@@ -129,6 +159,7 @@ key_bindings:
   - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
   - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
   - { key: P, mods: Super, chars: " ==" } # Map Cmd-P to ' ==' => Nvim Fzf :Files
+  - { key: 36, mods: Super, action: ToggleFullscreen } # Cmd-Enter toggles full screen
   - {
       key: Comma,
       mods: Command,

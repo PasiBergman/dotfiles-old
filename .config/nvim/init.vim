@@ -37,6 +37,7 @@ source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/omnisharp.vim
 source $HOME/.config/nvim/plug-config/tcomment.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
+source $HOME/.config/nvim/plug-config/ultisnips.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/vim-closetag.vim
 source $HOME/.config/nvim/plug-config/vim-floaterm.vim
@@ -50,6 +51,7 @@ source $HOME/.config/nvim/plug-config/vim-sneak.vim
 source $HOME/.config/nvim/plug-config/vim-startify.vim
 source $HOME/.config/nvim/plug-config/vim-surround.vim
 source $HOME/.config/nvim/plug-config/vim-vue.vim
+source $HOME/.config/nvim/plug-config/vim-vsnip.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vimwiki.vim
 source $HOME/.config/nvim/themes/vim-code-dark.vim

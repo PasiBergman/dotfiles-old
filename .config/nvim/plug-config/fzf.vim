@@ -40,9 +40,10 @@ let g:fzf_tags_command = 'ctags -R'
 " Border color
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.9, 'height': 0.9,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
 
-let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
-"-g '!{node_modules,.git}'
+let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info '
+" let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!*node_modules*' --glob '!.git/*}'"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!node_modules' --glob '!.git' --glob '!.msbuild' --glob '!autoload' --glob '!*.dll' --glob '!*.pdb' --glob '!*.exe'"
+
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -71,12 +72,14 @@ command! -bang -nargs=? -complete=dir Files
 "   \   "rg --column --line-number --no-heading --color=always --smart-case --glob '!.git/**' ".shellescape(<q-args>), 1,
 
  " Make Ripgrep ONLY search file contents and not filenames
+ " Exclude node_modules autoload coc .git ..."
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --smart-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --hidden --smart-case --no-heading --glob "!node_modules" --glob "!.git/" --glob "!autoload" --glob "!/coc/data/" --glob "!/coc/extensions" --color=always '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4.. -e'}, 'right:50%', '?'),
   \   <bang>0)
+
 
 " Ripgrep advanced
 function! RipgrepFzf(query, fullscreen)
@@ -95,4 +98,12 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
+augroup fzf_preview
+  autocmd!
+  autocmd User fzf_preview#rpc#initialized call s:fzf_preview_settings() " fzf_preview#remote#initialized or fzf_preview#coc#initialized
+augroup END
 
+function! s:fzf_preview_settings() abort
+  let g:fzf_preview_command = 'COLORTERM=truecolor ' . g:fzf_preview_command
+  let g:fzf_preview_grep_preview_cmd = 'COLORTERM=truecolor ' . g:fzf_preview_grep_preview_cmd
+endfunction
