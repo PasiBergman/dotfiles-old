@@ -19,7 +19,8 @@ hi DiffText ctermbg=52 guibg=#FF3000 " #6F1313
 hi LspDiagnosticsDefaultError guifg=#ff5500
 hi LspDiagnosticsDefaultHint guifg=#444444
 
-hi CocErrorFloat ctermbg=52 guibg=#FF3000
+hi CocErrorFloat ctermbg=52 guibg=#FF3300
+hi CocCodeLens guifg=#444444
 
 hi CursorLine ctermbg=52 guibg=#333333
 hi CursorColumn ctermbg=52 guibg=#1F1F1F

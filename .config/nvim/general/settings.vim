@@ -1,7 +1,6 @@
 syntax enable                           " Enables syntax highlighting
 filetype plugin on                      " Enable filetype based configurations/mappings
-
-set noerrorbells                        " Do not make noise. Disabled, because iTerm has visible bell option.
+" set noerrorbells                        " Do not make noise. Disabled, because iTerm has visible bell option.
 " Tabs
 set tabstop=4 softtabstop=4             " Insert 2 spaces for a tab
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
@@ -13,7 +12,7 @@ set autoindent                          " Good auto indent
 set number                              " Line numbers
 set rnu                                 " Show line numbers relative to current line"
 " Search
-set smartcase                           " Search case insensitive unless capital letter exists in the search term
+" set smartcase                           " Search case insensitive unless capital letter exists in the search term
 set incsearch                           " Match already while typing the search term
 " File stuff
 set noswapfile
@@ -27,7 +26,7 @@ set shada=!,'100,n$HOME/.config/nvim/files/info/viminfo
 
 set iskeyword+=-                        " treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continuation of comments
-" set nowrap                              " Display long lines as just one line
+set nowrap                              " Display long lines as just one line
 set whichwrap+=<,>,[,],h,l              " Wrap long line when cursor keys are used.
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set encoding=utf-8                      " The encoding displayed
@@ -71,4 +70,6 @@ set langmap=öäÖÄ;{}[]
 let loaded_netrwPlugin = 1
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Always show matching parenthesis for (),[],{}
+autocmd FileTYpe * DoMatchParen
 

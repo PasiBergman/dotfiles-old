@@ -40,7 +40,7 @@ export ASPNETCORE_ENVIRONMENT=Local
 export DOTNET_ROOT=$HOME/.dotnet
 export VSCODE=code
 # Node & Nvm
-export NODE_VERSION="14.15.4"
+export NODE_VERSION="14.15.5"
 export NVM_DIR="$HOME/.nvm"
 # Manual
 export MANPAGER="nvim +Man!"

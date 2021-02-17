@@ -1,9 +1,9 @@
-/Users/pbe/.nvm/versions/node/v14.15.4/lib
+/Users/pbe/.nvm/versions/node/v14.15.5/lib
+├── @vue/cli@4.5.11
 ├── bash-language-server@1.17.0
 ├── neovim@4.9.0
-├── npm@7.5.3
+├── npm@6.14.11
 ├── typescript-language-server@0.5.1
-├── typescript@4.1.4
 ├── vls@0.7.0
 ├── vscode-css-languageserver-bin@1.4.0
 ├── vscode-html-languageserver-bin@1.4.0

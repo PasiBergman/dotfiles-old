@@ -24,9 +24,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Editorconfig reads .editorconfig file and adjusts tabs etc.
   Plug 'editorconfig/editorconfig-vim'
 
-  " Better Syntax Support
-  Plug 'sheerun/vim-polyglot'
-
   " Icons
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
@@ -42,13 +39,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tomasiser/vim-code-dark'
   Plug 'vim-airline/vim-airline-themes'
 
-
   " CoC
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-  " Snippets
-  Plug 'hrsh7th/vim-vsnip'
-  Plug 'hrsh7th/vim-vsnip-integ'
 
   " OmniSharp for C# support for LSP/CoC
   Plug 'OmniSharp/omnisharp-vim'
@@ -58,7 +51,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
   Plug 'stsewd/fzf-checkout.vim'
-
 
   " Telescope
   Plug 'nvim-lua/popup.nvim'
@@ -77,7 +69,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'mhinz/vim-startify'
 
   " Editor/Source code visualizers
-  Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'Yggdroot/indentLine'
 
@@ -91,6 +82,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
 
+  " ================================================================
+  " Debug Adapter Protocol client implementation for Neovim (>=0.5)
+  " https://github.com/mfussenegger/nvim-dap
+  " ================================================================
+  " Plug 'mfussenegger/nvim-dap'
+
   " Visualize undo paths/tree
   Plug 'mbbill/undotree'
 
@@ -103,6 +100,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Nvim sets the project root path
   Plug 'airblade/vim-rooter'
 
+  " macOS plugins
   if has("mac")
     " Dash macOS app integration
     Plug 'rizzatti/dash.vim'
@@ -110,6 +108,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " Auto pairs for '(' '[' '{'
   " Plug 'jiangmiao/auto-pairs'
+
+  " Better Syntax Support
+  " Plug 'sheerun/vim-polyglot'
 
   " TypeScript syntax (highlighting)
   " Plug 'HerringtonDarkholme/yats.vim'
@@ -120,27 +121,31 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " HTML/CSS live server
   " Plug 'turbio/bracey.vim'
 
-  " Vue plugin
-  " Plug 'leafOfTree/vim-vue-plugin'
-
   " Snippets
   " Plug 'honza/vim-snippets'
 
   " Cheatsheet (https://cht.sh) integration
   " Plug 'dbeniamine/cheat.sh-vim'
 
+  " Snippets
+  " Plug 'hrsh7th/vim-vsnip'
+  " Plug 'hrsh7th/vim-vsnip-integ'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 
   " -------------------------------------
   " Nvim-Treesitter
   " -------------------------------------
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/completion-treesitter'
 
   " -------------------------------------
   " Language Server Protocol config (LSP)
   " -------------------------------------
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lua/completion-nvim'
+  Plug 'steelsojka/completion-buffers'
+  Plug 'nvim-treesitter/completion-treesitter'
+
 
   " Buffers completion
   Plug 'steelsojka/completion-buffers'

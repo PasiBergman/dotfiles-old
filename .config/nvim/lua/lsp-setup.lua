@@ -32,7 +32,7 @@ lspconfig.cssls.setup{
 
 -- Vue language server
 -- npm install -g vls
-lspconfig.vuels.setup{ 
+lspconfig.vuels.setup{
   on_attach=require'completion'.on_attach;
 }
 
