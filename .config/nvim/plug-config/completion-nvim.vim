@@ -6,9 +6,13 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Avod showing message extra message when using completion
-set shortmess+=ci
+set shortmess+=c
 
-"set completeopt=menuone,noinsert,noselect
+" Show menu even if only one item
+" Do not automatically insert an item
+" Do not automatically select an item
+set completeopt=menuone,noinsert,noselect
+
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 " possible value: 'UltiSnips', 'Neosnippet', 'vim-vsnip', 'snippets.nvim'
@@ -33,11 +37,18 @@ let g:completion_chain_complete_list = {
     \],
     \'python' : [
     \   {'complete_items' : ['lsp','ts','snippet']},
-    \       {'complete_items' : ['buffers']}
-    \   ],
+    \   {'complete_items' : ['buffers']}
+    \],
     \'lua' : [
     \   {'complete_items' : ['ls','ts','snippet']},
     \   {'complete_items' : ['buffers']}
     \],
 \}
+
+" switch to next or previous completion source
+" imap <c-j> <Plug>(completion_next_source)
+" imap <c-k> <Plug>(completion_prev_source)
+
+" turn on auto changing sources by
+let g:completion_auto_change_source = 1
 

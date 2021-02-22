@@ -1,5 +1,4 @@
 let g:coc_global_extensions = [
-  \ 'coc-emmet',
   \ 'coc-eslint',
   \ 'coc-explorer',
   \ 'coc-fzf-preview',
@@ -7,10 +6,11 @@ let g:coc_global_extensions = [
   \ 'coc-markdownlint',
   \ 'coc-prettier',
   \ 'coc-stylelintplus',
-  \ 'coc-tailwindcss',
   \ 'coc-yank',
   \ ]
 
+"  \ 'coc-tailwindcss',
+"  \ 'coc-emmet',
 "  \ 'coc-snippets',
 "  \ 'coc-bootstrap-classname',
 "  \ 'coc-css',
