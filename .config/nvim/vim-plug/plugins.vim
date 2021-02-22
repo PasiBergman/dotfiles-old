@@ -6,81 +6,96 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+  " Auto pairs for '(' '[' '{' etc.
+   Plug 'jiangmiao/auto-pairs'
+  " Closetags
+  Plug 'alvan/vim-closetag'
   " Easier comments
   Plug 'tomtom/tcomment_vim'
-
   " Remap . so that plugins can tap into it
   Plug 'tpope/vim-repeat'
-
  " Easymotion replacement
   Plug 'justinmk/vim-sneak'
-
+  " Emmet for html
+  Plug 'mattn/emmet-vim'
   " Surround
   Plug 'tpope/vim-surround'
-
   " vim-sleuth plugin automatically adjusts 'shiftwidth' and 'expandtab'
-  " heuristically based on the current file
   Plug 'tpope/vim-sleuth'
   " Editorconfig reads .editorconfig file and adjusts tabs etc.
   Plug 'editorconfig/editorconfig-vim'
-
   " Icons
-  Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
-
-  " Closetags
-  Plug 'alvan/vim-closetag'
-
+  Plug 'kyazdani42/nvim-web-devicons'
   " Statusline
   Plug 'vim-airline/vim-airline'
-
   " Themes/Colorschemes
   Plug 'joshdick/onedark.vim'
   Plug 'tomasiser/vim-code-dark'
   Plug 'vim-airline/vim-airline-themes'
-
   " CoC
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
   " OmniSharp for C# support for LSP/CoC
   Plug 'OmniSharp/omnisharp-vim'
-
   " Fzf
   Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
   Plug 'junegunn/fzf.vim'
   Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
   Plug 'stsewd/fzf-checkout.vim'
-
   " Telescope
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope-vimspector.nvim'
-
+  Plug 'nvim-telescope/telescope-node-modules.nvim'
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-signify'
   Plug 'junegunn/gv.vim'
   Plug 'rhysd/git-messenger.vim'
-
   " Start Screen
   Plug 'mhinz/vim-startify'
-
   " Editor/Source code visualizers
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'Yggdroot/indentLine'
-
   " Emacs-like Which key. Leader keybinding helper
   Plug 'liuchengxu/vim-which-key'
-
-  " Floating window
-  Plug 'voldikss/vim-floaterm'
-
   " Debugging
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
+  " Visualize undo paths/tree
+  Plug 'mbbill/undotree'
+  " Vimwiki
+  Plug 'vimwiki/vimwiki'
+  " Vue plugin
+  Plug 'posva/vim-vue'
+  " Nvim sets the project root path
+  Plug 'airblade/vim-rooter'
+  " Snippets
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  " Plug 'jvanja/vim-bootstrap4-snippets'
+
+  " -------------------------------------
+  " Nvim-Treesitter
+  " -------------------------------------
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " -------------------------------------
+  " Language Server Protocol config (LSP)
+  " -------------------------------------
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/completion-nvim'
+  Plug 'steelsojka/completion-buffers'
+  Plug 'nvim-treesitter/completion-treesitter'
+  " macOS plugins
+  if has("mac")
+    " Dash macOS app integration
+    Plug 'rizzatti/dash.vim'
+  endif
+
+
+call plug#end()
 
   " ================================================================
   " Debug Adapter Protocol client implementation for Neovim (>=0.5)
@@ -88,26 +103,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " ================================================================
   " Plug 'mfussenegger/nvim-dap'
 
-  " Visualize undo paths/tree
-  Plug 'mbbill/undotree'
+  " Floating window
+  " Plug 'voldikss/vim-floaterm'
 
-  " Vimwiki
-  Plug 'vimwiki/vimwiki'
+  " Plug 'nvim-telescope/telescope-z.nvim'
 
-  " Vue plugin
-  Plug 'posva/vim-vue'
-
-  " Nvim sets the project root path
-  Plug 'airblade/vim-rooter'
-
-  " macOS plugins
-  if has("mac")
-    " Dash macOS app integration
-    Plug 'rizzatti/dash.vim'
-  endif
-
-  " Auto pairs for '(' '[' '{'
-  " Plug 'jiangmiao/auto-pairs'
+  " Nvim tree
+  " Plug 'kyazdani42/nvim-tree.lua'
 
   " Better Syntax Support
   " Plug 'sheerun/vim-polyglot'
@@ -124,31 +126,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Snippets
   " Plug 'honza/vim-snippets'
 
+
   " Cheatsheet (https://cht.sh) integration
   " Plug 'dbeniamine/cheat.sh-vim'
-
-  " Snippets
-  " Plug 'hrsh7th/vim-vsnip'
-  " Plug 'hrsh7th/vim-vsnip-integ'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-
-  " -------------------------------------
-  " Nvim-Treesitter
-  " -------------------------------------
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-  " -------------------------------------
-  " Language Server Protocol config (LSP)
-  " -------------------------------------
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
-  Plug 'steelsojka/completion-buffers'
-  Plug 'nvim-treesitter/completion-treesitter'
-
-
-  " Buffers completion
-  Plug 'steelsojka/completion-buffers'
-
-call plug#end()
-

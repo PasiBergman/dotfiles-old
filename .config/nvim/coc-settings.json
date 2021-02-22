@@ -39,14 +39,7 @@
   "python.linting.pylamaEnabled": false,
   "python.linting.pylintEnabled": false,
 
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-
-  "emmet.includeLanguages": {
-    "vue-html": "html",
-    "javascript": "javascriptreact"
-  },
-
-  "explorer.width": 36,
+  "explorer.width": 40,
   "explorer.quitOnOpen": true,
   "explorer.debug": false,
   "explorer.icon.enableNerdfont": true,
