@@ -15,4 +15,5 @@ SSH Config Editor.app
 Sizzy.app
 Swish.app
 TextSniper.app
+WiFi Explorer.app
 iStat Menus.app
