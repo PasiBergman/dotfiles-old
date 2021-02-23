@@ -1,68 +1,14 @@
 local lspconfig = require 'lspconfig'
 
--- Python language server
--- Community: pip3 install python-language-server
-lspconfig.pyls.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Python language server
--- Microsoft: npm install -g pyright
--- lspconfig.pyright.setup{
---   on_attach=require'completion'.on_attach
--- }
-
--- TypeScript language server
--- npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Bash language server
--- npm install -g bash-language-server
-lspconfig.bashls.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- CSS language server
--- npm install -g vscode-css-languageserver-bin
-lspconfig.cssls.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Vue language server
--- npm install -g vls
-lspconfig.vuels.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Yaml language server
--- npm install -g yaml-language-server
-lspconfig.yamlls.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Html language server
--- npm install -g vscode-html-languageserver-bin
-lspconfig.html.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- Json language server
--- npm install -g vscode-json-languageserver
-lspconfig.jsonls.setup{
-  on_attach=require'completion'.on_attach;
-}
-
--- C# language server
--- Important! OmniSharp.exe must be executable i.e. chmod +x OmniSharp.exe
--- local pid = vim.fn.getpid()
-local omnisharp_bin = vim.fn.expand("~/.cache/omnisharp-vim/omnisharp-roslyn/run")
-lspconfig.omnisharp.setup{
-  on_attach=require'completion'.on_attach;
-  cmd = { omnisharp_bin, "--languageserver" };
-  -- cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
-}
+-- Python       : pip3 install python-language-server
+-- Python (MS)  : npm install -g pyright
+-- TypeScript   : npm install -g typescript typescript-language-server
+-- Bash         : npm install -g bash-language-server
+-- CSS          : npm install -g vscode-css-languageserver-bin
+-- Vue          : npm install -g vls
+-- Yaml         : npm install -g yaml-language-server
+-- Html         : npm install -g vscode-html-languageserver-bin
+-- Json         : npm install -g vscode-json-languageserver
 
 -- Keybindings and completion
 -- See ':help lsp' for more details
@@ -100,9 +46,9 @@ local on_attach = function(client, bufnr)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#363630
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#363630
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#363630
       augroup lsp_document_highlight
         autocmd!
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
@@ -112,9 +58,18 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Use a loop to conveniently both setup defined servers 
+-- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver" }
+local servers = { "pyls", "html", "tsserver", "bashls", "cssls", "vuels", "yamlls", "jsonls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup { on_attach = on_attach }
 end
+
+-- C# language server
+-- Important! OmniSharp.exe must be executable i.e. chmod +x OmniSharp.exe
+-- local pid = vim.fn.getpid()
+local omnisharp_bin = vim.fn.expand("~/.cache/omnisharp-vim/omnisharp-roslyn/run")
+lspconfig.omnisharp.setup{
+  on_attach = on_attach;
+  cmd = { omnisharp_bin, "--languageserver" };
+}

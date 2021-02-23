@@ -30,7 +30,7 @@ set nowrap                              " Display long lines as just one line
 set whichwrap+=<,>,[,],h,l              " Wrap long line when cursor keys are used.
 set hidden                              " Required to keep multiple buffers open multiple buffers
 set encoding=utf-8                      " The encoding displayed
-set pumheight=10                        " Makes popup menu smaller
+set pumheight=14                        " Makes popup menu smaller
 set fileencoding=utf-8                  " The encoding written to file
 set ruler                               " Show the cursor position all the time
 set cmdheight=2                         " More space for displaying messages
@@ -41,7 +41,7 @@ set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
 set laststatus=2                        " Always display the status line
 set cursorline                          " Enable highlighting of the current line
-" set textwidth=100                       " Specify text width to 100 instead of old 80
+set textwidth=150                       " Specify text width to 100 instead of old 80
 " set colorcolumn=+1                      " Mark the column textwidth+1
 set background=dark                     " tell vim what the background color looks like
 set showtabline=2                       " Always show tabs

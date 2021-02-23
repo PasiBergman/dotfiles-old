@@ -38,6 +38,7 @@ nnoremap <silent> <C-s> :w<CR>
 " nnoremap <C-k> <C-w>k
 " nnoremap <C-l> <C-w>l
 
+
 " Terminal window navigation
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
@@ -49,11 +50,15 @@ inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <Esc> <C-\><C-n>
 
-let g:elite_mode=0                      " Disable arrows"
+" let g:elite_mode=0                      " Disable arrows"
 " Disable arrow movement, resize splits instead.
-if get(g:, 'elite_mode')
-    nnoremap <C-Up>    :resize -2<CR>
-    nnoremap <C-Down>  :resize +2<CR>
-    nnoremap <C-Left>  :vertical resize -2<CR>
-    nnoremap <C-Right> :vertical resize +2<CR>
-endif
+" if get(g:, 'elite_mode')
+"     nnoremap <C-Up>    :resize -2<CR>
+"     nnoremap <C-Down>  :resize +2<CR>
+"     nnoremap <C-Left>  :vertical resize -2<CR>
+"     nnoremap <C-Right> :vertical resize +2<CR>
+" endif
+
+" Use + to go to end of line as $ is more difficult on Finnish keyboard
+" ...and 0 is on the left side of + and 0 moves to beginning of the line.
+nnoremap + $

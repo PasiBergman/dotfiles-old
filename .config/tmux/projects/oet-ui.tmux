@@ -17,9 +17,11 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         attach-session -t . -c $PROJECT_DIR \; \
         send-keys "cd $PROJECT_DIR && nvim" C-m \; \
         split-window -h -p 25 \; \
-        send-keys 'clear && git fetch --all && npm run serve' C-m \; \
+        send-keys 'clear && git fetch --all' C-m \; \
+        send-keys 'npm run serve' C-m \; \
         split-window -v -p 50 \; \
-        send-keys 'clear && cd ../oet-api/ && dotnet watch --project src/Skylla.BE.API run' C-m \; \
+        send-keys 'clear && cd ../oet-api/' C-m \; \
+        send-keys 'dotnet watch --project src/Skylla.BE.API run' C-m \; \
         select-pane -t 0 \;
 else
     tmux attach -t $SESSION_NAME
