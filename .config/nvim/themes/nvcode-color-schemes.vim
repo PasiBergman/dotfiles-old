@@ -1,9 +1,9 @@
-hi Comment cterm=italic
+" hi Comment cterm=italic
 let g:nvcode_termcolors=256
 
 syntax on
 
-colorscheme codedark
+colorscheme nvcode
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
@@ -22,11 +22,12 @@ hi LspDiagnosticsDefaultHint guifg=#444444
 hi CocErrorFloat ctermbg=52 guibg=#FF3300
 hi CocCodeLens guifg=#444444
 
-hi CursorLine ctermbg=52 guibg=#383838
-hi CursorColumn ctermbg=52 guibg=#383838
+hi CursorLine ctermbg=52 guibg=#282828
+hi CursorColumn ctermbg=52 guibg=#282828
+hi ColorColumn guibg=#282828
 
-hl TabLineSel guibg=#383838 guifg=#e2e2e2
-hl TabLineFill guibg=#282828 guifg=#929293
+hi TabLineSel guibg=#383838 guifg=#e2e2e2
+hi TabLineFill guibg=#282828 guifg=#929293
 
 " Transparency
 " highlight Normal ctermbg=none

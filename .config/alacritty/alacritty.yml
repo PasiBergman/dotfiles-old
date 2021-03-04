@@ -39,7 +39,7 @@ font:
   normal:
     family: FiraCode Nerd Font
     style: Light
-  #   style: Regular
+  #   # style: Regular
   # normal:
   #   family: JetBrainsMono Nerd Font
   #   style: Regular
@@ -67,12 +67,12 @@ font:
   #   style: Bold
 
   # The italic font face
-  italic:
-    family: FiraCode Nerd Font
-    style: Regular
   # italic:
-  #   family: JetBrainsMono Nerd Font
-  #   style: Italic
+  #   family: FiraCode Nerd Font
+  #   style: Regular
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
   # italic:
   #   family: Hack Nerd Font
   #   style: Italic

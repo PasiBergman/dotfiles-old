@@ -13,25 +13,25 @@ let g:fzf_buffers_jump = 1
 
 " iTerm2 key bindings makes Command-p as ' ==' (i.e. <Leader>==)
 nmap <Leader>== :Files<CR>
-nmap <C-p> :GFiles<CR>
+" nmap <C-p> :GFiles<CR>
 nmap <leader>g :Rg<CR>
-nmap <leader>fm :Marks<CR>
+" nmap <leader>fm :Marks<CR>
 
-nnoremap <silent> <Leader>fp     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
-nnoremap <silent> <Leader>fgs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+" nnoremap <silent> <Leader>fp     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
+" nnoremap <silent> <Leader>fgs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
 nnoremap <silent> <Leader>fga    :<C-u>CocCommand fzf-preview.GitActions<CR>
-nnoremap <silent> <Leader>fb     :<C-u>CocCommand fzf-preview.Buffers<CR>
-nnoremap <silent> <Leader>fB     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
-nnoremap <silent> <Leader>fo     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
-nnoremap <silent> <Leader>f<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+" nnoremap <silent> <Leader>fb     :<C-u>CocCommand fzf-preview.Buffers<CR>
+" nnoremap <silent> <Leader>fB     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+" nnoremap <silent> <Leader>fo     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru<CR>
+" nnoremap <silent> <Leader>f<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
 nnoremap <silent> <Leader>fg;    :<C-u>CocCommand fzf-preview.Changes<CR>
-nnoremap <silent> <Leader>f/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
-nnoremap <silent> <Leader>f*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+" nnoremap <silent> <Leader>f/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+" nnoremap <silent> <Leader>f*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
 nnoremap          <Leader>fgr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
 xnoremap          <Leader>fgr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=substitute(substitute(@s, '\n', '', 'g'), '/', '\\/', 'g')<CR>"
-nnoremap <silent> <Leader>ft     :<C-u>CocCommand fzf-preview.BufferTags<CR>
-nnoremap <silent> <Leader>fq     :<C-u>CocCommand fzf-preview.QuickFix<CR>
-nnoremap <silent> <Leader>fl     :<C-u>CocCommand fzf-preview.LocationList<CR>
+" nnoremap <silent> <Leader>ft     :<C-u>CocCommand fzf-preview.BufferTags<CR>
+" nnoremap <silent> <Leader>fq     :<C-u>CocCommand fzf-preview.QuickFix<CR>
+" nnoremap <silent> <Leader>fl     :<C-u>CocCommand fzf-preview.LocationList<CR>
 
 
 let g:fzf_tags_command = 'ctags -R'
@@ -100,6 +100,12 @@ augroup fzf_preview
   autocmd!
   autocmd User fzf_preview#rpc#initialized call s:fzf_preview_settings() " fzf_preview#remote#initialized or fzf_preview#coc#initialized
 augroup END
+
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
+let g:fzf_preview_lines_command = 'bat --color=always --plain --number'
+let g:fzf_preview_use_dev_icons = 1
+let g:fzf_preview_dev_icon_prefix_string_length = 3
+let g:fzf_preview_dev_icons_limit = 1000
 
 function! s:fzf_preview_settings() abort
   let g:fzf_preview_command = 'COLORTERM=truecolor ' . g:fzf_preview_command
