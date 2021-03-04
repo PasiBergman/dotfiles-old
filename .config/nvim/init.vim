@@ -57,14 +57,16 @@ source $HOME/.config/nvim/plug-config/vim-surround.vim
 source $HOME/.config/nvim/plug-config/vim-vue.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vimwiki.vim
-source $HOME/.config/nvim/themes/vim-code-dark.vim
+" source $HOME/.config/nvim/themes/vim-code-dark.vim
+source $HOME/.config/nvim/themes/nvcode-color-schemes.vim
 source $HOME/.config/nvim/themes/vim-airline.vim
 
-luafile $HOME/.config/nvim/lua/telescope-config.lua
 luafile $HOME/.config/nvim/lua/plug-colorizer.lua
 luafile $HOME/.config/nvim/lua/treesitter-config.lua
-luafile $HOME/.config/nvim/lua/telescope-node-modules-config.lua
-luafile $HOME/.config/nvim/lua/telescope-fzy-native-config.lua
+luafile $HOME/.config/nvim/lua/ts/config.lua
+luafile $HOME/.config/nvim/lua/ts/node-modules-config.lua
+luafile $HOME/.config/nvim/lua/ts/fzy-native-config.lua
+luafile $HOME/.config/nvim/lua/ts/extensions.lua
 " -------------------------------
 " Initialize language server(s)
 " -------------------------------

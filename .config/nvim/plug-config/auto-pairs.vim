@@ -20,4 +20,3 @@ let g:AutoPairsMapBS = 1
 let g:AutoPairsMapCh = 1
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '<S-BS>'
-

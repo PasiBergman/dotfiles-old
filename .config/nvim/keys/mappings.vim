@@ -16,7 +16,7 @@ let g:mapleader=" "
 " vnoremap > >gv
 
 " Use jj to 'Esc' on insert mode
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>

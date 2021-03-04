@@ -39,10 +39,10 @@ let g:completion_chain_complete_list = {
     \],
     \'python' : [
     \   {'complete_items' : ['lsp','ts','snippet']},
-    \       {'complete_items' : ['buffers']}
-    \   ],
+    \   {'complete_items' : ['buffers']}
+    \],
     \'lua' : [
-    \   {'complete_items' : ['lsp','ts','snippet']},
+    \   {'complete_items' : ['ts','snippet']},
     \   {'complete_items' : ['buffers']}
     \],
 \}

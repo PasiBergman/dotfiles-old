@@ -43,19 +43,40 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
+  vim.fn.sign_define('LspDiagnosticsErrorSign', {text='', texthl='LspDiagnosticsError', linehl='LspDiagnosticsErrorLine', numhl='LspDiagnosticsErrorNum'})
+  vim.fn.sign_define('LspDiagnosticsWarningSign', {text='', texthl='LspDiagnosticsWarning', linehl='LspDiagnosticsWarningLine', numhl='LspDiagnosticsWarningNum'})
+  vim.fn.sign_define('LspDiagnosticsInformationSign', {text='', texthl='LspDiagnosticsInformation', linehl='LspDiagnosticsInformationLine', numhl='LspDiagnosticsInformationNum'})
+  vim.fn.sign_define('LspDiagnosticsHintSign', {text='', texthl='LspDiagnosticsHint', linehl='LspDiagnosticsHintLine', numhl='LspDiagnosticsHintNum'})
+
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#363630
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#363630
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#363630
       augroup lsp_document_highlight
         autocmd!
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
+
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#363630
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#363630
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#363630
+      hi LspDiagnosticsError guifg=#ff4400 guibg=#888888
+      hi LspDiagnosticsErrorLine guifg=#ff4400 guibg=#888888
+      hi LspDiagnosticsErrorNum guifg=#ff4400 guibg=#888888
+      hi LspDiagnosticsWarning guifg=#674D00 guibg=#444444
+      hi LspDiagnosticsWarningLine guifg=#674D00 guibg=#444444
+      hi LspDiagnosticsWarningNum guifg=#674D00 guibg=#444444
+      hi LspDiagnosticsInformation guifg=#183380 guibg=#335522
+      hi LspDiagnosticsInfomrationLine guifg=#183380 guibg=#335522
+      hi LspDiagnosticsInformationNum guifg=#183380 guibg=#335522
+      hi LspDiagnosticsHint guifg=#484841 guibg=#223366
+      hi LspDiagnosticsHintLine guifg=#484841 guibg=#223366
+      hi LspDiagnosticsHintNum guifg=#484841 guibg=#223366
+
     ]], false)
   end
+
+
 end
 
 -- Use a loop to conveniently both setup defined servers
