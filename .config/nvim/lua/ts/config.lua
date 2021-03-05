@@ -31,7 +31,7 @@ require('telescope').setup{
     prompt_prefix = ' > ',
     initial_mode = 'insert',
     sorting_strategy = 'descending',
-    file_ignore_patterns = {"*/node_modules/*", "*.git/*", "*/tmp/*", "*/coc/data/*", "*/undodir/*", "autoload"},
+    file_ignore_patterns = {"node_modules", ".git", "tmp", "coc/data", "undodir", "autoload"},
     winblend = 12,
     color_devicons = true,
   },

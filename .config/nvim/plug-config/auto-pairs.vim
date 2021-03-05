@@ -18,5 +18,5 @@ let g:AutoPairsShortcutFastWrap = 'åå'
 let g:AutoPairsShortcutJump = '<C-l>'
 let g:AutoPairsMapBS = 1
 let g:AutoPairsMapCh = 1
-let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<S-BS>'

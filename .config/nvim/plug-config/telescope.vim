@@ -31,10 +31,10 @@ nnoremap <leader>vz <cmd>lua require('telescope.builtin').current_buffer_fuzzy_l
 
 " LSP Pickers
 nnoremap <leader>lr <cmd>lua require('telescope.builtin').lsp_references()<cr>
-nnoremap <leader>lds <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
-nnoremap <leader>lws <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
-nnoremap <leader>lca <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
-nnoremap <leader>lrca <cmd>lua require('telescope.builtin').lsp_range_code_actions()<cr>
+nnoremap <leader>ls <cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>
+nnoremap <leader>lS <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+nnoremap <leader>la <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
+nnoremap <leader>lA <cmd>lua require('telescope.builtin').lsp_range_code_actions()<cr>
 
 " Git Pickers
 nnoremap <leader>ic <cmd>lua require('telescope.builtin').git_commits()<cr>
@@ -47,3 +47,4 @@ nnoremap <leader>tt <cmd>lua require('telescope.builtin').treesitter()<cr>
 
 " Custom searches
 nnoremap <Leader>fc <cmd>lua require('ts.extensions').search_dotfiles()<cr>
+nnoremap <Leader>fv <cmd>lua require('ts.extensions').search_nvim()<cr>

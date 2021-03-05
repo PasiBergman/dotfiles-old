@@ -78,6 +78,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'honza/vim-snippets'
   " Plug 'jvanja/vim-bootstrap4-snippets'
 
+  " Nvim tree
+  " Plug 'kyazdani42/nvim-tree.lua'
+
   " -------------------------------------
   " Nvim-Treesitter
   " -------------------------------------
@@ -109,8 +112,6 @@ call plug#end()
 
   " Plug 'nvim-telescope/telescope-z.nvim'
 
-  " Nvim tree
-  " Plug 'kyazdani42/nvim-tree.lua'
 
   " Better Syntax Support
   " Plug 'sheerun/vim-polyglot'

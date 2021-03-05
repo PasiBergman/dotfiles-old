@@ -9,4 +9,11 @@ M.search_dotfiles = function()
 end
 
 
+M.search_nvim = function()
+   builtin.find_files({
+        prompt_title = "< Nvim >",
+        cwd = "$HOME/.config/nvim",
+    })
+end
+
 return M

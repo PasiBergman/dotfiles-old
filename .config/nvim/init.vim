@@ -18,10 +18,11 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 " source $HOME/.config/nvim/plug-config/easymotion.vim
 " source $HOME/.config/nvim/plug-config/fugitive-azure-devops.vim
 " source $HOME/.config/nvim/plug-config/gitgutter.vim
+" source $HOME/.config/nvim/plug-config/nvim-tree.lua.vim
 " source $HOME/.config/nvim/plug-config/vim-commentary.vim
 " source $HOME/.config/nvim/plug-config/vim-illuminate.vim
 " source $HOME/.config/nvim/plug-config/vim-vsnip.vim
-" source $HOME/.config/nvim/plug-config/nvim-tree.lua.vim
+" source $HOME/.config/nvim/themes/vim-code-dark.vim
 " luafile $HOME/.config/nvim/lua/nvim-web-devicons-config.lua
 " luafile $HOME/.config/nvim/lua/telescope-z-config.lua
 source $HOME/.config/nvim/general/functions.vim
@@ -41,7 +42,6 @@ source $HOME/.config/nvim/plug-config/indentLine.vim
 source $HOME/.config/nvim/plug-config/maximizer.vim
 source $HOME/.config/nvim/plug-config/omnisharp.vim
 source $HOME/.config/nvim/plug-config/tcomment.vim
-source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/ultisnips.vim
 source $HOME/.config/nvim/plug-config/undotree.vim
 source $HOME/.config/nvim/plug-config/vim-closetag.vim
@@ -57,7 +57,7 @@ source $HOME/.config/nvim/plug-config/vim-surround.vim
 source $HOME/.config/nvim/plug-config/vim-vue.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vimwiki.vim
-" source $HOME/.config/nvim/themes/vim-code-dark.vim
+
 source $HOME/.config/nvim/themes/nvcode-color-schemes.vim
 source $HOME/.config/nvim/themes/vim-airline.vim
 
@@ -67,6 +67,8 @@ luafile $HOME/.config/nvim/lua/ts/config.lua
 luafile $HOME/.config/nvim/lua/ts/node-modules-config.lua
 luafile $HOME/.config/nvim/lua/ts/fzy-native-config.lua
 luafile $HOME/.config/nvim/lua/ts/extensions.lua
+
+source $HOME/.config/nvim/plug-config/telescope.vim
 " -------------------------------
 " Initialize language server(s)
 " -------------------------------

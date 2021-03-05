@@ -17,7 +17,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " let g:airline#extensions#tabline#buffers_label = ''
 " let g:airline#extensions#tabline#tabs_label = ''
-let g:airline#extensions#coc#enabled = 1
+" let g:airline#extensions#coc#enabled = 1
 " let g:airline_extensions = ['branch' ] ", 'coc', 'hunks']
 
 " let g:airline#extensions#tabline#fnamemod = '\[%N\]\ %t\ %M'
