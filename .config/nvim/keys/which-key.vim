@@ -19,7 +19,7 @@ let g:which_key_sep = '→'
 
 " Coc Search & refactor
 " nnoremap <leader>? CocSearch <C-R>=expand("<cword>")<CR><CR>
-" let g:which_key_map['?'] = 'search word'
+" let g:which_key_map['?'] = 's:earch word'
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 0
@@ -45,14 +45,10 @@ let g:which_key_map[';'] = [ ':Commands'                                       ,
 let g:which_key_map['='] = [ '<C-W>='                                          , 'balance windows' ]
 let g:which_key_map['-'] = [ '<C-W>s'                                          , 'split below'     ]
 let g:which_key_map['|'] = [ '<C-W>v'                                          , 'split right'     ]
-let g:which_key_map['e'] = [ ':CocCommand explorer --toggle'                   , 'explorer'        ]
-" let g:which_key_map['n'] = [ ':let @/ = ""'                                    , 'no highlight' ]
-" let g:which_key_map['p'] = [ ':Files'                                          , 'search files' ]
 let g:which_key_map['q'] = [ '<Plug>(coc-fix-current)'                         , 'quickfix' ]
 " let g:which_key_map['T'] = [ ':TSHighlightCapturesUnderCursor'                 , 'treesitter highlight' ]
-" let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree']
+let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree']
 " let g:which_key_map['W'] = [ ':call WindowSwap#EasyWindowSwap()'               , 'move window' ]
-" let g:which_key_map['z'] = [ 'Goyo'                                            , 'zen' ]
 " let g:which_key_map['L'] = [ 'which_key_map' ]
 
 " Group mappings
@@ -114,17 +110,21 @@ let g:which_key_map.d = {
      \ }
 
 " " f is for find and replace
-" let g:which_key_map.f = {
-"      \ 'name' : '+find & replace' ,
-"      \ 'f' : [':Farr --source=vimgrep'    , 'file'],
-"      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
-"      \ }
+let g:which_key_map.f = {
+    \ 'name' : '+Fzf' ,
+    \ 'c' : ['<cmd>lua require("ts.extensions").search_dotfiles()<cr>', 'Search .config'],
+    \ 'F' : ['<cmd>lua require("telescope.builtin").file_browser()<cr>', 'File browser'],
+    \ 'f' : ['<cmd>lua require("telescope.builtin").find_files()<cr>', 'Find files'],
+    \ 'i' : ['<cmd>lua require("telescope.builtin").git_files()<cr>', 'Find git files'],
+    \ 'n' : ['Telescope node_modules list', 'List node modules'],
+    \ 's' : ['<cmd>lua require("telescope.builtin").grep_string()<cr>', 'Grep string'],
+    \ }
 
 "" k is for task
 "let g:which_key_map.k = {
 "      \ 'name' : '+task' ,
 "      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-"      \ 'b' : [':AsyncTask project-build'     , 'build project'],
+"      \ 'b' : [':AsyncTask pro:ject-build'     , 'build project'],
 "      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
 "      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
 "      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
@@ -180,7 +180,7 @@ let g:which_key_map.s = {
      \ 'y' : [':Filetypes'             , 'file types'],
      \ 'z' : [':FZF'                   , 'FZF'],
      \ }
-"" 
+""
 "" :CocCommand fzf-preview.AllBuffers
 "" :CocCommand fzf-preview.Changes
 "" :CocCommand fzf-preview.Yankround
@@ -190,7 +190,7 @@ let g:which_key_map.s = {
 "" :CocCommand fzf-preview.CocTypeDefinitions
 "" \ 'l' : [':CocCommand fzf-preview.Bookmarks', 'list bookmarks'],
 "" $FZF_PREVIEW_PREVIEW_BAT_THEME = 'ansi-dark'
-"" 
+""
 
 let g:which_key_map.S = {
      \ 'name' : '+Session' ,
@@ -252,41 +252,47 @@ let g:which_key_map.g = {
 "" l is for language server protocol
 let g:which_key_map.l = {
      \ 'name' : '+lsp' ,
-     \ '.' : [':CocConfig'                          , 'config'],
-     \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
-     \ 'a' : ['<Plug>(coc-codeaction)'              , 'code action'],
-     \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-     \ 'b' : [':CocNext'                            , 'next action'],
-     \ 'B' : [':CocPrev'                            , 'prev action'],
-     \ 'c' : [':CocList commands'                   , 'commands'],
-     \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-     \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-     \ 'e' : [':CocList extensions'                 , 'extensions'],
-     \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-     \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
-     \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-     \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-     \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-     \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-     \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-     \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-     \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-     \ 'o' : [':Vista!!'                            , 'outline'],
-     \ 'O' : [':CocList outline'                    , 'search outline'],
-     \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-     \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-     \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-     \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-     \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-     \ 's' : [':CocList -I symbols'                 , 'references'],
-     \ 'S' : [':CocList snippets'                   , 'snippets'],
-     \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-     \ 'u' : [':CocListResume'                      , 'resume list'],
-     \ 'U' : [':CocUpdate'                          , 'update CoC'],
-     \ 'z' : [':CocDisable'                         , 'disable CoC'],
-     \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+     \ 'r' : ['<cmd>lua require("telescope.builtin").lsp_references()<cr>'          , 'LSP references'          ],
+     \ 's' : ['<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>'    , 'LSP document symbols'    ],
+     \ 'S' : ['<cmd>lua require("telescope.builtin").lsp_worspace_symbols()<cr>'    , 'LSP workspace symbols'   ],
+     \ 'a' : ['<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>'        , 'LSP code actions'        ],
+     \ 'A' : ['<cmd>lua require("telescope.builtin").lsp_range_code_actions()<cr>'  , 'LSP range code actions'  ],
      \ }
-"      " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
+
+     " \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
+     " \ '.' : [':CocConfig'                          , 'config'],
+     " \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
+     " \ 'a' : ['<Plug>(coc-codeaction)'              , 'code action'],
+     " \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+     " \ 'b' : [':CocNext'                            , 'next action'],
+     " \ 'B' : [':CocPrev'                            , 'prev action'],
+     " \ 'c' : [':CocList commands'                   , 'commands'],
+     " \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
+     " \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
+     " \ 'e' : [':CocList extensions'                 , 'extensions'],
+     " \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
+     " \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
+     " \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
+     " \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
+     " \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
+     " \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
+     " \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
+     " \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
+     " \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
+     " \ 'o' : [':Vista!!'                            , 'outline'],
+     " \ 'O' : [':CocList outline'                    , 'search outline'],
+     " \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
+     " \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
+     " \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
+     " \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
+     " \ 's' : [':CocList -I symbols'                 , 'references'],
+     " \ 'S' : [':CocList snippets'                   , 'snippets'],
+     " \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
+     " \ 'u' : [':CocListResume'                      , 'resume list'],
+     " \ 'U' : [':CocUpdate'                          , 'update CoC'],
+     " \ 'z' : [':CocDisable'                         , 'disable CoC'],
+     " \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+
 
 "" t is for terminal
 let g:which_key_map.t = {
@@ -307,10 +313,30 @@ let g:which_key_map.t = {
 
      " \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
 
+" v is for Telescope Vim
+let g:which_key_map.v = {
+      \ 'name' : '+Telescope vim' ,
+      \ 'a' : ['<cmd>lua require("telescope.builtin").autocommands()<cr>'  , 'Vim autocommands'],
+      \ 'C' : ['<cmd>lua require("telescope.builtin").coloscheme()<cr>'  , 'Vim colorscheme'],
+      \ 'c' : ['<cmd>lua require("telescope.builtin").commands()<cr>'  , 'Vim commands'],
+      \ 'f' : ['<cmd>lua require("telescope.builtin").oldfiles()<cr>'  , 'Vim old files'],
+      \ 'H' : ['<cmd>lua require("telescope.builtin").highlights()<cr>'  , 'Vim highlights'],
+      \ 'h' : ['<cmd>lua require("telescope.builtin").command_history()<cr>'  , 'Vim command history'],
+      \ 'k' : ['<cmd>lua require("telescope.builtin").keymaps()<cr>'  , 'Vim keymaps'],
+      \ 'l' : ['<cmd>lua require("telescope.builtin").loclist()<cr>'  , 'Vim location list'],
+      \ 'm' : ['<cmd>lua require("telescope.builtin").marks()<cr>'  , 'Vim marks'],
+      \ 'o' : ['<cmd>lua require("telescope.builtin").options()<cr>'  , 'Vim options'],
+      \ 'r' : ['<cmd>lua require("telescope.builtin").registers()<cr>'  , 'Vim registers'],
+      \ 's' : ['<cmd>lua require("telescope.builtin").spell_suggest()<cr>'  , 'Vim spell suggest'],
+      \ 't' : ['<cmd>lua require("telescope.builtin").filetypes()<cr>'  , 'Vim filetypes'],
+      \ 'z' : ['<cmd>lua require("telescope.builtin").current_buffer_fuzzy_lines()<cr>'  , 'Vim current buffer fuzzy lines'],
+      \ }
+
+
 " w is for wiki
 let g:which_key_map.w = {
       \ 'name' : '+wiki' ,
-      \ 'w' : ['<Plug>VimwikiIndex'                              , 'ncdu'],
+      \ 'w' : ['<Plug>VimwikiIndex'                              , 'Vimwiki Index'],
       \ 'n' : ['<plug>(wiki-open)'                              , 'ncdu'],
       \ 'j' : ['<plug>(wiki-journal)'                              , 'ncdu'],
       \ 'R' : ['<plug>(wiki-reload)'                              , 'ncdu'],
