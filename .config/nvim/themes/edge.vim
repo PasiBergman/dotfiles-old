@@ -1,0 +1,9 @@
+let g:edge_style = 'default' " 'aura' 'neon' 'default'
+let g:edge_enable_italic = 1
+let g:edge_disable_italic_comment = 0
+" let g:edge_transparent_background = 0
+" let g:edge_menu_selection_background = 'green' " 'blue' 'green' 'purple'
+ let g:edge_sign_column_background = 'none' " 'default' 'none'
+ let g:edge_diagnostic_text_highlight = 1
+ " let g:edge_current_word = 'bold' " 'grey background' 'bold' 'underline' 'italic'
+ let g:edge_better_performance = 1

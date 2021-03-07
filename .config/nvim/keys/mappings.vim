@@ -30,7 +30,8 @@ xnoremap K :move '<-2<CR>gv-gv
 xnoremap J :move '>+1<CR>gv-gv
 
 " Alternate way to save
-nnoremap <silent> <C-s> :w<CR>
+" nnoremap <silent> <C-s> :w<CR>
+" NOTE! Alacritty configured to send ":w<CR>" with Cmd-S
 
 " Better window navigation
 " nnoremap <C-h> <C-w>h
@@ -55,10 +56,21 @@ tnoremap <Esc> <C-\><C-n>
 " if get(g:, 'elite_mode')
 "     nnoremap <C-Up>    :resize -2<CR>
 "     nnoremap <C-Down>  :resize +2<CR>
-"     nnoremap <C-Left>  :vertical resize -2<CR>
+"     nnoremap <C-Left>  :vertical resize -2<CR> 
 "     nnoremap <C-Right> :vertical resize +2<CR>
 " endif
 
 " Use + to go to end of line as $ is more difficult on Finnish keyboard
 " ...and 0 is on the left side of + and 0 moves to beginning of the line.
 nnoremap + $
+
+" Use F3 and Shift-F3 to browse quicfix list
+nnoremap <F3> :cnext<CR>
+nnoremap <S-F3> :cprev<CR>
+
+" Trim Whitespace
+nnoremap tws :%s/\s\+$//<CR>
+
+" Close buffer
+nnoremap <C-c> :bd<cr>
+inoremap <C-c> <esc>:bd<cr>

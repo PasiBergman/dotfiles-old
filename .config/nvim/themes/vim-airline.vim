@@ -4,10 +4,8 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline#extensions#tabline#right_sep = ''
 " let g:airline#extensions#tabline#right_alt_sep = ''
-" let airline#extensions#tabline#show_splits = 0
-" let airline#extensions#tabline#tabs_label = ''
-
-" let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#show_splits = 0
+" let g:airline#extensions#tabline#tabs_label = ''
 
 " Disable tabline close button
 " let g:airline#extensions#tabline#show_close_button = 1
@@ -21,6 +19,7 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_extensions = ['branch' ] ", 'coc', 'hunks']
 
 " let g:airline#extensions#tabline#fnamemod = '\[%N\]\ %t\ %M'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
@@ -28,7 +27,6 @@ let g:airline_powerline_fonts = 1
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = ''
 
-let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z', 'warning', 'error']]
 let g:airline_skip_empty_sections = 1
@@ -38,6 +36,7 @@ let g:airline_skip_empty_sections = 1
 
 " Switch to your current theme
 let g:airline_theme = 'minimalist'
+" let g:airline_theme = 'edge'
 " let g:airline_theme = 'base16_google'
 " let g:airline_theme = 'base16_default'
 " let g:airline_theme = 'nvcode'
@@ -54,4 +53,3 @@ set noshowmode
 " let g:airline_section_a = ""
 " let g:airline_section_y = ''
 let g:webdevicons_enable_airline_tabline = 1
-

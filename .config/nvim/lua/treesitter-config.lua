@@ -3,7 +3,8 @@
 
 require'nvim-treesitter.configs'.setup({
   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = {"typescript", "c_sharp", "css", "html", "javascript", "json", "lua", "python", "regex", "vue", "yaml"},
+  -- ensure_installed = {"typescript", "c_sharp", "css", "html", "javascript", "json", "lua", "python", "regex", "vue", "yaml"},
+  ensure_installed = {},
   highlight = {
     enable = true,   -- false will disable the whole extension
     custom_captures = {},

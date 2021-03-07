@@ -150,6 +150,16 @@ let g:which_key_map.f = {
 "      " CoC throws an error
 "      " \ 'a' : [':CocCommand bookmark.annotate', 'annotate bookmark'],
 
+"" p is for prettier
+let g:which_key_map.s = {
+     \ 'name' : '+prettier' ,
+     \ 'a' : [':PrettierAsync'              , 'Prettier Asnc'],
+     \ 'p' : [':PrettierPartial'              , 'Prettier Partial'],
+     \ 'f' : [':PrettierFragment'              , 'Prettier Fragment'],
+     \ 'v' : [':PrettierVersion'              , 'Prettier Version'],
+     \ 'V' : [':PrettierCliVersion'              , 'Prettier CLI Version'],
+     \ 'c' : [':PrettierCliPath'              , 'Prettier CLI Path'],
+     \ }
 
 "" s is for search
 let g:which_key_map.s = {

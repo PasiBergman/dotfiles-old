@@ -33,9 +33,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'joshdick/onedark.vim'
   " Plug 'tomasiser/vim-code-dark'
   Plug 'christianchiarulli/nvcode-color-schemes.vim'
+  Plug 'sainnhe/edge'
   Plug 'vim-airline/vim-airline-themes'
-  " CoC
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " OmniSharp for C# support for LSP/CoC
   Plug 'OmniSharp/omnisharp-vim'
   " Fzf
@@ -48,6 +47,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
+  Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   " Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-node-modules.nvim'
   " Git
@@ -79,7 +79,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'jvanja/vim-bootstrap4-snippets'
 
   " Nvim tree
-  " Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'kyazdani42/nvim-tree.lua'
+  " Yank highlight
+  Plug 'machakann/vim-highlightedyank'
 
   " -------------------------------------
   " Nvim-Treesitter
@@ -101,6 +103,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
+  " CoC
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
   " ================================================================
   " Debug Adapter Protocol client implementation for Neovim (>=0.5)
   " https://github.com/mfussenegger/nvim-dap
@@ -112,12 +117,8 @@ call plug#end()
 
   " Plug 'nvim-telescope/telescope-z.nvim'
 
-
   " Better Syntax Support
   " Plug 'sheerun/vim-polyglot'
-
-  " TypeScript syntax (highlighting)
-  " Plug 'HerringtonDarkholme/yats.vim'
 
   " Swift - pull in changes to Apple's Sift Vim plugin
   " Plugin 'marcusglowe/vim-swift'
@@ -127,7 +128,6 @@ call plug#end()
 
   " Snippets
   " Plug 'honza/vim-snippets'
-
 
   " Cheatsheet (https://cht.sh) integration
   " Plug 'dbeniamine/cheat.sh-vim'

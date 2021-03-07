@@ -19,10 +19,10 @@ set noswapfile
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 if (has("persistent_undo"))
-  set undodir=$HOME/.config/nvim/undodir  " Directory to store undo history
+  set undodir=$HOME/.cache/nvim/undodir  " Directory to store undo history
   set undofile
 end
-set shada=!,'100,n$HOME/.config/nvim/files/info/viminfo
+set shada=!,'100,n$HOME/.cache/nvim/files/info/viminfo
 
 set iskeyword+=-                        " treat dash separated words as a word text object"
 set formatoptions-=cro                  " Stop newline continuation of comments
@@ -63,8 +63,8 @@ set list
 set langmenu=en_US
 let $LANG = 'en_US.UTF-8'
 language en_US.UTF-8
-" Normal mode map ö->{, ä->}, Ö->[, Ä->] to make better use of Finnish keyboard layout
-set langmap=öäÖÄ;{}[]
+" Normal mode map ö->[, ä->], Ö->{, Ä->} to make better use of Finnish keyboard layout
+set langmap=öäÖÄ;[]{}
 
 " Do not load/use netrw file browser
 let loaded_netrwPlugin = 1

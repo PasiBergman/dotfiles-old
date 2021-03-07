@@ -11,7 +11,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
     tmux new-session -s $SESSION_NAME -n $WINDOW_NAME -c $PROJECT_DIR \; \
         attach-session -t . -c $PROJECT_DIR \; \
         send-keys "cd $PROJECT_DIR && nvim" C-m \; \
-        split-window -h -p 30 -c $PROJECT_DIR \; \
+        split-window -v -p 20 -c $PROJECT_DIR \; \
         send-keys 'clear' C-m \; \
         select-pane -t 0
 else
