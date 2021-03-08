@@ -38,10 +38,12 @@ local on_attach = function(client, bufnr)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
+    print('[LSP] Document formatting capability.')
     buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync{}")
   elseif client.resolved_capabilities.document_range_formatting then
+    print('[LSP] Range formatting capability.')
     buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting{}")
@@ -93,25 +95,100 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "pyls", "html", "tsserver", "bashls", "cssls", "vuels", "yamlls", "jsonls" }
+local servers = { "pyls", "html", "tsserver", "bashls", "cssls", "yamlls", "jsonls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-      on_attach = on_attach 
+      on_attach = on_attach,
   }
 end
 
+--
 -- C# language server
 -- Important! OmniSharp.exe must be executable i.e. chmod +x OmniSharp.exe
 -- local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("~/.cache/omnisharp-vim/omnisharp-roslyn/run")
 lspconfig.omnisharp.setup{
-  on_attach = on_attach;
-  cmd = { omnisharp_bin, "--languageserver" };
+  on_attach = on_attach,
+  cmd = { omnisharp_bin, "--languageserver" },
+}
+
+-- Vue language server
+lspconfig.vuels.setup {
+  on_attach = on_attach,
+  cmd = { 'vls', '--stdio' },
+  root_dir = lspconfig.util.root_pattern('.git','.eslintrc.js','package.json','vue.config.js');
+  filetypes = { 'vue' },
+  init_options = {
+    config = {
+      css = {},
+      emmet = {},
+      html = {
+        suggest = {}
+      },
+      javascript = {
+        format = {}
+      },
+      stylusSupremacy = {},
+      typescript = {
+        format = {}
+      },
+      vetur = {
+        completion = {
+          autoImport = true,
+          useScaffoldSnippets = {
+            workspace = '(W)',
+            user = '(U)',
+            vetur = '(V)',
+          },
+          tagCasing = 'kebab'
+        },
+        dev = {
+          logLevel = 'DEBUG'
+        },
+        format = {
+          defaultFormatter = {
+            css = 'prettier',
+            html = 'prettier',
+            js = 'prettier',
+            less = 'prettier',
+            postcss = 'prettier',
+            pug = 'prettier',
+            sass = 'sass-formaatter',
+            scss = 'prettier',
+            ts = 'prettier',
+          },
+          defaultFormatterOptions = {},
+          enable = true,
+          options = {
+            tabSize = 2,
+          },
+          scriptInitialIndent = false,
+          styleInitialIndent = false
+        },
+        languageFeatures = {
+          ignoreProjectWarning = false,
+          updateImportOnFileMove = true,
+        },
+        trace = {
+          server = 'messages'
+        },
+        useWorkspaceDependencies = true,
+        validation = {
+          interpolation = true,
+          script = true,
+          style = true,
+          template = true,
+          templateProps = true,
+        }
+      }
+    }
+  },
 }
 
 -- Diagnostics Language Server
 lspconfig.diagnosticls.setup{
   on_attach = on_attach,
+  root_dir = lspconfig.util.root_pattern('.git','.eslintrc.js','package.json','tsconfig.json','.stylelintrc.json');
   cmd = {"diagnostic-languageserver", "--stdio"},
   filetypes={
     'css',
@@ -206,46 +283,65 @@ lspconfig.diagnosticls.setup{
     },
     formatters = {
       prettier = {
-        -- command = "./node_modules/.bin/prettier",
-        command = "prettier",
+        command = "./node_modules/.bin/prettier",
         rootPatterns = {'.git','package.json'},
         args = {
           '--stdin-filepath',
           '%filepath',
         },
       },
-      prettiereslint = {
-        command = "prettier-eslint",
-        rootPatterns = {'.git','package.json'},
+      eslint_d = {
+        command = 'eslint_d',
+        rootPatterns = {'.git','package.json','.eslintrc.js'},
         args = {
-          '--stdin-filepath',
+          '--fix-to-stdout',
+          '--stdin',
+          '--stdin-filename=%filepath',
+        },
+      },
+      eslint = {
+        command = './node_modules/.bin/eslint',
+        rootPatterns = {'.git','package.json','.eslintrc.js'},
+        args = {
+          '--fix',
+          '--stdin',
+          '--stdin-filename=%filepath',
+        },
+      },
+      stylelint = {
+        command = './node_modules/.bin/stylelint',
+        rootPatterns = {'.git','package.json','.stylelintrc.json'},
+        args = {
+          '--fix',
+          '--stdin-filename',
           '%filepath',
         },
       },
       prettierstylelint = {
-        -- command = "./node_modules/.bin/prettier",
-        command = 'prettier-stylelint',
+        command = { 'prettier-stylelint' },
         rootPatterns = {'.git','package.json'},
         args = {
           '--stdin-filepath',
           '%filepath',
+          '--write',
         },
       },
     },
     formatFiletypes = {
-      css = 'prettierstylelint',
-      javascript = 'prettiereslint',
-      javascriptreact = 'prettiereslint',
-      json = 'prettiereslint',
+      css = 'stylelint',
+      javascript = 'eslint_d',
+      javascriptreact = 'prettier',
+      json = 'prettier',
       lua = 'prettier',
       markdown = 'prettier',
-      scss = 'prettierstylelint',
+      scss = 'stylelint',
       sh = 'shfmt',
       toml = 'prettier',
-      typescript = 'prettiereslint',
-      typescriptreact= 'prettiereslint',
-      vue = 'prettiereslint',
+      typescript = 'eslint_d',
+      typescriptreact= 'prettier',
       yaml = 'prettier',
+      vue = 'eslint_d',
     },
   }
 }
+
