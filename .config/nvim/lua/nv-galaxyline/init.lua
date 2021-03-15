@@ -9,13 +9,31 @@ local buffer_not_empty = condition.buffe_not_empty
 local hide_in_width = condition.hide_in_width
 
 local fileinfo = require('galaxyline.provider_fileinfo')
-local fileIconColor = fileinfo.get_file_icon_color
 local fileEncode = fileinfo.get_file_encode
-local fileName = fileinfo.get_current_file_name
+local fileFormat = fileinfo.get_file_format
+local fileIconColor = fileinfo.get_file_icon_color
+-- local fileName = fileinfo.get_current_file_name
 -- local fileIcon = fileinfo.get_file_icon
 -- local fileNameInSpecialBuffer = fileinfo.filename_in_special_buffer
--- local fileFormat = fileinfo.get_file_format
 -- local defineFileIcon = fileinfo.define_file_icon
+
+local buffer = require('galaxyline.provider_buffer')
+local fileTypeName = buffer.get_buffer_filetype
+
+local trim_string = function(s)
+   return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+local filenameWithPath = function()
+  return vim.api.nvim_exec('echo @%', true)
+end
+
+
+local fileFormatEncode = function()
+  local format = trim_string(string.lower(fileFormat()))
+  local encode = trim_string(string.lower(fileEncode()))
+  return format .. ' [' .. encode .. ']'
+end
 
 local colors = {
   bg = '#282c34',
@@ -115,7 +133,7 @@ gls.left[3] ={
 
 gls.left[3] = {
   GitIcon = {
-    provider = function() return ' ' end,
+    provider = function() return '  ' end,
     condition = is_git_workspace,
     highlight = {colors.orange,colors.bg},
   }
@@ -210,14 +228,14 @@ gls.right[1] ={
 }
 gls.right[2] ={
   FileName = {
-    provider =  function() return fileName() end,
+    provider =  filenameWithPath,
     condition = condition.buffer_not_empty,
     highlight = {colors.grey,colors.bg}
   },
 }
 gls.right[3] = {
   BufferType = {
-    provider =  'FileTypeName',
+    provider =  function() return string.lower(fileTypeName()) end,
     separator = ' | ',
     separator_highlight = {colors.darkblue,colors.bg},
     highlight = {colors.grey,colors.bg}
@@ -233,7 +251,7 @@ gls.right[3] = {
 } ]]
 gls.right[5]= {
   FileEncode = {
-    provider = function() return string.lower(fileEncode()) end,
+    provider =  fileFormatEncode,
     separator = ' | ',
     separator_highlight = {colors.darkblue,colors.bg},
     highlight = {colors.grey,colors.bg},
@@ -261,5 +279,3 @@ gls.right[7] = {
     highlight = {colors.yellow,colors.purple},
   }
 } ]]
-
-
