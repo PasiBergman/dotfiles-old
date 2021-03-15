@@ -1,5 +1,5 @@
 # =============================================================================
-# Alacritty terminal emulator configuration file.
+#/weAlacritty terminal emulator configuration file.
 #
 # https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 # =============================================================================
@@ -43,7 +43,7 @@ font:
   #   style: Regular
   italic:
     family: JetBrainsMono Nerd Font
-    style: Italic
+    style: Italic Light
   # italic:
   #   family: Hack Nerd Font
   #   style: Italic
@@ -59,7 +59,14 @@ font:
   glyph_offset:
     x: 0
     y: 0
+shell:
+  program: /usr/local/bin/zsh
+  args:
+    - --login
 window:
+  dimensions:
+    columns: 197
+    lines: 60
   padding:
     x: 2
     y: 2

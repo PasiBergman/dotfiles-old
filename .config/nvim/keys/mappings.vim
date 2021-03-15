@@ -64,9 +64,21 @@ tnoremap <Esc> <C-\><C-n>
 " ...and 0 is on the left side of + and 0 moves to beginning of the line.
 nnoremap + $
 
-" Use F3 and Shift-F3 to browse quicfix list
-nnoremap <F3> :cnext<CR>
-nnoremap <S-F3> :cprev<CR>
+" Use F3 and Shift-F3 to browse location list
+nnoremap <F3> :lnext<CR>
+nnoremap <S-F3> :lprev<CR>
+inoremap <F3> <esc>:lnext<CR>
+inoremap <S-F3> <esc>:lprev<CR>
+" Close Location List
+nnoremap <Leader>cll :lclose<CR>
+
+" Use F4 and Shift-F4 to browse quickfix (global) list
+nnoremap <F4> :next<CR>
+nnoremap <S-F4> :cprev<CR>
+inoremap <F4> <esc>:cnext<CR>
+inoremap <S-F4> <esc>:cprev<CR>
+" Close Quickfix List
+nnoremap <Leader>cql :lclose<CR>
 
 " Trim Whitespace
 nnoremap tws :%s/\s\+$//<CR>
@@ -74,3 +86,16 @@ nnoremap tws :%s/\s\+$//<CR>
 " Close buffer
 nnoremap <C-c> :bd<cr>
 inoremap <C-c> <esc>:bd<cr>
+
+" ctrl+h to toggle search highlight.
+let hlstate=0
+nnoremap <c-h> <silent> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+
+" function s:OpenFinderCwd()
+"     let currentPath = getcwd()
+"     execute "!open " . currentPath
+" endfunction
+
+" Open macOS finder in the current working directory
+nnoremap <leader>of <silent> :!open %:h<cr>
+

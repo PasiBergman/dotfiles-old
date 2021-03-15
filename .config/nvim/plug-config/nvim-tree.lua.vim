@@ -2,6 +2,7 @@ let g:nvim_tree_side = 'left'
 let g:nvim_tree_width = 36
 let g:nvim_tree_ignore = ['.git', 'node_modules', '.cache']
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
 let g:nvim_tree_auto_ignore_ft = ['startify'] " empty by default, don't auto open tree on specific filetypes.
 let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
@@ -54,23 +55,23 @@ let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree 
 " let nvim_tree_disable_keybindings=1
 
 " default will show icon by default if no icon is provided
-" default shows no icon by default
+" default shows no icon by default '✗',
 let g:nvim_tree_icons = {
     \ 'default': '',
     \ 'symlink': '',
     \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★"
+    \   'unstaged':  '', 
+    \   'staged': '',
+    \   'unmerged': '',
+    \   'renamed': '',
+    \   'untracked': ''
     \   },
     \ 'folder': {
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
+    \   'default': '',
+    \   'open': '',
+    \   'empty': '',
+    \   'empty_open': '',
+    \   'symlink': '',
     \   }
     \ }
 "

@@ -7,18 +7,18 @@
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fi <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
-" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fF <cmd>lua require('telescope.builtin').file_browser()<cr>
 
 " Vim pickers
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>vb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>vf <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>vc <cmd>lua require('telescope.builtin').commands()<cr>
 nnoremap <leader>vh <cmd>lua require('telescope.builtin').command_history()<cr>
 nnoremap <leader>mp <cmd>lua require('telescope.builtin').man_pages()<cr>
 nnoremap <leader>vm <cmd>lua require('telescope.builtin').marks()<cr>
 nnoremap <leader>vC <cmd>lua require('telescope.builtin').colorscheme()<cr>
-nnoremap <leader>q <cmd>lua require('telescope.builtin').quickfix()<cr>
+nnoremap <leader>vq <cmd>lua require('telescope.builtin').quickfix()<cr>
 nnoremap <leader>vl <cmd>lua require('telescope.builtin').loclist()<cr>
 nnoremap <leader>vo <cmd>lua require('telescope.builtin').vim_options()<cr>
 nnoremap <leader>vr <cmd>lua require('telescope.builtin').registers()<cr>
@@ -44,6 +44,9 @@ nnoremap <leader>is <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " Treesitter Picker
 nnoremap <leader>tt <cmd>lua require('telescope.builtin').treesitter()<cr>
+
+" Ultisnips
+nnoremap <leader>vu <cmd>lua require('telescope').extensions.ultisnips.ultisnips{}<CR>
 
 " Custom searches
 nnoremap <Leader>fc <cmd>lua require('ts.extensions').search_dotfiles()<cr>

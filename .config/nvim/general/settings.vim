@@ -2,8 +2,8 @@ syntax enable                           " Enables syntax highlighting
 filetype plugin on                      " Enable filetype based configurations/mappings
 " set noerrorbells                        " Do not make noise. Disabled, because iTerm has visible bell option.
 " Tabs
-set tabstop=4 softtabstop=4             " Insert 2 spaces for a tab
-set shiftwidth=4                        " Change the number of space characters inserted for indentation
+set tabstop=2 softtabstop=2             " Insert 2 spaces for a tab
+set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set expandtab                           " Converts tabs to spaces
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set smartindent                         " Makes indenting smart
@@ -48,7 +48,7 @@ set showtabline=2                       " Always show tabs
 set scrolloff=8                         " Start screen scrolling when cursor is 8 rows from top/bottom
 " set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
-set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
+set signcolumn=yes:2                    " Allow 2 signs on the left side of the rownumbers. :help signcolumn
 set updatetime=300                      " Faster completion
 set timeoutlen=1000                     " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
@@ -60,9 +60,13 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set listchars=tab:▸\ ,trail:,precedes:←,extends:→,nbsp:␣  ",eol:↵'
 set list
 
-set langmenu=en_US
-let $LANG = 'en_US.UTF-8'
 language en_US.UTF-8
+set langmenu=en_US.UTF-8
+lang en_US
+"let $LANG=en_US
+set spelllang=en
+autocmd FileType text,markdown,txt,md setlocal spell
+
 " Normal mode map ö->[, ä->], Ö->{, Ä->} to make better use of Finnish keyboard layout
 set langmap=öäÖÄ;[]{}
 
@@ -72,4 +76,17 @@ let loaded_netrwPlugin = 1
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Always show matching parenthesis for (),[],{}
 autocmd FileTYpe * DoMatchParen
+
+" checks if your terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+if exists('$TMUX')
+  if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+endif
 

@@ -9,18 +9,14 @@ let g:rooter_silent_chdir = 0
 " How to identify a root directory
 " --------------------------------
 let g:rooter_patterns = [
+    \ '*.sln',
     \ '.git',
     \ '.zshrc',
+    \ '^.config',
+    \ 'init.lua',
     \ 'init.vim',
-    \ '*.sln',
     \ 'package.json',
     \ 'src',
-    \ '^.config',
-    \ '!=node_modules',
-    \ '!=bin',
-    \ '!=obj',
-    \ '!=plug-config',
-    \ '!=^plug-config'
     \ ]
 
 

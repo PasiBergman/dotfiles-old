@@ -37,14 +37,6 @@ let g:completion_chain_complete_list = {
     \   {'complete_items' : ['snippet']},
     \   {'mode' : 'cmd'}
     \],
-    \'python' : [
-    \   {'complete_items' : ['lsp','ts','snippet']},
-    \   {'complete_items' : ['buffers']}
-    \],
-    \'lua' : [
-    \   {'complete_items' : ['ts','snippet']},
-    \   {'complete_items' : ['buffers']}
-    \],
 \}
 "
 " switch to next or previous completion source

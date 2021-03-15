@@ -3,7 +3,7 @@
 PROJECT_DIR="$HOME/Code/Keva/oet-ui"
 SESSION_NAME="OET-UI"
 WINDOW_NAME="nvim"
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%207"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%208"
 
 TMUX_SESSIONS=`tmux list-sessions | grep $SESSION_NAME -c`
 

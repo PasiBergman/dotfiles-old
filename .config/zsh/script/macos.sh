@@ -21,6 +21,12 @@ alias view-pcap="tcpdump -s 0 -n -e -x -vvv -r /Users/pasi/Desktop/DumpFile01.pc
 # Colors
 alias ls="ls -G"
 
+# Temporary Neovim
+alias nvim="$HOME/bin/nvim-5/bin/nvim"
+alias vim="$HOME/bin/nvim-5/bin/nvim"
+alias vi="$HOME/bin/nvim-5/bin/nvim"
+alias v="$HOME/bin/nvim-5/bin/nvim"
+
 
 # ====================
 # Functions

@@ -12,6 +12,7 @@ local lspconfig = require 'lspconfig'
 
 -- Keybindings and completion
 -- See ':help lsp' for more details
+
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -20,21 +21,25 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
   buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>ld', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
@@ -49,10 +54,11 @@ local on_attach = function(client, bufnr)
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting{}")
   end
 
-  vim.fn.sign_define('LspDiagnosticsErrorSign', {text='', texthl='LspDiagnosticsError', linehl='LspDiagnosticsErrorLine', numhl='LspDiagnosticsErrorNum'})
-  vim.fn.sign_define('LspDiagnosticsWarningSign', {text='', texthl='LspDiagnosticsWarning', linehl='LspDiagnosticsWarningLine', numhl='LspDiagnosticsWarningNum'})
-  vim.fn.sign_define('LspDiagnosticsInformationSign', {text='', texthl='LspDiagnosticsInformation', linehl='LspDiagnosticsInformationLine', numhl='LspDiagnosticsInformationNum'})
-  vim.fn.sign_define('LspDiagnosticsHintSign', {text='', texthl='LspDiagnosticsHint', linehl='LspDiagnosticsHintLine', numhl='LspDiagnosticsHintNum'})
+  vim.fn.sign_define('LspDiagnosticsSignError', {text='', texthl='LspDiagnosticsSignError', linehl='LspDiagnosticsLineError', numhl='LspDiagnosticsNumError'})
+  vim.fn.sign_define('LspDiagnosticsSignWarning', {text='', texthl='LspDiagnosticsSignWarning', linehl='LspDiagnosticsLineWarning', numhl='LspDiagnosticsNumWarning'})
+  vim.fn.sign_define('LspDiagnosticsSignInformation', {text='', texthl='LspDiagnosticsSignInformation', linehl='LspDiagnosticsLineInformation', numhl='LspDiagnosticsNumInformation'})
+  vim.fn.sign_define('LspDiagnosticsSignHint', {text='', texthl='LspDiagnosticsSignHint', linehl='LspDiagnosticsLineHint', numhl='LspDiagnosticsNumHint'})
+
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -63,33 +69,42 @@ local on_attach = function(client, bufnr)
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
 
-      hi LspReferenceRead cterm=bold ctermbg=red guibg=#363630
-      hi LspReferenceText cterm=bold ctermbg=red guibg=#363630
-      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#363630
-      hi LspDiagnosticsError guifg=#ff4400 guibg=none
-      hi LspDiagnosticsErrorLine guifg=#ff4400 guibg=none
-      hi LspDiagnosticsErrorNum guifg=#ff4400 guibg=none
-      hi LspDiagnosticsWarning guifg=#674D00 guibg=none
-      hi LspDiagnosticsWarningLine guifg=#674D00 guibg=none
-      hi LspDiagnosticsWarningNum guifg=#674D00 guibg=none
-      hi LspDiagnosticsInformation guifg=#183380 guibg=none
-      hi LspDiagnosticsInfomrationLine guifg=#183380 guibg=none
-      hi LspDiagnosticsInformationNum guifg=#183380 guibg=none
-      hi LspDiagnosticsHint guifg=#484841 guibg=none
-      hi LspDiagnosticsHintLine guifg=#484841 guibg=none
-      hi LspDiagnosticsHintNum guifg=#484841 guibg=none
 
-      hi LspDiagnosticsVirtualTextError guifg=#ff4400 guibg=none
-      hi LspDiagnosticsFloatingError guifg=#ff4400 guibg=#2a2a2a
-      hi LspDiagnosticsSignError guifg=#ff4400 guibg=none
-      hi LspDiagnosticsDefaultWarning guifg=#ffbc53 guibg=none
-      hi LspDiagnosticsVirtualTextWarning guifg=#ffbc53 guibg=none
-      hi LspDiagnosticsFloatingWarning guifg=#ffbc53 guibg=#2a2a2a
-      hi LspDiagnosticsSignWarning guifg=# guibg=#ffbc53
-
+      " hi LspReferenceRead cterm=bold ctermbg=red guibg=#363630
+      " hi LspReferenceText cterm=bold ctermbg=red guibg=#363630
+      " hi LspReferenceWrite cterm=bold ctermbg=red guibg=#363630
     ]], false)
   end
 
+  vim.api.nvim_exec([[
+    hi LspDiagnosticsSignError guifg=#aa3300 guibg=none
+    hi LspDiagnosticsSignWarning guifg=#BF9345 guibg=none
+    hi LspDiagnosticsSignInformation guifg=#193BBF guibg=none
+    hi LspDiagnosticsSignHint guifg=#7F7F20 guibg=none
+
+    hi LspDiagnosticsUnderlineError gui=undercurl
+    hi LspDiagnosticsUnderlineWarning gui=undercurl
+    hi LspDiagnosticsUnderlineInformation gui=undercurl
+    " hi LspDiagnosticsUnderlineHint gui=undercurl
+
+    hi LspDiagnosticsVirtualTextError guifg=#ff4400 guibg=none
+    hi LspDiagnosticsVirtualTextWarning guifg=#ffbc53 guibg=none
+    hi LspDiagnosticsVirtualTextInformation guifg=#193BBF guibg=none
+    hi LspDiagnosticsVirtualTextHint guifg=#787878 guibg=none
+
+    hi LspDiagnosticsFloatingError guifg=#ff4400 guibg=#3f3f3f
+    hi LspDiagnosticsFloatingWarning guifg=#674D00 guibg=#3f3f3f
+    hi LspDiagnosticsFloatingInformation guifg=#183380 guibg=#3f3f3f
+    hi LspDiagnosticsFloatingHint guifg=#484841 guibg=#3f3f3f
+
+    " Format on save
+    " autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+    " autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+    " autocmd BufWritePre *.vue lua vim.lsp.buf.formatting_sync(nil, 100)
+    " autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 100)
+    " autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 100)
+
+  ]], false)
 
 end
 
@@ -185,6 +200,39 @@ lspconfig.vuels.setup {
   },
 }
 
+local sumneko_root_path = vim.fn.expand('$HOME/.cache/nvim/lua-language-server')
+local sumneko_binary = ""
+if vim.fn.has("mac") == 1 then
+  sumneko_binary = vim.fn.expand('~/.cache/nvim/lua-language-server/bin/macOS/lua-language-server')
+elseif vim.fn.has('unix') then
+  sumneko_binary = vim.fn.expand('~/.cache/nvim/lua-language-server/bin/Linux/lua-language-server')
+else
+  print('Unsupported system for sumneko (Lua Language Server).')
+end
+
+lspconfig.sumneko_lua.setup {
+  on_attach = on_attach,
+  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua'},
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = vim.split(package.path, ';')
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'}
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+      },
+    },
+  },
+}
+
 -- Diagnostics Language Server
 lspconfig.diagnosticls.setup{
   on_attach = on_attach,
@@ -195,7 +243,6 @@ lspconfig.diagnosticls.setup{
     'javascript',
     'javascriptreact',
     'json',
-    'lua',
     'markdown',
     'scss',
     'sh',
@@ -206,6 +253,7 @@ lspconfig.diagnosticls.setup{
     'yaml',
   },
   init_options = {
+    documentFormatting = true,
     linters = {
       eslint = {
         command = './node_modules/.bin/eslint',
@@ -332,7 +380,6 @@ lspconfig.diagnosticls.setup{
       javascript = 'eslint_d',
       javascriptreact = 'prettier',
       json = 'prettier',
-      lua = 'prettier',
       markdown = 'prettier',
       scss = 'stylelint',
       sh = 'shfmt',
@@ -344,4 +391,63 @@ lspconfig.diagnosticls.setup{
     },
   }
 }
+
+-- lspconfig.efm.setup {
+--   on_attach = on_attach,
+--   init_options = {
+--     documentFormatting = true
+--   },
+--   filetypes = {'lua'},
+--   settings = {
+--     rootMarkers = {'.git/','init.vim','init.lua'},
+--     languages = {
+--       lua = {
+--         {
+--           -- formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
+--           formatCommand = 'lua-format -i',
+--           formatStdin = true,
+--         },
+--       },
+--     },
+--   },
+-- }
+
+require('lspkind').init({
+    with_text = true,
+    symbol_map = {
+      Text = '',
+      Method = 'ƒ',
+      Function = '',
+      Constructor = '',
+      Variable = '',
+      Class = '',
+      Interface = 'ﰮ',
+      Module = '',
+      Property = '',
+      Unit = '',
+      Value = '',
+      Enum = '了',
+      Keyword = '',
+      Snippet = '﬌',
+      Color = '',
+      File = '',
+      Folder = '',
+      EnumMember = '',
+      Constant = '',
+      Struct = ''
+    },
+})
+
+
+-- When opening or saving file, or leaving insert mode => add linting errors to location list.
+vim.api.nvim_exec([[
+  fun! LspLocationList()
+    lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
+  endfun
+
+  augroup LSP_Location_List
+    autocmd!
+    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
+  augroup END
+]], false)
 

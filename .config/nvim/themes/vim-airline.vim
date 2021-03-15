@@ -28,14 +28,17 @@ let g:airline_powerline_fonts = 1
 " let g:airline_right_alt_sep = ''
 
 
-" let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z', 'warning', 'error']]
+" let g:airline#ex:tensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z', 'warning', 'error']]
 let g:airline_skip_empty_sections = 1
 
 " let g:airline_section_c = airline#section#create([''])
 " let g:airline_section_z = airline#section#create(['linenr'])
 
-" Switch to your current theme
-let g:airline_theme = 'minimalist'
+" Switch to your current them
+let g:airline_theme = 'base16_chalk'
+" let g:airline_theme = 'peaksea'
+" let g:airline_theme = 'base16_grayscale'
+" let g:airline_theme = 'minimalist'
 " let g:airline_theme = 'edge'
 " let g:airline_theme = 'base16_google'
 " let g:airline_theme = 'base16_default'

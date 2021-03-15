@@ -11,10 +11,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Closetags
   Plug 'alvan/vim-closetag'
   " Easier comments
-  Plug 'tomtom/tcomment_vim'
+  " Plug 'tomtom/tcomment_vim'
+  Plug 'b3nj5m1n/kommentary'
   " Remap . so that plugins can tap into it
   Plug 'tpope/vim-repeat'
- " Easymotion replacement
+  " Easymotion replacement
   Plug 'justinmk/vim-sneak'
   " Emmet for html
   Plug 'mattn/emmet-vim'
@@ -28,20 +29,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'kyazdani42/nvim-web-devicons'
   " Statusline
-  Plug 'vim-airline/vim-airline'
+  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+  " Tabline/Bufferline
+  Plug 'akinsho/nvim-bufferline.lua'
   " Themes/Colorschemes
-  " Plug 'joshdick/onedark.vim'
-  " Plug 'tomasiser/vim-code-dark'
   Plug 'christianchiarulli/nvcode-color-schemes.vim'
   Plug 'sainnhe/edge'
-  Plug 'vim-airline/vim-airline-themes'
   " OmniSharp for C# support for LSP/CoC
   Plug 'OmniSharp/omnisharp-vim'
-  " Fzf
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
-  Plug 'junegunn/fzf.vim'
-  Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
-  Plug 'stsewd/fzf-checkout.vim'
   " Telescope
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -50,9 +45,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-telescope/telescope-fzf-writer.nvim'
   " Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-node-modules.nvim'
+  Plug 'fhill2/telescope-ultisnips.nvim'
   " Git
   Plug 'tpope/vim-fugitive'
-  Plug 'mhinz/vim-signify'
+  " Plug 'mhinz/vim-signify'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'junegunn/gv.vim'
   Plug 'rhysd/git-messenger.vim'
   " Start Screen
@@ -70,7 +67,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Vimwiki
   Plug 'vimwiki/vimwiki'
   " Vue plugin
-  Plug 'posva/vim-vue'
+  " Plug 'posva/vim-vue'
   " Nvim sets the project root path
   Plug 'airblade/vim-rooter'
   " Snippets
@@ -100,6 +97,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rizzatti/dash.vim'
   endif
 
+  " Completion list icons
+  Plug 'onsails/lspkind-nvim'
 
 call plug#end()
 

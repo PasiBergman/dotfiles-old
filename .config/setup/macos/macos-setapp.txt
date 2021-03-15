@@ -1,3 +1,4 @@
+App Tamer.app
 Bartender.app
 Batteries.app
 CleanMyMac X.app
@@ -9,9 +10,11 @@ Expressions.app
 ForkLift.app
 Gitfox.app
 IconJar.app
+Marked.app
 News Explorer.app
 Numi.app
 OpenIn.app
+Paletro.app
 PixelSnap.app
 SSH Config Editor.app
 Sip.app
