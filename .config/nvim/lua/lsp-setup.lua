@@ -54,10 +54,10 @@ local on_attach = function(client, bufnr)
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting{}")
   end
 
-  vim.fn.sign_define('LspDiagnosticsSignError', {text='', texthl='LspDiagnosticsSignError', linehl='LspDiagnosticsLineError', numhl='LspDiagnosticsNumError'})
-  vim.fn.sign_define('LspDiagnosticsSignWarning', {text='', texthl='LspDiagnosticsSignWarning', linehl='LspDiagnosticsLineWarning', numhl='LspDiagnosticsNumWarning'})
-  vim.fn.sign_define('LspDiagnosticsSignInformation', {text='', texthl='LspDiagnosticsSignInformation', linehl='LspDiagnosticsLineInformation', numhl='LspDiagnosticsNumInformation'})
-  vim.fn.sign_define('LspDiagnosticsSignHint', {text='', texthl='LspDiagnosticsSignHint', linehl='LspDiagnosticsLineHint', numhl='LspDiagnosticsNumHint'})
+  vim.fn.sign_define('LspDiagnosticsSignError', {text='', texthl='LspDiagnosticsSignError', linehl='LspDiagnosticsLineError', numhl='LspDiagnosticsNumError'})
+  vim.fn.sign_define('LspDiagnosticsSignWarning', {text='𥉉', texthl='LspDiagnosticsSignWarning', linehl='LspDiagnosticsLineWarning', numhl='LspDiagnosticsNumWarning'})
+  vim.fn.sign_define('LspDiagnosticsSignInformation', {text='', texthl='LspDiagnosticsSignInformation', linehl='LspDiagnosticsLineInformation', numhl='LspDiagnosticsNumInformation'})
+  vim.fn.sign_define('LspDiagnosticsSignHint', {text='', texthl='LspDiagnosticsSignHint', linehl='LspDiagnosticsLineHint', numhl='LspDiagnosticsNumHint'})
 
 
   -- Set autocommands conditional on server_capabilities

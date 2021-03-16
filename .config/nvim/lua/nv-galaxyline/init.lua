@@ -5,7 +5,7 @@ local gls = gl.section
 
 local condition = require('galaxyline.condition')
 local is_git_workspace = condition.check_git_workspace
-local buffer_not_empty = condition.buffe_not_empty
+local buffer_not_empty = condition.buffer_not_empty
 local hide_in_width = condition.hide_in_width
 
 local fileinfo = require('galaxyline.provider_fileinfo')
@@ -20,19 +20,21 @@ local fileIconColor = fileinfo.get_file_icon_color
 local buffer = require('galaxyline.provider_buffer')
 local fileTypeName = buffer.get_buffer_filetype
 
+-- Trim beginning and end whitespace from string
 local trim_string = function(s)
    return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
 
-local filenameWithPath = function()
-  return vim.api.nvim_exec('echo @%', true)
-end
-
-
+-- Get file format and endconding
 local fileFormatEncode = function()
   local format = trim_string(string.lower(fileFormat()))
   local encode = trim_string(string.lower(fileEncode()))
   return format .. ' [' .. encode .. ']'
+end
+
+-- Get current filename relative to CWD
+local filenameWithPath = function()
+  return vim.api.nvim_exec('echo @%', true)
 end
 
 local colors = {
@@ -134,7 +136,7 @@ gls.left[3] ={
 gls.left[3] = {
   GitIcon = {
     provider = function() return '  ' end,
-    condition = is_git_workspace,
+    condition = function() return is_git_workspace() and hide_in_width() end,
     highlight = {colors.orange,colors.bg},
   }
 }
@@ -143,7 +145,7 @@ gls.left[4] = {
     provider = 'GitBranch',
     separator = ' ',
     separator_highlight = {colors.purple,colors.bg},
-    condition = is_git_workspace,
+    condition = function() return is_git_workspace() and hide_in_width() end,
     highlight = {colors.grey,colors.bg},
   }
 }
@@ -189,7 +191,7 @@ gls.left[8] = {
 gls.left[9] = {
   DiagnosticError = {
     provider = 'DiagnosticError',
-    icon = '  ',
+    icon = '  ',
     highlight = {colors.red,colors.bg}
   }
 }
@@ -201,35 +203,35 @@ gls.left[10] = {
 gls.left[11] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
-    icon = '  ',
+    icon = ' 𥉉 ',
     highlight = {colors.yellow,colors.bg},
   }
 }
 gls.left[12] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
-    icon = '   ',
+    icon = '  ',
     highlight = {colors.blue,colors.bg},
   }
 }
 gls.left[13] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
-    icon = '   ',
+    icon = '  ',
     highlight = {colors.orange,colors.bg},
   }
 }
 gls.right[1] ={
   FileIcon = {
     provider = 'FileIcon',
-    condition = condition.buffer_not_empty,
+    condition = function() return buffer_not_empty() and hide_in_width() end,
     highlight = {fileIconColor(),colors.bg},
   },
 }
 gls.right[2] ={
   FileName = {
     provider =  filenameWithPath,
-    condition = condition.buffer_not_empty,
+    condition = function() return buffer_not_empty() and hide_in_width() end,
     highlight = {colors.grey,colors.bg}
   },
 }
@@ -252,6 +254,7 @@ gls.right[3] = {
 gls.right[5]= {
   FileEncode = {
     provider =  fileFormatEncode,
+    condition = function() return buffer_not_empty() and hide_in_width() end,
     separator = ' | ',
     separator_highlight = {colors.darkblue,colors.bg},
     highlight = {colors.grey,colors.bg},
@@ -268,6 +271,7 @@ gls.right[6] = {
 gls.right[7] = {
   PerCent = {
     provider = 'LinePercent',
+    condition = hide_in_width,
     separator = ' | ',
     separator_highlight = {colors.darkblue,colors.bg},
     highlight = {colors.grey,colors.bg},
