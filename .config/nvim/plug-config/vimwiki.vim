@@ -19,6 +19,9 @@ let g:vimwiki_list = [ {'name': 'VimWiki', 'path': '~/VimWiki/', 'syntax': 'mark
             \ , {'name': 'Windows', 'path': '~/VimWiki/Computers/Windows', 'syntax': 'markdown', 'ext': '.md'}
             \ ]
 
+" Do not set md files as filetype=vimwiki globally.
+let g:vimwiki_global_ext = 0
+
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
     autocmd!

@@ -20,6 +20,7 @@ end
 
 lspconfig.sumneko_lua.setup {
   on_attach = common_on_attach,
+  root_dir = lspconfig.util.root_pattern('.git', 'nvim', 'init.vim', 'lua', 'root.mark'),
   cmd = {sumneko_binary, '-E', sumneko_root_path .. '/main.lua'},
   settings = {
     Lua = {

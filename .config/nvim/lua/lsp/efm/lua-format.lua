@@ -1,6 +1,6 @@
 local M = {
-  formatCommand = "lua-format -i --column-limit=100 --indent-width=2 --tab-width=2 --no-use-tab --align-args",
-  formatStdin = true
+  formatCommand = "lua-format -i --config=$HOME/.config/nvim/lua/lsp/efm/lua-format.cfg",
+  formatStdin = true,
 }
 
 return M

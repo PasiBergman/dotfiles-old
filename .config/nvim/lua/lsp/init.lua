@@ -29,7 +29,7 @@ vim.api.nvim_exec([[
 
 ]], false)
 
--- When opening or saving file, or leaving insert mode => add linting errors to location list.
+-- When leaving insert mode => add linting errors to location list.
 vim.api.nvim_exec([[
   fun! LspLocationList()
     lua vim.lsp.diagnostic.set_loclist({open_loclist = false})
@@ -37,7 +37,7 @@ vim.api.nvim_exec([[
 
   augroup LSP_Location_List
     autocmd!
-    autocmd! BufWrite,BufEnter,InsertLeave * :call LspLocationList()
+    autocmd! InsertLeave * :call LspLocationList()
   augroup END
 ]], false)
 
@@ -50,16 +50,8 @@ require('lsp.bashls')
 -- Load CSS Language Server configuration
 require('lsp.cssls')
 
-
--- Load Diagnostic Language Server configuration
--- Using efm-langserver instead
--- require('lsp.diagnosticls')
-
 -- Load Dockerfile Language Server configuration
 require('lsp.dockerls')
-
--- Load EFM Language Server configuration
-require('lsp.efmls')
 
 -- Load HTML Language Server configuration
 require('lsp.html')
@@ -77,7 +69,7 @@ require('lsp.omnisharp')
 require('lsp.pyright')
 
 -- SQL Language Server configuration
-require('lsp.sqlls')
+-- require('lsp.sqlls')
 
 -- Load TypeScript Language Server (tsserver) configuration
 require('lsp.tsserver')
@@ -90,4 +82,11 @@ require('lsp.vls')
 
 -- Load Yaml Language Server (yaml) configuration
 require('lsp.yaml')
+
+-----------------------------------------------
+-- Last but not least - general language server
+-----------------------------------------------
+
+-- Load EFM Language Server configuration
+require('lsp.efmls')
 
