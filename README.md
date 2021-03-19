@@ -1,6 +1,8 @@
 # dotfiles
 
-Collection of macOS/Linux configuration files.
+Collection of macOS/Linux configuration files, including Neovim (Nvim).
+
+IMPORTANT! Neovim configuration requires version 0.5+
 
 ## dotfiles installation
 
@@ -64,14 +66,15 @@ echo "alias dot='git --git-dir=$HOME/$DOTFILES_DIR/ --work-tree=$HOME'" >> $HOME
 Example:
 
 ```shell
+REPO_URL="git@github.com:PasiBergman/dotfiles.git"
 cd $HOME
 dot status
 dot add .config/nvim/init.vim
 dot commit -m "Add nvim configuration"
 dot add .zshrc
 dot commit -m "Add zshrc"
-dot pull
-dot push
+dot pull $REPO_URL
+dot push $REPO_URL
 ```
 
 ## Credits
