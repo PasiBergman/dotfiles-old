@@ -6,7 +6,7 @@ tap "isen-ng/dotnet-sdk-versions"
 brew "ack"
 brew "azure-cli"
 brew "bat"
-brew "efm-langserver"
+brew "efm-langserver", args: ["HEAD"]
 brew "python@3.9"
 brew "fd"
 brew "fzf"
@@ -16,6 +16,7 @@ brew "htop"
 brew "jq"
 brew "lazygit"
 brew "mas"
+brew "neovim", args: ["HEAD"]
 brew "ninja"
 brew "nmap"
 brew "nvm"
@@ -56,7 +57,7 @@ cask "paw"
 cask "pdf-expert"
 cask "setapp"
 cask "visual-studio-code"
-mas "1Blocker", id: 1107421413
+mas "1Blocker", id: 1365531024
 mas "1Password 7", id: 1333542190
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456

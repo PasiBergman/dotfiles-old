@@ -56,7 +56,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'mhinz/vim-startify'
   " Editor/Source code visualizers
   Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'Yggdroot/indentLine'
   " Emacs-like Which key. Leader keybinding helper
   Plug 'liuchengxu/vim-which-key'
   " Debugging
@@ -91,6 +90,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-lua/completion-nvim'
   Plug 'steelsojka/completion-buffers'
   Plug 'nvim-treesitter/completion-treesitter'
+
   " macOS plugins
   if has("mac")
     " Dash macOS app integration
@@ -102,22 +102,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 call plug#end()
 
-  " CoC
-  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   " ================================================================
   " Debug Adapter Protocol client implementation for Neovim (>=0.5)
   " https://github.com/mfussenegger/nvim-dap
   " ================================================================
   " Plug 'mfussenegger/nvim-dap'
 
+  " Plug 'Yggdroot/indentLine'
+
   " Floating window
   " Plug 'voldikss/vim-floaterm'
 
   " Plug 'nvim-telescope/telescope-z.nvim'
-
-  " Better Syntax Support
-  " Plug 'sheerun/vim-polyglot'
 
   " Swift - pull in changes to Apple's Sift Vim plugin
   " Plugin 'marcusglowe/vim-swift'

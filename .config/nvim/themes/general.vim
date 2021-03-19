@@ -56,4 +56,8 @@ highlight BufferLineIndicatorSelected guibg=#2D323B guifg=#5d4d7a
 highlight BufferLineFill guibg=#212121 guifg=#a2a2a2
 
 
+" Horizontal split separator
+highlight StatusLineNC guibg=#282c34
+" Vertical split separator
+highlight VertSplit guibg=#282c34
 

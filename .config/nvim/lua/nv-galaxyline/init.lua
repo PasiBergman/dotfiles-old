@@ -1,4 +1,3 @@
-
 local gl = require('galaxyline')
 local gls = gl.section
 -- gl.short_line_list = {'LuaTree','vista','dbui'}
@@ -37,8 +36,38 @@ local filenameWithPath = function()
   return vim.api.nvim_exec('echo @%', true)
 end
 
+-- Doesn't support listing multiple active clients
+-- local lspclient = require('galaxyline.provider_lsp')
+-- GetLspClient = lspclient.get_lsp_client
+
+-- Get LSP clients -
+local get_lsp_clients = function(msg, separator)
+  msg = msg or 'no active lsp'
+  separator = separator or ' '
+
+  -- Integrated condition for narrow window
+  if not hide_in_width() then return '' end
+
+  local buf_ft = vim.api.nvim_buf_get_option(0,'filetype')
+  local clients = vim.lsp.get_active_clients()
+  if next(clients) == nil then
+    return msg
+  end
+
+  local lsp_clients = ''
+  for _,client in ipairs(clients) do
+    local filetypes = client.config.filetypes
+    if filetypes and vim.fn.index(filetypes,buf_ft) ~= -1 then
+      lsp_clients = lsp_clients .. client.name .. separator
+    end
+  end
+  lsp_clients = trim_string(lsp_clients)
+  return lsp_clients or msg
+end
+
 local colors = {
-  bg = '#282c34',
+  -- bg = '#282c34',
+  bg = '#2c323c',
   yellow = '#fabd2f',
   cyan = '#008080',
   -- darkblue = '#081633',
@@ -166,7 +195,7 @@ gls.left[6] = {
     condition = hide_in_width,
     -- separator = ' ',
     -- separator_highlight = {colors.purple,colors.bg},
-    icon = '  ',
+    icon = ' l ', -- 
     highlight = {colors.blue,colors.bg},
   }
 }
@@ -195,11 +224,6 @@ gls.left[9] = {
     highlight = {colors.red,colors.bg}
   }
 }
-gls.left[10] = {
-  Space = {
-    provider = function () return '' end
-  }
-}
 gls.left[11] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
@@ -208,17 +232,25 @@ gls.left[11] = {
   }
 }
 gls.left[12] = {
+  DiagnosticInfo = {
+    provider = 'DiagnosticInfo',
+    icon = '  ',
+    highlight = {colors.orange,colors.bg},
+  }
+}
+gls.left[13] = {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
     icon = '  ',
     highlight = {colors.blue,colors.bg},
   }
 }
-gls.left[13] = {
-  DiagnosticInfo = {
-    provider = 'DiagnosticInfo',
-    icon = '  ',
-    highlight = {colors.orange,colors.bg},
+gls.mid[1] = {
+  ShowLspClient = {
+    provider = get_lsp_clients,
+    condition = get_lsp_clients,
+    icon = ' ', -- 
+    highlight = {colors.grey,colors.bg}
   }
 }
 gls.right[1] ={

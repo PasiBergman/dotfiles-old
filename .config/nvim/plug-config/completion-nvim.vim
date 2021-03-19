@@ -25,8 +25,8 @@ let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_chain_complete_list = {
     \'default' : {
     \   'default' : [
-    \        {'complete_items': ['lsp','ts','snippet']},
-    \        {'complete_items': ['buffers']},
+    \        {'complete_items': ['lsp','ts']},
+    \        {'complete_items': ['buffers','snippet']},
     \        {'mode': '<c-p>'},
     \        {'mode': '<c-n>'},
     \   ],
@@ -34,17 +34,17 @@ let g:completion_chain_complete_list = {
     \   'string' : []
     \},
     \'vim' : [
-    \   {'complete_items' : ['snippet']},
+    \   {'complete_items' : ['buffers', 'snippet']},
     \   {'mode' : 'cmd'}
     \],
 \}
 "
 " switch to next or previous completion source
-imap <c-n> <Plug>(completion_next_source)
-imap <c-p> <Plug>(completion_prev_source)
+imap <c-j> <Plug>(completion_next_source)
+imap <c-k> <Plug>(completion_prev_source)
 
 " turn on auto changing sources by
-" let g:completion_auto_change_source = 1
+let g:completion_auto_change_source = 1
 
 " These should be defaults
 " let g:completion_enable_auto_popup = 1
