@@ -34,8 +34,8 @@ source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/keys/mappings.vim
 
-luafile $HOME/.config/nvim/lua/nv-galaxyline/init.lua
-luafile $HOME/.config/nvim/lua/nv-bufferline/init.lua
+luafile $HOME/.config/nvim/lua/galaxyline-cfg/init.lua
+luafile $HOME/.config/nvim/lua/bufferline-cfg/init.lua
 
 source $HOME/.config/nvim/plug-config/auto-pairs.vim
 source $HOME/.config/nvim/plug-config/completion-nvim.vim
@@ -60,14 +60,14 @@ source $HOME/.config/nvim/plug-config/vimwiki.vim
 source $HOME/.config/nvim/themes/nvcode-color-schemes.vim
 source $HOME/.config/nvim/themes/edge.vim
 
-luafile $HOME/.config/nvim/lua/plug-colorizer.lua
-luafile $HOME/.config/nvim/lua/treesitter-config.lua
-luafile $HOME/.config/nvim/lua/ts/config.lua
-luafile $HOME/.config/nvim/lua/ts/node-modules-config.lua
-luafile $HOME/.config/nvim/lua/ts/fzy-native-config.lua
-luafile $HOME/.config/nvim/lua/ts/extensions.lua
-luafile $HOME/.config/nvim/lua/nv-gitsigns/init.lua
-luafile $HOME/.config/nvim/lua/nv-kommentary/init.lua
+luafile $HOME/.config/nvim/lua/colorizer-cfg/init.lua
+luafile $HOME/.config/nvim/lua/treesitter-cfg/init.lua
+luafile $HOME/.config/nvim/lua/telescope-cfg/init.lua
+luafile $HOME/.config/nvim/lua/telescope-cfg/node-modules-config.lua
+luafile $HOME/.config/nvim/lua/telescope-cfg/fzy-native-config.lua
+luafile $HOME/.config/nvim/lua/telescope-cfg/extensions.lua
+luafile $HOME/.config/nvim/lua/gitsigns-cfg/init.lua
+luafile $HOME/.config/nvim/lua/kommentary-cfg/init.lua
 
 source $HOME/.config/nvim/plug-config/telescope.vim
 

@@ -33,10 +33,6 @@ let g:completion_chain_complete_list = {
     \   'comment' : [],
     \   'string' : []
     \},
-    \'vim' : [
-    \   {'complete_items' : ['buffers', 'snippet']},
-    \   {'mode' : 'cmd'}
-    \],
 \}
 "
 " switch to next or previous completion source

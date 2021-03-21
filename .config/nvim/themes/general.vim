@@ -51,7 +51,8 @@ highlight BufferLineBufferSelected guibg=#2D323B guifg=#fafafa gui=bold
 highlight BufferLineDuplicateSelected guibg=#2D323B guifg=#fafafa gui=bold
 highlight BufferLineModifiedSelected guibg=#2D323B guifg=#D49C83 gui=bold
 highlight BufferLineErrorSelected guibg=#2D323B guifg=#ff9900
-highlight BufferLineWarningSelected guibg=#2D323B guifg=#ff9900
+" highlight BufferLineWarningSelected guibg=#2D323B guifg=#ff9900
+highlight BufferLineWarningSelected guibg=#2D323B guifg=#fafafa gui=bold
 highlight BufferLineIndicatorSelected guibg=#2D323B guifg=#5d4d7a
 highlight BufferLineFill guibg=#212121 guifg=#a2a2a2
 

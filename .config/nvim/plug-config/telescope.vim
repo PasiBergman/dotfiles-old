@@ -49,5 +49,5 @@ nnoremap <leader>tt <cmd>lua require('telescope.builtin').treesitter()<cr>
 nnoremap <leader>vu <cmd>lua require('telescope').extensions.ultisnips.ultisnips{}<CR>
 
 " Custom searches
-nnoremap <Leader>fc <cmd>lua require('ts.extensions').search_dotfiles()<cr>
-nnoremap <Leader>fv <cmd>lua require('ts.extensions').search_nvim()<cr>
+nnoremap <Leader>fc <cmd>lua require('telescope-cfg.extensions').search_dotfiles()<cr>
+nnoremap <Leader>fv <cmd>lua require('telescope-cfg.extensions').search_nvim()<cr>

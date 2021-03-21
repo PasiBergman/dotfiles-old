@@ -6,57 +6,56 @@ local M = {}
 M.common_on_attach = function(client, bufnr)
 
   -- Shortcut functions
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_opt(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Specify omnifunction complete function name
-  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  buf_opt("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   -- Buffer specific key mappings.
   local opts = { noremap = true, silent = true }
-  buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  buf_map("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  buf_map("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  buf_map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  buf_map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 
-  buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>",
-                 opts)
+  buf_map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  buf_map("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
-  buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  buf_map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
-  buf_set_keymap("n", "<leader>wa",
-                 "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<leader>wr",
-                 "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
-  buf_set_keymap("n", "<leader>wl",
-                 "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-                 opts)
+  buf_map("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
+          opts)
+  buf_map("n", "<leader>wr",
+          "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
+  buf_map("n", "<leader>wl",
+          "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+          opts)
 
-  buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  buf_set_keymap("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>",
-                 opts)
-  buf_set_keymap("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-                 opts)
-  buf_set_keymap("n", "<leader>ld",
-                 "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  buf_set_keymap("n", "<leader>ll",
-                 "<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>",
-                 opts)
+  buf_map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+
+  buf_map("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  buf_map("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+  buf_map("n", "<leader>d",
+          "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+  buf_map("n", "<leader>ll",
+          "<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>",
+          opts)
 
   -- Document formating key binndings if capability exists
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<CR>",
-                   opts)
-    print("LSP: Document formatting capability.")
+    buf_map("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    print("[" .. client.name .. "] Document formatting capability." )
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync{}")
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<leader>p",
-                   "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-    -- print('LSP: Document range formatting capability.')
+    buf_map("n", "<leader>rf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>",
+            opts)
+    print("[" .. client.name .. "] Document range formatting capability.")
     -- Format on save
-    -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.range_formatting{}")
+    -- vim.cmd("autocmd BufWritePre <buffer vim.lsp.buf.range_formatting{}")
+  else
+    -- print("[" .. client.name .. "] No document formatting capability.")
   end
 
   -- Sign column icons for diagnostic errors, warnings, info and hints.
@@ -79,7 +78,7 @@ M.common_on_attach = function(client, bufnr)
     numhl = "LspDiagnosticsNumInformation",
   })
   vim.fn.sign_define("LspDiagnosticsSignHint", {
-    text = "",
+    text = "",
     texthl = "LspDiagnosticsSignHint",
     linehl = "LspDiagnosticsLineHint",
     numhl = "LspDiagnosticsNumHint",
