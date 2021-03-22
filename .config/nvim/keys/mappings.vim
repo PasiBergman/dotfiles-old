@@ -39,6 +39,11 @@ xnoremap J :move '>+1<CR>gv-gv
 " nnoremap <C-k> <C-w>k
 " nnoremap <C-l> <C-w>l
 
+" Window resizing
+nnoremap = :resize +5<CR>
+nnoremap - :resize -5<CR>
+nnoremap <C-[> <silent> 10<C-w><
+nnoremap <C-\> <silent> 10<C-w>>
 
 " Terminal window navigation
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -89,7 +94,7 @@ inoremap <C-c> <esc>:bd<cr>
 
 " ctrl+h to toggle search highlight.
 let hlstate=0
-nnoremap <c-h> <silent> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+" nnoremap <c-h> <silent> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
 " function s:OpenFinderCwd()
 "     let currentPath = getcwd()

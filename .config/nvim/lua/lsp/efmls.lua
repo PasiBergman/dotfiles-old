@@ -8,7 +8,10 @@
 local lspconfig = require("lspconfig")
 local common_on_attach = require("lsp.common").common_on_attach
 local efm_on_attach = function(client, bufnr)
-  -- client.resolved_capabilities.document_formatting = true
+  -- Disable some capabilities
+  client.resolved_capabilities.goto_definition = false
+  client.resolved_capabilities.code_action = false
+
   common_on_attach(client, bufnr)
 end
 

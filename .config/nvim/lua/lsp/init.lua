@@ -53,6 +53,9 @@ require('lsp.cssls')
 -- Load Dockerfile Language Server configuration
 require('lsp.dockerls')
 
+-- Load EFM Language Server configuration
+require('lsp.efmls')
+
 -- Load HTML Language Server configuration
 require('lsp.html')
 
@@ -62,7 +65,7 @@ require('lsp.jsonls')
 -- Load Lua Language Server configuration
 require('lsp.luals')
 
--- Load C# Language Server configuration
+-- Load Omnisharp (C#) Language Server configuration
 require('lsp.omnisharp')
 
 -- Python Language Server configuration
@@ -86,7 +89,4 @@ require('lsp.yaml')
 -----------------------------------------------
 -- Last but not least - general language server
 -----------------------------------------------
-
--- Load EFM Language Server configuration
-require('lsp.efmls')
 

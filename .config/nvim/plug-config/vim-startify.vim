@@ -29,12 +29,12 @@ endfunction
 
 let g:startify_lists = [
         \ { 'type': 'dir',                      'header': ['   Current Directory '. getcwd()] },
-        \ { 'type': function('s:gitModified'),  'header': ['   Git modified']},
-        \ { 'type': function('s:gitUntracked'), 'header': ['   Git untracked']},
-        \ { 'type': 'sessions',                 'header': ['   Sessions']                     },
+        \ { 'type': function('s:gitModified'),  'header': ['   Git modified']                 },
+        \ { 'type': function('s:gitUntracked'), 'header': ['   Git untracked']                },
         \ { 'type': 'files',                    'header': ['   Files']                        },
+        \ { 'type': 'sessions',                 'header': ['   Sessions']                     },
         \ { 'type': 'bookmarks',                'header': ['   Bookmarks']                    },
-        \ { 'type': 'commands',                 'header': ['   Commands']       },
+        \ { 'type': 'commands',                 'header': ['   Commands']                     },
         \ ]
 
 

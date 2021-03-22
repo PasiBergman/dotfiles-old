@@ -1,6 +1,6 @@
 local gl = require("galaxyline")
 local gls = gl.section
--- gl.short_line_list = {'LuaTree','vista','dbui'}
+gl.short_line_list = {'NvimTree','vista'}
 
 local condition = require("galaxyline.condition")
 local is_git_workspace = condition.check_git_workspace
@@ -155,7 +155,7 @@ gls.left[1] = {
       vim.api.nvim_command("hi GalaxyViMode guibg=" ..
                                mode_color[vim.fn.mode()].bg .. " guifg=" ..
                                mode_color[vim.fn.mode()].fg)
-      return "   " .. mode_indicator[vim.fn.mode()] .. "  "
+      return "  " .. mode_indicator[vim.fn.mode()] .. " "
     end,
     separator = " ",
     separator_highlight = {
@@ -212,7 +212,7 @@ gls.left[5] = {
 gls.left[5] = {
   FileIcon = {
     provider = "FileIcon",
-    condition = function() return buffer_not_empty() end,
+    condition = function() return buffer_not_empty() and hide_in_width() end,
     highlight = { fileIconColor(), colors.bg },
   }
 }
@@ -235,6 +235,7 @@ gls.left[7] = {
 
 gls.left[8] = {
   DiffChangeInfo = {
+    condition = hide_in_width,
     provider = function() return get_git_changes() end,
     highlight = { colors.gray, colors.bg },
   },
@@ -242,6 +243,7 @@ gls.left[8] = {
 
 gls.left[9] = {
   LeftEnd = {
+    condition = hide_in_width,
     provider = function() return " " end,
     separator = " ",
     separator_highlight = { colors.purple, colors.bg },
@@ -251,6 +253,7 @@ gls.left[9] = {
 
 gls.right[1] = {
   DiagnosticError = {
+    condition = hide_in_width,
     provider = "DiagnosticError",
     icon = "  ",
     highlight = { colors.red, colors.bg },
@@ -258,6 +261,7 @@ gls.right[1] = {
 }
 gls.right[2] = {
   DiagnosticWarn = {
+    condition = hide_in_width,
     provider = "DiagnosticWarn",
     icon = " 𥉉",
     highlight = { colors.yellow, colors.bg },
@@ -265,6 +269,7 @@ gls.right[2] = {
 }
 gls.right[3] = {
   DiagnosticInfo = {
+    condition = hide_in_width,
     provider = "DiagnosticInfo",
     icon = "  ",
     highlight = { colors.gray, colors.bg },
@@ -272,6 +277,7 @@ gls.right[3] = {
 }
 gls.right[4] = {
   DiagnosticHint = {
+    condition = hide_in_width,
     provider = "DiagnosticHint",
     icon = "  ",
     highlight = { colors.gray, colors.bg },
@@ -287,6 +293,7 @@ gls.right[5] = {
 }
 gls.right[6] = {
   BufferType = {
+    condition = hide_in_width,
     provider = function() return string.lower(fileTypeName()) end,
     separator = " | ",
     separator_highlight = { colors.darkblue, colors.bg },

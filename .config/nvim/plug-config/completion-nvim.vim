@@ -43,7 +43,7 @@ imap <c-k> <Plug>(completion_prev_source)
 let g:completion_auto_change_source = 1
 
 " These should be defaults
-" let g:completion_enable_auto_popup = 1
-" let g:completion_enable_auto_hover = 1
-" let g:completion_enable_auto_signature = 1
+let g:completion_enable_auto_popup = 1
+let g:completion_enable_auto_hover = 1
+let g:completion_enable_auto_signature = 1
 

@@ -56,6 +56,7 @@ source $HOME/.config/nvim/plug-config/vim-startify.vim
 source $HOME/.config/nvim/plug-config/vim-surround.vim
 source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/plug-config/vimwiki.vim
+source $HOME/.config/nvim/plug-config/vista.vim
 
 source $HOME/.config/nvim/themes/nvcode-color-schemes.vim
 source $HOME/.config/nvim/themes/edge.vim

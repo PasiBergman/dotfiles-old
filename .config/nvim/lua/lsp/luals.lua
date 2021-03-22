@@ -8,6 +8,11 @@
 local lspconfig = require('lspconfig')
 local common_on_attach = require('lsp.common').common_on_attach
 
+--[[
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
+ ]]
+
 local sumneko_root_path = vim.fn.expand('$HOME/.cache/nvim/lua-language-server')
 local sumneko_binary = ""
 if vim.fn.has("mac") == 1 then
@@ -30,6 +35,7 @@ lspconfig.sumneko_lua.setup {
         -- Setup your lua path
         path = vim.split(package.path, ';')
       },
+      -- snippetSupport = true,
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = {'vim'}

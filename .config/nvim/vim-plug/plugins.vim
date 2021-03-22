@@ -78,6 +78,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   " Yank highlight
   Plug 'machakann/vim-highlightedyank'
+  " Vista
+  Plug 'liuchengxu/vista.vim'
 
   " -------------------------------------
   " Nvim-Treesitter
