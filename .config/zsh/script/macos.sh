@@ -115,14 +115,15 @@ packages-install () {
     SETUP_FOLDER="$HOME/.config/setup/macos"
     [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
     echo ""
-    echo "Installing Homebrew apps"
-    brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
-    echo ""
-    echo "Installing Mac App Store apps:"
-    while read p; do
-        grep $p $SETUP_FOLDER/macos-mas-list.txt
-        mas install $p
-    done <<< $(awk '{print $1}' $SETUP_FOLDER/macos-mas-list.txt)
+    # echo "Installing Homebrew apps"
+    # brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
+    # echo ""
+    # echo "Installing Mac App Store apps:"
+    while read -r p; do
+        grep "$p" "$SETUP_FOLDER/macos-mas-list.txt"
+        echo "$p"
+        mas install "$p"
+      done <<< $(awk '{print $1}' "$SETUP_FOLDER/macos-mas-list.txt")
 }
 
 packages-cleanup () {

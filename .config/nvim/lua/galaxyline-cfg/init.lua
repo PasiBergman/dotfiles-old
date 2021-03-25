@@ -1,6 +1,9 @@
 local gl = require("galaxyline")
 local gls = gl.section
-gl.short_line_list = {'NvimTree','vista'}
+gl.short_line_list = { "NvimTree", "vista" }
+
+-- Icons
+--    柳      
 
 local condition = require("galaxyline.condition")
 local is_git_workspace = condition.check_git_workspace
@@ -38,15 +41,17 @@ local get_git_changes = function()
 
   if not add_nr and not mod_nr and not rem_nr then return diffs end
 
-  local add_icon = "+"
-  local mod_icon = "~"
-  local rem_icon = "-"
+
+  local add_icon = " " -- "+"
+  local mod_icon = " " -- "~"
+  local rem_icon = " " -- "-"
 
   if add_nr then diffs = diffs .. add_icon .. trim_string(add_nr) .. " " end
   if rem_nr then diffs = diffs .. rem_icon .. trim_string(rem_nr) .. " " end
   if mod_nr then diffs = diffs .. mod_icon .. trim_string(mod_nr) .. " " end
 
-  return "[" .. trim_string(diffs) .. "]"
+  -- return "[" .. trim_string(diffs) .. "]"
+  return "  " .. trim_string(diffs)
 end
 
 -- Get file format and endconding
@@ -97,7 +102,7 @@ local colors = {
   orange = "#AA8800",
   purple = "#5d4d7a",
   magenta = "#d16d9e",
-  grey = "#c0c0c0",
+  grey = "#909080",
   blue = "#569CD6",
   red = "#D16969",
   textlight = "#d7d7d7",
@@ -186,7 +191,7 @@ gls.left[3] = {
     provider = "DiffAdd",
     condition = hide_in_width,
     icon = "  ",
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 
@@ -195,7 +200,7 @@ gls.left[4] = {
     provider = "DiffModified",
     condition = hide_in_width,
     icon = "  ",
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 
@@ -204,7 +209,7 @@ gls.left[5] = {
     provider = "DiffRemove",
     condition = hide_in_width,
     icon = "  ",
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 ]]
@@ -214,7 +219,7 @@ gls.left[5] = {
     provider = "FileIcon",
     condition = function() return buffer_not_empty() and hide_in_width() end,
     highlight = { fileIconColor(), colors.bg },
-  }
+  },
 }
 
 gls.left[6] = {
@@ -237,7 +242,7 @@ gls.left[8] = {
   DiffChangeInfo = {
     condition = hide_in_width,
     provider = function() return get_git_changes() end,
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 
@@ -272,7 +277,7 @@ gls.right[3] = {
     condition = hide_in_width,
     provider = "DiagnosticInfo",
     icon = "  ",
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 gls.right[4] = {
@@ -280,7 +285,7 @@ gls.right[4] = {
     condition = hide_in_width,
     provider = "DiagnosticHint",
     icon = "  ",
-    highlight = { colors.gray, colors.bg },
+    highlight = { colors.grey, colors.bg },
   },
 }
 gls.right[5] = {

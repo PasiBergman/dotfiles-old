@@ -21,6 +21,11 @@ require'nvim-treesitter.configs'.setup({
     },
   },
 
+  -- nvim-ts-context-commentstring
+  -- context_commentstring = {
+  --  enable = true
+  -- },
+
   indent = {
     enable = true
   },

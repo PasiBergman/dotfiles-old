@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Easier comments
   " Plug 'tomtom/tcomment_vim'
   Plug 'b3nj5m1n/kommentary'
+  " Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   " Remap . so that plugins can tap into it
   Plug 'tpope/vim-repeat'
   " Easymotion replacement

@@ -42,10 +42,15 @@ M.common_on_attach = function(client, bufnr)
           "<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>",
           opts)
 
+  if client.resolved_capabilities.code_action then
+    buf_map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    print("[" .. client.name .. "] Code actions enabled (ga).")
+  end
+
   -- Document formating key binndings if capability exists
   if client.resolved_capabilities.document_formatting then
     buf_map("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    print("[" .. client.name .. "] Document formatting capability." )
+    print("[" .. client.name .. "] Document formatting capability.")
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync{}")
   elseif client.resolved_capabilities.document_range_formatting then
@@ -99,6 +104,9 @@ M.common_on_attach = function(client, bufnr)
       hi LspReferenceWrite cterm=bold ctermbg=red guibg=#424242
     ]], false)
   end
+
+  -- print(client.name)
+  -- print(vim.inspect(client.resolved_capabilities))
 
 end
 

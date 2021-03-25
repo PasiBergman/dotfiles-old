@@ -101,6 +101,15 @@ let hlstate=0
 "     execute "!open " . currentPath
 " endfunction
 
-" Open macOS finder in the current working directory
-nnoremap <leader>of <silent> :!open %:h<cr>
+if has('mac')
+  " Open macOS finder in the current working directory
+  nnoremap <leader>oF :!open %:h<cr>
+  " Open current file with default application
+  nnoremap <leader>of :!open %<cr>
+else
+  " Open current working directory in Linux
+  nnoremap <leader>oF :!xdg-open %:h<cr>
+  " Open current file with default Linux application
+  nnoremap <leader>of :!xdg-open %<cr>
+endif
 

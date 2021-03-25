@@ -37,10 +37,11 @@ export EDITOR=nvim
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
 export ASPNETCORE_ENVIRONMENT=Local
-export DOTNET_ROOT=$HOME/.dotnet
+# export DOTNET_ROOT=$HOME/.dotnet
+export DOTNET_ROOT="/usr/local/share/dotnet"
 export VSCODE=code
 # Node & Nvm
-export NODE_VERSION="14.15.5"
+export NODE_VERSION="14.16.0"
 export NVM_DIR="$HOME/.nvm"
 # Manual
 export MANPAGER="nvim +Man!"
@@ -76,7 +77,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 export _Z_CMD="z"  # in .bashrc/.zshrc to change the command (default z).
 export _Z_DATA="$HOME/.cache/.z"
 if [[ "$(uname)" == "Darwin" ]] || [[ "$(uname -n)" == "lakka" ]]; then
-    export _Z_OWNER="pbe"
+    export _Z_OWNER="pasi"
 else
     export _Z_OWNER="pasi"
 fi

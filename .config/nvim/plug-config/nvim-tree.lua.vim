@@ -60,11 +60,11 @@ let g:nvim_tree_icons = {
     \ 'default': '',
     \ 'symlink': '',
     \ 'git': {
-    \   'unstaged':  '', 
-    \   'staged': '',
+    \   'unstaged':  '',
+    \   'staged': '',
     \   'unmerged': '',
     \   'renamed': '',
-    \   'untracked': ''
+    \   'untracked': ''
     \   },
     \ 'folder': {
     \   'default': '',
@@ -74,6 +74,10 @@ let g:nvim_tree_icons = {
     \   'symlink': '',
     \   }
     \ }
+
+    " \   'unstaged':  '',
+    " \   'staged': '',
+    " \   'untracked': ''
 "
 nnoremap <C-e> :NvimTreeToggle<CR>
 " nnoremap <leader>r :NvimTreeRefresh<CR>
