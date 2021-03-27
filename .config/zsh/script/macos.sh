@@ -21,6 +21,9 @@ alias view-pcap="tcpdump -s 0 -n -e -x -vvv -r /Users/pasi/Desktop/DumpFile01.pc
 # Colors
 alias ls="ls -G"
 
+alias azure-access="$HOME/.config/zsh/script/azure-access-grant.sh"
+alias azure-access-pasi="$HOME/.config/zsh/script/azure-access-pasi.sh"
+
 # Temporary Neovim
 # alias nvim="$HOME/bin/nvim-5/bin/nvim"
 # alias vim="$HOME/bin/nvim-5/bin/nvim"
@@ -70,7 +73,7 @@ safarihistory() {
 
 # Change directory usig fd and fzf
 zf() {
-    cd $HOME && \
+    cd "$HOME" && \
         cd "$(fd -t d --max-depth 10 | fzf --preview='tree -L 1 {}' --bind='space:toggle-preview' --preview-window=:hidden)" && \
         echo "$PWD" && \
         tree -L 1
@@ -78,12 +81,12 @@ zf() {
 
 packages() {
     SETUP_FOLDER="$HOME/.config/setup/macos"
-    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+    [ -d "$SETUP_FOLDER" ] || mkdir -p "$SETUP_FOLDER"
 
-    brew bundle dump --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt --force
+    brew bundle dump --file="$SETUP_FOLDER/macos-brew-bundle-dump.txt" --force
     echo "Brew bundle dump"
     echo "----------------------------------------------"
-    cat $SETUP_FOLDER/macos-brew-bundle-dump.txt
+    cat "$SETUP_FOLDER/macos-brew-bundle-dump.txt"
     # echo ""
     # echo "List of brew bundle dump"
     # echo "----------------------------------------------"
@@ -113,7 +116,7 @@ packages() {
 
 packages-install () {
     SETUP_FOLDER="$HOME/.config/setup/macos"
-    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+    [ -d "$SETUP_FOLDER" ] || mkdir -p "$SETUP_FOLDER"
     echo ""
     # echo "Installing Homebrew apps"
     # brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
@@ -128,9 +131,10 @@ packages-install () {
 
 packages-cleanup () {
     SETUP_FOLDER="$HOME/.config/setup/macos"
-    [ -d "$SETUP_FOLDER" ] || mkdir -p $SETUP_FOLDER
+    [ -d "$SETUP_FOLDER" ] || mkdir -p "$SETUP_FOLDER"
 
-    brew bundle cleanup --file $SETUP_FOLDER/macos-brew-bundle-dump.txt --verbose
-    read -s -k '?Press any key to continue with uninstallation or ctrl-c to stop.'
-    brew bundle cleanup --file $SETUP_FOLDER/macos-brew-bundle-dump.txt --verbose --force
+    brew bundle cleanup --file "$SETUP_FOLDER/macos-brew-bundle-dump.txt" --verbose
+    read -s -k -r '?Press any key to continue with uninstallation or ctrl-c to stop.'
+    brew bundle cleanup --file "$SETUP_FOLDER/macos-brew-bundle-dump.txt" --verbose --force
 }
+

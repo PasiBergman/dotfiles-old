@@ -1,0 +1,9 @@
+From: from@address.dom
+To: to@address.dom
+Subject: Testmail-1
+
+Hi,
+
+This is a test mail with skandinavian characters åäöÅÄÖ.
+
+//Tester

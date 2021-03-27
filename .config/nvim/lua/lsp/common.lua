@@ -44,19 +44,19 @@ M.common_on_attach = function(client, bufnr)
 
   if client.resolved_capabilities.code_action then
     buf_map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    print("[" .. client.name .. "] Code actions enabled (ga).")
+    -- print("[" .. client.name .. "] Code actions enabled (ga).")
   end
 
   -- Document formating key binndings if capability exists
   if client.resolved_capabilities.document_formatting then
     buf_map("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    print("[" .. client.name .. "] Document formatting capability.")
+    -- print("[" .. client.name .. "] Document formatting capability.")
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync{}")
   elseif client.resolved_capabilities.document_range_formatting then
     buf_map("n", "<leader>rf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>",
             opts)
-    print("[" .. client.name .. "] Document range formatting capability.")
+    -- print("[" .. client.name .. "] Document range formatting capability.")
     -- Format on save
     -- vim.cmd("autocmd BufWritePre <buffer vim.lsp.buf.range_formatting{}")
   else

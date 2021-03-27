@@ -1,6 +1,8 @@
 local gl = require("galaxyline")
 local gls = gl.section
+local lsp_utils = require("galaxyline-cfg.lsp-utils")
 gl.short_line_list = { "NvimTree", "vista" }
+local trim_string = lsp_utils.trim_string
 
 -- Icons
 --    柳      
@@ -28,11 +30,14 @@ local vcs = require("galaxyline.provider_vcs")
 -- diffmodified = vcs.diff_modified,   -- support vim-gitgutter vim-signify gitsigns
 -- diffremove = vcs.diff_remove,
 
--- Trim beginning and end whitespace from string
-local trim_string = function(s) return (s:gsub("^%s*(.-)%s*$", "%1")) end
-
 local get_git_changes = function()
   if not is_git_workspace() then return "" end
+
+  local add_icon = " " -- "+"
+  local mod_icon = " " -- "~"
+  local rem_icon = " " -- "-"
+  local r_prepend = "  " -- " ["
+  local r_append = "" -- "]"
 
   local diffs = ""
   local add_nr = vcs.diff_add()
@@ -41,17 +46,11 @@ local get_git_changes = function()
 
   if not add_nr and not mod_nr and not rem_nr then return diffs end
 
-
-  local add_icon = " " -- "+"
-  local mod_icon = " " -- "~"
-  local rem_icon = " " -- "-"
-
   if add_nr then diffs = diffs .. add_icon .. trim_string(add_nr) .. " " end
   if rem_nr then diffs = diffs .. rem_icon .. trim_string(rem_nr) .. " " end
   if mod_nr then diffs = diffs .. mod_icon .. trim_string(mod_nr) .. " " end
 
-  -- return "[" .. trim_string(diffs) .. "]"
-  return "  " .. trim_string(diffs)
+  return r_prepend .. trim_string(diffs) .. r_append
 end
 
 -- Get file format and endconding
@@ -70,6 +69,9 @@ local filenameWithPath =
 local get_lsp_clients = function(msg, separator)
   msg = msg or ""
   separator = separator or " "
+  local formatter = " " -- 
+  local linter = " ﮒ " -- "暈"
+  local code_action = " "
 
   -- Integrated condition for narrow window
   if not hide_in_width() then return "" end
@@ -78,12 +80,55 @@ local get_lsp_clients = function(msg, separator)
   local clients = vim.lsp.get_active_clients()
   if next(clients) == nil then return msg end
 
-  local lsp_clients = "" -- Could use a table, but I won't.
+  local my_lsps = {
+    bashls = "Bash-ls",
+    cssls = "Css-ls",
+    dockerls = "Docker-ls",
+    efm = "Efm-ls",
+    jsonls = "Json-ls",
+    omnisharp = "OmniSharp",
+    pyright = "Python-ls ",
+    sumneko_lua = "Lua-ls",
+    tsserver = "TypeScript-ls",
+    vimls = "Vim-ls",
+    vuels = "Vue-ls",
+    yamlls = "Yaml-ls",
+  }
+  local lsp_clients = ""
   for _, client in ipairs(clients) do
     local filetypes = client.config.filetypes
     if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-      if not string.find(lsp_clients, client.name) then
-        lsp_clients = lsp_clients .. client.name .. separator
+      local ls = my_lsps[client.name] or client.name
+      local formatterCommand = ""
+      local linterCommand = ""
+      if client.name == "efm" then
+        formatterCommand = lsp_utils.get_efm_command(client, buf_ft,
+                                                     "formatCommand")
+        linterCommand = lsp_utils.get_efm_command(client, buf_ft, "lintCommand")
+        if linterCommand ~= "" and linterCommand == formatterCommand then
+          linterCommand = linterCommand .. formatter
+          formatterCommand = ""
+        end
+      end
+      if client.resolved_capabilities.document_formatting or
+          client.resolved_capabilities.document_range_formatting then
+        if formatterCommand ~= "" or linterCommand ~= "" then
+          ls = ""
+          if formatterCommand ~= "" then
+            ls = formatterCommand .. formatter .. " "
+          end
+          if linterCommand ~= "" then
+            ls = ls .. linterCommand .. linter
+          end
+        else
+          ls = ls .. formatter
+        end
+      end
+      if client.resolved_capabilities.code_action then
+        ls = ls .. code_action
+      end
+      if not string.find(lsp_clients, ls) then
+        lsp_clients = lsp_clients .. ls .. separator
       end
     end
   end
@@ -185,35 +230,6 @@ gls.left[2] = {
   },
 }
 
---[[
-gls.left[3] = {
-  DiffAdd = {
-    provider = "DiffAdd",
-    condition = hide_in_width,
-    icon = "  ",
-    highlight = { colors.grey, colors.bg },
-  },
-}
-
-gls.left[4] = {
-  DiffModified = {
-    provider = "DiffModified",
-    condition = hide_in_width,
-    icon = "  ",
-    highlight = { colors.grey, colors.bg },
-  },
-}
-
-gls.left[5] = {
-  DiffRemove = {
-    provider = "DiffRemove",
-    condition = hide_in_width,
-    icon = "  ",
-    highlight = { colors.grey, colors.bg },
-  },
-}
-]]
-
 gls.left[5] = {
   FileIcon = {
     provider = "FileIcon",
@@ -292,7 +308,7 @@ gls.right[5] = {
   ShowLspClient = {
     provider = get_lsp_clients,
     condition = get_lsp_clients,
-    icon = "歷", --  
+    icon = "", --  歷
     highlight = { colors.grey, colors.bg },
   },
 }
