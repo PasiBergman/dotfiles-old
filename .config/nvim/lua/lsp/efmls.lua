@@ -15,7 +15,7 @@ local efm_on_attach = function(client, bufnr)
   common_on_attach(client, bufnr)
 end
 
--- Formatting via efm
+-- Formatting and linting via efm
 local eslint = require("lsp.efm.eslint")
 local lua_format = require("lsp.efm.lua-format")
 local eslint_prettier = require("lsp.efm.eslint-prettier")
@@ -39,10 +39,10 @@ local languages = {
 }
 
 lspconfig.efm.setup {
-  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json",
+  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json",
                                          "vue.config.js", ".eslintrc.js",
                                          ".eslintrc.json", ".git", "root.mark",
-                                         "lua", "nvim"),
+                                         "nvim"),
   filetypes = vim.tbl_keys(languages),
   init_options = { documentFormatting = true, codeAction = true },
   settings = { languages = languages, log_level = 1, log_file = "~/efm.log" },

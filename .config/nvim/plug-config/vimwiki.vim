@@ -22,9 +22,18 @@ let g:vimwiki_list = [ {'name': 'Wiki', 'path': '~/Documents/Wiki/', 'syntax': '
 " Do not set md files as filetype=vimwiki globally.
 let g:vimwiki_global_ext = 0
 
+
+nnoremap <leader>wD :VimwikiDiaryIndex<CR>
+nnoremap <leader>wd :VimwikiMakeDiaryNote<CR>
+nnoremap <leader>wy :VimwikiMakeYesterdayDiaryNote<CR>
+nnoremap <leader>wt :VimwIkiMakeTomorrowDiaryNote<CR>
+
+autocmd FileType vimwiki nnoremap <buffer> t :VimwikiToggleListItem<CR>
+
 command! Diary VimwikiDiaryIndex
 augroup vimwikigroup
     autocmd!
     " automatically update links on read diary
     autocmd BufRead,BufNewFile diary.wiki VimwikiDiaryGenerateLinks
 augroup end
+

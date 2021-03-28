@@ -25,7 +25,7 @@ end
 
 lspconfig.sumneko_lua.setup {
   on_attach = common_on_attach,
-      root_dir = lspconfig.util.root_pattern('.git', 'nvim', 'init.vim', 'lua', 'root.mark'),
+      root_dir = lspconfig.util.root_pattern('.git', 'nvim', 'init.vim'),
     cmd = {sumneko_binary, '-E', sumneko_root_path .. '/main.lua'},
   settings = {
     Lua = {
@@ -45,7 +45,9 @@ lspconfig.sumneko_lua.setup {
         library = {
           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-        }
+        },
+        maxPreload = 10000,
+        preloadFileSize= 200,
       }
     }
   }

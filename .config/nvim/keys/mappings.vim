@@ -113,3 +113,6 @@ else
   nnoremap <leader>of :!xdg-open %<cr>
 endif
 
+" Terminal
+nnoremap <C-t> :terminal<CR>
+

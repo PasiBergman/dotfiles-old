@@ -11,6 +11,14 @@ M.search_nvim = function()
   builtin.find_files({ prompt_title = "< Nvim >", cwd = "$HOME/.config/nvim" })
 end
 
+M.search_wiki = function()
+  builtin.find_files({ prompt_title = "< Wiki >", cwd = "$HOME/Documents/Wiki" })
+end
+
+M.grep_wiki = function()
+  builtin.live_grep({ prompt_title = "< Wiki grep >", cwd = "$HOME/Documents/Wiki" })
+end
+
 M.fzf_dotfiles = function()
   builtin.find_files({ prompt_title = "< Dotfiles >", cwd = "$HOME/.config/" })
 end

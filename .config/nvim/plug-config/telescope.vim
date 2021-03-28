@@ -51,3 +51,5 @@ nnoremap <leader>vu <cmd>lua require('telescope').extensions.ultisnips.ultisnips
 " Custom searches
 nnoremap <Leader>fc <cmd>lua require('telescope-cfg.extensions').search_dotfiles()<cr>
 nnoremap <Leader>fv <cmd>lua require('telescope-cfg.extensions').search_nvim()<cr>
+nnoremap <Leader>fw <cmd>lua require('telescope-cfg.extensions').search_wiki()<cr>
+nnoremap <Leader>fW <cmd>lua require('telescope-cfg.extensions').grep_wiki()<cr>

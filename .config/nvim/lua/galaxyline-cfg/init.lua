@@ -1,12 +1,10 @@
 local gl = require("galaxyline")
 local gls = gl.section
-local lsp_utils = require("galaxyline-cfg.lsp-utils")
+local gl_utils = require("galaxyline-cfg.utils")
 gl.short_line_list = { "NvimTree", "vista" }
-local trim_string = lsp_utils.trim_string
+local trim_string = gl_utils.trim_string
 
 -- Icons
---    柳      
-
 local condition = require("galaxyline.condition")
 local is_git_workspace = condition.check_git_workspace
 local buffer_not_empty = condition.buffer_not_empty
@@ -64,75 +62,27 @@ end
 local filenameWithPath =
     function() return vim.api.nvim_exec("echo @%", true) end
 
--- Get LSP clients -
--- The build int function does not support multiple clients
-local get_lsp_clients = function(msg, separator)
-  msg = msg or ""
-  separator = separator or " "
-  local formatter = " " -- 
-  local linter = " ﮒ " -- "暈"
-  local code_action = " "
+-- Get information about active LSP clients
+-- The builtin function does not support multiple clients
+-- nor detecting any capabilities
+local get_lsp_info = function()
+  local msg = ""
 
-  -- Integrated condition for narrow window
-  if not hide_in_width() then return "" end
+  -- Integrated condition for narrow window, i.e. hide this
+  -- information if the window is less than 40 characters wide
+  if not require("galaxyline.condition").hide_in_width() then return "" end
 
+  -- Get filetype
   local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+  -- Get active LSP clients
   local clients = vim.lsp.get_active_clients()
+  -- If there are no active LSP clients -> return msg
   if next(clients) == nil then return msg end
 
-  local my_lsps = {
-    bashls = "Bash-ls",
-    cssls = "Css-ls",
-    dockerls = "Docker-ls",
-    efm = "Efm-ls",
-    jsonls = "Json-ls",
-    omnisharp = "OmniSharp",
-    pyright = "Python-ls ",
-    sumneko_lua = "Lua-ls",
-    tsserver = "TypeScript-ls",
-    vimls = "Vim-ls",
-    vuels = "Vue-ls",
-    yamlls = "Yaml-ls",
-  }
-  local lsp_clients = ""
-  for _, client in ipairs(clients) do
-    local filetypes = client.config.filetypes
-    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-      local ls = my_lsps[client.name] or client.name
-      local formatterCommand = ""
-      local linterCommand = ""
-      if client.name == "efm" then
-        formatterCommand = lsp_utils.get_efm_command(client, buf_ft,
-                                                     "formatCommand")
-        linterCommand = lsp_utils.get_efm_command(client, buf_ft, "lintCommand")
-        if linterCommand ~= "" and linterCommand == formatterCommand then
-          linterCommand = linterCommand .. formatter
-          formatterCommand = ""
-        end
-      end
-      if client.resolved_capabilities.document_formatting or
-          client.resolved_capabilities.document_range_formatting then
-        if formatterCommand ~= "" or linterCommand ~= "" then
-          ls = ""
-          if formatterCommand ~= "" then
-            ls = formatterCommand .. formatter .. " "
-          end
-          if linterCommand ~= "" then
-            ls = ls .. linterCommand .. linter
-          end
-        else
-          ls = ls .. formatter
-        end
-      end
-      if client.resolved_capabilities.code_action then
-        ls = ls .. code_action
-      end
-      if not string.find(lsp_clients, ls) then
-        lsp_clients = lsp_clients .. ls .. separator
-      end
-    end
-  end
-  lsp_clients = trim_string(lsp_clients)
+  -- Get list of active LSPs with capability icons
+  -- Optional arguments for separator character and icons
+  local lsp_clients = require("galaxyline-cfg.utils").get_active_lsp_info(clients, buf_ft)
+
   return lsp_clients or msg
 end
 
@@ -200,7 +150,7 @@ gls.left[1] = {
         rm = "rm",
         ["r?"] = "r?",
         ["!"] = "!",
-        t = "t",
+        t = "Terminal",
       }
       vim.api.nvim_command("hi GalaxyViMode guibg=" ..
                                mode_color[vim.fn.mode()].bg .. " guifg=" ..
@@ -306,8 +256,8 @@ gls.right[4] = {
 }
 gls.right[5] = {
   ShowLspClient = {
-    provider = get_lsp_clients,
-    condition = get_lsp_clients,
+    provider = get_lsp_info,
+    condition = get_lsp_info,
     icon = "", --  歷
     highlight = { colors.grey, colors.bg },
   },
