@@ -57,7 +57,12 @@ set list
 
 language en_US.UTF-8
 set langmenu=en_US.UTF-8
+<<<<<<< HEAD
 lang en_US
+||||||| parent of dc68b3b (lang=en_US.UTF-8)
+lang en_US
+"let $LANG=en_US
+lang en_US.UTF-8
 set spelllang=en
 autocmd FileType text,markdown setlocal spell
 autocmd FileType text,markdown setlocal wrap
