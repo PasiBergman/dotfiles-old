@@ -1,6 +1,7 @@
 --
 -- lspkind plugin configuration
 --
+--[[
 require("lspkind").init({
   with_text = true,
   symbol_map = {
@@ -27,3 +28,4 @@ require("lspkind").init({
     Variable = "",
   },
 })
+]]

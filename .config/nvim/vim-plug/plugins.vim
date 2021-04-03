@@ -6,18 +6,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-  " Auto pairs for '(' '[' '{' etc.
-   Plug 'jiangmiao/auto-pairs'
   " Closetags
   Plug 'alvan/vim-closetag'
-  " Easier comments
-  " Plug 'tomtom/tcomment_vim'
+  " Code commenting
   Plug 'b3nj5m1n/kommentary'
   " Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   " Remap . so that plugins can tap into it
   Plug 'tpope/vim-repeat'
-  " Easymotion replacement
-  Plug 'justinmk/vim-sneak'
+  " Nvim (lua) easymotion replacement
+  Plug 'phaazon/hop.nvim'
   " Emmet for html
   Plug 'mattn/emmet-vim'
   " Surround
@@ -32,11 +29,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Statusline
   Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
   " Tabline/Bufferline
-  Plug 'akinsho/nvim-bufferline.lua'
+  Plug 'romgrk/barbar.nvim'
   " Themes/Colorschemes
   Plug 'christianchiarulli/nvcode-color-schemes.vim'
   Plug 'sainnhe/edge'
-  " OmniSharp for C# support for LSP/CoC
+  " OmniSharp for C# support (and installation)
   Plug 'OmniSharp/omnisharp-vim'
   " Telescope
   Plug 'nvim-lua/popup.nvim'
@@ -44,64 +41,44 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
   Plug 'nvim-telescope/telescope-fzf-writer.nvim'
-  " Plug 'nvim-telescope/telescope-vimspector.nvim'
   Plug 'nvim-telescope/telescope-node-modules.nvim'
-  Plug 'fhill2/telescope-ultisnips.nvim'
+  " Plug 'nvim-telescope/telescope-vimspector.nvim'
   " Git
   Plug 'tpope/vim-fugitive'
-  " Plug 'mhinz/vim-signify'
   Plug 'lewis6991/gitsigns.nvim'
-  Plug 'junegunn/gv.vim'
-  Plug 'rhysd/git-messenger.vim'
   " Start Screen
   Plug 'mhinz/vim-startify'
   " Editor/Source code visualizers
   Plug 'norcalli/nvim-colorizer.lua'
-  " Emacs-like Which key. Leader keybinding helper
-  Plug 'liuchengxu/vim-which-key'
   " Debugging
   Plug 'puremourning/vimspector'
   Plug 'szw/vim-maximizer'
+  " Better Quickfix window
+  Plug 'kevinhwang91/nvim-bqf'
   " Visualize undo paths/tree
   Plug 'mbbill/undotree'
   " Vimwiki
   Plug 'vimwiki/vimwiki'
-  " Vue plugin
-  " Plug 'posva/vim-vue'
   " Nvim sets the project root path
   Plug 'airblade/vim-rooter'
   " Snippets
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  " Plug 'jvanja/vim-bootstrap4-snippets'
-
+  Plug 'fhill2/telescope-ultisnips.nvim'
   " Nvim tree
   Plug 'kyazdani42/nvim-tree.lua'
-  " Yank highlight
-  Plug 'machakann/vim-highlightedyank'
   " Vista
   Plug 'liuchengxu/vista.vim'
-
-  " -------------------------------------
   " Nvim-Treesitter
-  " -------------------------------------
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  " -------------------------------------
   " Language Server Protocol config (LSP)
-  " -------------------------------------
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
-  Plug 'steelsojka/completion-buffers'
-  Plug 'nvim-treesitter/completion-treesitter'
-
-  " macOS plugins
-  if has("mac")
-    " Dash macOS app integration
-    Plug 'rizzatti/dash.vim'
-  endif
-
-  " Completion list icons
-  Plug 'onsails/lspkind-nvim'
+  " Completion
+  " Plug 'nvim-lua/completion-nvim'
+  " Plug 'steelsojka/completion-buffers'
+  " Plug 'nvim-treesitter/completion-treesitter'
+  " Plug 'onsails/lspkind-nvim'
+  Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
 
@@ -111,21 +88,25 @@ call plug#end()
   " ================================================================
   " Plug 'mfussenegger/nvim-dap'
 
-  " Plug 'Yggdroot/indentLine'
+  " Vue plugin
+  " Plug 'posva/vim-vue'
+
+  " macOS plugins
+  " if has("mac")
+    " Dash macOS app integration
+    " Plug 'rizzatti/dash.vim'
+  " endif
 
   " Floating window
   " Plug 'voldikss/vim-floaterm'
 
   " Plug 'nvim-telescope/telescope-z.nvim'
 
-  " Swift - pull in changes to Apple's Sift Vim plugin
-  " Plugin 'marcusglowe/vim-swift'
-
   " HTML/CSS live server
   " Plug 'turbio/bracey.vim'
 
-  " Snippets
-  " Plug 'honza/vim-snippets'
-
   " Cheatsheet (https://cht.sh) integration
   " Plug 'dbeniamine/cheat.sh-vim'
+
+  " Emacs-like Which key. Leader keybinding helper
+  " Plug 'liuchengxu/vim-which-key'

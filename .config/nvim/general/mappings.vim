@@ -116,3 +116,22 @@ endif
 " Terminal
 nnoremap <C-t> :terminal<CR>
 
+" Sort
+vnoremap <leader>s <Esc>:sort<CR>
+
+" Auto pairs
+imap "" ""<Esc>i
+imap '' ''<Esc>i
+imap (( ()<Esc>i
+imap \[\[ \[\]<Esc>i
+imap {{ {}<Esc>i
+
+" Generate UUID
+nnoremap <leader>id :read !uuidgen<esc>k :join<esc>
+
+" Make F1 as an extra esc key instead of help.
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+

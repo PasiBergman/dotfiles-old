@@ -23,6 +23,9 @@ nnoremap gdl :diffget //3<CR>
 " Update the screen after each get
 nnoremap <leader>gu :diffupdate<CR>
 
+" git fetch --all
+nnoremap <leader>if :Git fetch --all<CR>
+
 " After finished, make sure that you are on the center pane/window
 " <Ctrl-W>o => "(This) Window only"
 

@@ -5,10 +5,10 @@
 --
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#vimls
 -- ----------------------------------------------------------------------------
+local lspconfig = require("lspconfig")
+local common_on_attach = require("lsp.common").common_on_attach
 
-local lspconfig = require('lspconfig')
-local common_on_attach = require('lsp.common').common_on_attach
-
-lspconfig.vimls.setup{
+lspconfig.vimls.setup {
   on_attach = common_on_attach,
+  root_dir = lspconfig.util.root_pattern(".git", "init.vim", "root.mark"),
 }

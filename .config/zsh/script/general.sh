@@ -4,15 +4,15 @@
 
 b64() {
     echo "$1 base64 encoded:"
-    echo -n $1 | base64
+    echo -n "$1" | base64
 }
 b64d() {
     echo "$1 decoded from base64:"
-    echo -n $1 | base64 -D
+    echo -n "$1" | base64 -D
 }
 
 sha256() {
-    /usr/bin/shasum -a 256 $1
+    /usr/bin/shasum -a 256 "$1"
 }
 
 # =====================
@@ -39,7 +39,7 @@ alias historyfzf="history 0 | fzf"
 alias fzfhistory="history 0 | fzf"
 alias fzfhist="history 0 | fzf"
 batfz() {
-    bat `fd -t file | fzf`
+    bat "$( fd -t file | fzf )"
 }
 
 # dotnet
@@ -48,3 +48,17 @@ alias dotnetclean="find . -name bin -exec rm -R -f {} \; 2>/dev/null && find . -
 # Lazygit
 alias lazygit="lazygit -ucd $HOME/.config/lazygit"
 alias lg="lazygit -ucd $HOME/.config/lazygit"
+
+# fzh
+source "$HOME/.config/zsh/script/fzh.sh"
+# fzd
+source "$HOME/.config/zsh/script/fzd.sh"
+
+# Show terminal 256 color map
+terminal-colors () {
+    for i in {0..255}
+    do
+        print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}
+    done
+}
+

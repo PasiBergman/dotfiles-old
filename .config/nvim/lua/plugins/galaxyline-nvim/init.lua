@@ -1,6 +1,6 @@
 local gl = require("galaxyline")
 local gls = gl.section
-local gl_utils = require("galaxyline-cfg.utils")
+local gl_utils = require("plugins.galaxyline-nvim.utils")
 gl.short_line_list = { "NvimTree", "vista" }
 local trim_string = gl_utils.trim_string
 
@@ -81,7 +81,7 @@ local get_lsp_info = function()
 
   -- Get list of active LSPs with capability icons
   -- Optional arguments for separator character and icons
-  local lsp_clients = require("galaxyline-cfg.utils").get_active_lsp_info(clients, buf_ft)
+  local lsp_clients = gl_utils.get_active_lsp_info(clients, buf_ft)
 
   return lsp_clients or msg
 end
@@ -288,7 +288,7 @@ gls.right[8] = {
     highlight = { colors.grey, colors.bg },
   },
 }
-gls.right[9] = {
+--[[ gls.right[9] = {
   PerCent = {
     provider = "LinePercent",
     condition = hide_in_width,
@@ -296,4 +296,4 @@ gls.right[9] = {
     separator_highlight = { colors.darkblue, colors.bg },
     highlight = { colors.grey, colors.bg },
   },
-}
+} ]]

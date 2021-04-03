@@ -70,14 +70,11 @@ end
 M.get_formatter_command = function()
   if is_prettier_config() then
     if is_local_prettier() then
-      print("Document formatter: local Prettier")
       return M.prettier_local_command
     else
-      print("Document formatter: local Prettier")
       return M.prettier_global_command
     end
   elseif is_eslint_config() then
-    print("Document formatter: global eslint_d")
     return M.eslint_d_command
   else
     print_result(true, "Could not find formatter command.", "")

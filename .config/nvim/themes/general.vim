@@ -62,3 +62,5 @@ highlight StatusLineNC guibg=#282c34
 " Vertical split separator
 highlight VertSplit guibg=#282c34
 
+" Hop highlights
+highlight HopNextKey gui=bold,underline guifg=#00aaff
