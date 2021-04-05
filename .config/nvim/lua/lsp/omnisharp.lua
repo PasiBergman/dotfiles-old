@@ -14,5 +14,6 @@ local pid = vim.fn.getpid()
 local omnisharp_bin = vim.fn.expand("~/.cache/omnisharp-vim/omnisharp-roslyn/run")
 lspconfig.omnisharp.setup{
   on_attach = common_on_attach,
+  root_dir = lspconfig.util.root_pattern(".sln",".git"),
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 }

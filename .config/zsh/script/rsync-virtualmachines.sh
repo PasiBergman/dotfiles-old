@@ -67,6 +67,7 @@ echo "$(date '+%Y-%m-%d %H:%M:%S') : Connected to ${DestHost}." >> $LOG_FILE
 BackupVM "Windows 10 2004"
 BackupVM "Debian 10"
 BackupVM "Arch Linux"
+BackupVM "Arch Awesome"
 # BackupVM "Debian 8 x64"
 
 echo "$(date '+%Y-%m-%d %H:%M:%S') : rsync-virtualmachines.sh run completed." >> $LOG_FILE
