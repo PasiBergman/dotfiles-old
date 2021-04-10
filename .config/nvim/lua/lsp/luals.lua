@@ -13,14 +13,14 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
  ]]
 
-local sumneko_root_path = vim.fn.expand("$HOME/.cache/lua-language-server")
+local sumneko_root_path = ""
 local sumneko_binary = ""
 if vim.fn.has("mac") == 1 then
-  sumneko_binary = vim.fn.expand(
-                       "~/.cache/lua-language-server/bin/macOS/lua-language-server")
-elseif vim.fn.has("unix") then
-  sumneko_binary = vim.fn.expand(
-                       "~/.cache/lua-language-server/bin/Linux/lua-language-server")
+  sumneko_binary = vim.fn.expand('~/.cache/lua-language-server/bin/macOS/lua-language-server')
+  sumneko_root_path = vim.fn.expand('$HOME/.cache/lua-language-server')
+elseif vim.fn.has('unix') then
+  sumneko_binary = vim.fn.expand('/usr/bin/lua-language-server')
+  sumneko_root_path = vim.fn.expand('/usr/share/lua-language-server')
 else
   print("Unsupported system for sumneko (Lua Language Server).")
 end
