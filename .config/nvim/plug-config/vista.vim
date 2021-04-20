@@ -1,6 +1,6 @@
 let g:vista_default_executive = 'nvim_lsp'
 
-nnoremap <C-v> :Vista!!<CR>
+nnoremap <leader>v :Vista!!<CR>
 
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 

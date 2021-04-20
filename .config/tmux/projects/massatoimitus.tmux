@@ -5,7 +5,7 @@ SESSION_NAME="Massatoimitus"
 WINDOW1_NAME="nvim"
 WINDOW2_NAME="lazygit"
 
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_49"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_50"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 

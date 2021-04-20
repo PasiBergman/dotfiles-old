@@ -38,11 +38,11 @@ function BackupVM() {
 }
 
 IFS='@'
-read -a -r DestHostArr1 <<< "$DestInfo"
+read -a DestHostArr1 <<< "$DestInfo"
 DestUser="${DestHostArr1[0]}"
 DestHost="${DestHostArr1[1]}"
 IFS=':'
-read -a -r DestHostArr2 <<< "$DestHost"
+read -a DestHostArr2 <<< "$DestHost"
 DestHost="${DestHostArr2[0]}"
 DestPath="${DestHostArr2[1]}"
 

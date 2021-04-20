@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Themes/Colorschemes
   Plug 'christianchiarulli/nvcode-color-schemes.vim'
   Plug 'sainnhe/edge'
+  Plug 'glepnir/zephyr-nvim'
   " OmniSharp for C# support (and installation)
   Plug 'OmniSharp/omnisharp-vim'
   " Telescope
@@ -79,6 +80,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'nvim-treesitter/completion-treesitter'
   " Plug 'onsails/lspkind-nvim'
   Plug 'hrsh7th/nvim-compe'
+  Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
 

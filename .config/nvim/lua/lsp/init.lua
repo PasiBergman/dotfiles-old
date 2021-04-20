@@ -5,10 +5,10 @@ vim.api.nvim_exec([[
   hi LspDiagnosticsSignInformation guifg=#193BBF guibg=none
   hi LspDiagnosticsSignHint guifg=#7F7F20 guibg=none
 
-  hi LspDiagnosticsUnderlineError gui=undercurl
-  hi LspDiagnosticsUnderlineWarning gui=undercurl
-  hi LspDiagnosticsUnderlineInformation gui=undercurl
-  " hi LspDiagnosticsUnderlineHint gui=undercurl
+  hi LspDiagnosticsUnderlineError gui=underline
+  hi LspDiagnosticsUnderlineWarning gui=underline
+  hi LspDiagnosticsUnderlineInformation gui=underline
+  " hi LspDiagnosticsUnderlineHint gui=underline
 
   hi LspDiagnosticsVirtualTextError guifg=#ff4400 guibg=none
   hi LspDiagnosticsVirtualTextWarning guifg=#ffbc53 guibg=none

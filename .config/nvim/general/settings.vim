@@ -92,3 +92,5 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
+" Remove line numbers in terminal
+autocmd TermOpen * setlocal nonumber norelativenumber

@@ -15,7 +15,8 @@ syntax on
 
 " Select colorscheme and background (dark or light)
 set background=dark
-colorscheme nvcode
+" colorscheme nvcode
+colorscheme edge
 
 hi CursorLine ctermbg=52 guibg=#282828
 hi CursorColumn ctermbg=52 guibg=#282828

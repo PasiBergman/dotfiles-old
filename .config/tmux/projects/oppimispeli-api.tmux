@@ -4,7 +4,7 @@ PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.WebAPI"
 SESSION_NAME="Peli-API"
 WINDOW1_NAME="nvim"
 WINDOW2_NAME="lazygit"
-DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2012"
+DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2013"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 

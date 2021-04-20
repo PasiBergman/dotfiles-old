@@ -19,10 +19,26 @@ M.common_on_attach = function(client, bufnr)
   buf_map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   buf_map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 
-  buf_map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  -- Lsp finder (Saga)
+  buf_map("n", "<leader>lfd",
+          "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
+  -- Hover (Saga)
+  buf_map("n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",
+          opts)
+  buf_map("n", "<C-f>",
+          "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+          opts)
+  buf_map("n", "<C-b>",
+          "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+          opts)
+  -- buf_map("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+
   buf_map("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 
-  buf_map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  -- Lsp signature (Saga)
+  buf_map("n", "<C-k>",
+          "<cmd>lua require('lspsaga.signaturehelp').signature_help()", opts)
+  -- buf_map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
   buf_map("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
           opts)
@@ -32,19 +48,42 @@ M.common_on_attach = function(client, bufnr)
           "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
           opts)
 
-  buf_map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  -- Lsp rename (Saga)
+  buf_map("n", "<leader>rn", "<cmd>lua require('lspsaga.rename').rename()<CR>",
+          opts)
+  -- buf_map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
-  buf_map("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  buf_map("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+  -- buf_map("n", "<C-p>", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+  buf_map("n", "[e", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+  -- buf_map("n", "<C-n>", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+  buf_map("n", "]e", ":Lspsaga diagnostic_jump_next<CR>", opts)
+  -- buf_map("n", "<leader>d", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
   buf_map("n", "<leader>d",
-          "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+          "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>",
+          opts)
+
   buf_map("n", "<leader>ll",
           "<cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist = false})<CR>",
           opts)
 
+  buf_map("n", "<C-f>",
+          "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+          opts)
+  buf_map("n", "<C-b>",
+          "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+          opts)
+
   if client.resolved_capabilities.code_action then
-    buf_map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    -- print("[" .. client.name .. "] Code actions enabled (ga).")
+    -- buf_map("n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    -- Using LSP Saga key bindings
+    buf_map("n", "ca", ":Lspsaga code_action<CR>", opts)
+    -- print("[" .. client.name .. "] Code actions enabled (ca).")
+  end
+  if client.resolved_capabilities.range_code_actions then
+    -- Using LSP Saga key bindings
+    buf_map("v", "ca",
+            ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>",
+            opts)
   end
 
   -- Document formating key binndings if capability exists

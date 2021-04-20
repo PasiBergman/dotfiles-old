@@ -117,7 +117,7 @@ endif
 nnoremap <C-t> :terminal<CR>
 
 " Sort
-vnoremap <leader>s <Esc>:sort<CR>
+vnoremap <leader>s :sort<CR>
 
 " Auto pairs
 imap "" ""<Esc>i

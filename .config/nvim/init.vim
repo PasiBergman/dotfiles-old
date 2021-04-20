@@ -40,6 +40,7 @@ luafile $HOME/.config/nvim/lua/plugins/gitsigns-nvim/init.lua
 luafile $HOME/.config/nvim/lua/plugins/kommentary/init.lua
 luafile $HOME/.config/nvim/lua/plugins/hop-nvim/init.lua
 luafile $HOME/.config/nvim/lua/plugins/nvim-bqf/init.lua
+luafile $HOME/.config/nvim/lua/plugins/lspsaga-nvim/init.lua
 
 " Initialize language server(s)
 luafile $HOME/.config/nvim/lua/lsp/init.lua

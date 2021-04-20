@@ -1,5 +1,5 @@
 let g:nvim_tree_side = 'left'
-let g:nvim_tree_width = 36
+let g:nvim_tree_width = 42
 let g:nvim_tree_ignore = ['.git', 'node_modules', '.cache']
 let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
