@@ -125,6 +125,7 @@ imap '' ''<Esc>i
 imap (( ()<Esc>i
 imap \[\[ \[\]<Esc>i
 imap {{ {}<Esc>i
+imap << <><Esc>i
 
 " Generate UUID
 nnoremap <leader>id :read !uuidgen<esc>k :join<esc>

@@ -16,7 +16,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
     tmux new-session -s $SESSION_NAME -n $WINDOW1_NAME -c "$PROJECT_DIR" \; \
         attach-session -t . -c "$PROJECT_DIR" \; \
         send-keys "cd $PROJECT_DIR && $WINDOW1_NAME" C-m \; \
-        split-window -v -p 15 \; \
+        split-window -v -p 20 \; \
         send-keys 'clear && git fetch --all' C-m \; \
         send-keys 'npm run serve' C-m \; \
         split-window -h -p 50 \; \
@@ -24,6 +24,8 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         send-keys 'dotnet watch --project src/Skylla.BE.API run' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
         send-keys "$WINDOW2_NAME" C-m \; \
+        split-window -v -p 40 \; \
+        send-keys 'xplr' C-m \; \
         select-window -t "$WINDOW1_NAME" \; \
         select-pane -t 0 \;
 else

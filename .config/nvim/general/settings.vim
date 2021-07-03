@@ -71,7 +71,7 @@ let loaded_netrwPlugin = 1
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Always show matching parenthesis for (),[],{}
-autocmd FileTYpe * DoMatchParen
+autocmd FileTYpe typescript,javascript,text,markdown,shell,vim,lua,cs,html,vue DoMatchParen
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
@@ -88,9 +88,9 @@ endif
 
 " Flash the yanked content
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+   autocmd!
+   autocmd TextYankPost typescript,javascript,text,markdown,shell,vim,lua,cs,html,vue silent! lua require'vim.highlight'.on_yank()
 augroup END
 
 " Remove line numbers in terminal
-autocmd TermOpen * setlocal nonumber norelativenumber
+" autocmd TermOpen * setlocal nonumber norelativenumber

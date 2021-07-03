@@ -17,9 +17,9 @@ let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree 
 "     \ 'folders': 1,
 "     \ 'files': 1,
 "     \ }
-"If 0, do not show the icons for one of 'git' 'folder' and 'files'
-"1 by default, notice that if 'files' is 1, it will only display
-"if nvim-web-devicons is installed and on your runtimepath
+" If 0, do not show the icons for one of 'git' 'folder' and 'files'
+" 1 by default, notice that if 'files' is 1, it will only display
+" if nvim-web-devicons is installed and on your runtimepath
 
 " You can edit keybindings be defining this variable
 " You don't have to define all keys.
@@ -80,8 +80,8 @@ let g:nvim_tree_icons = {
     " \   'untracked': ''
 "
 nnoremap <C-e> :NvimTreeToggle<CR>
-" nnoremap <leader>r :NvimTreeRefresh<CR>
-" nnoremap <leader>n :NvimTreeFindFile<CR>
+nnoremap <leader>tr :NvimTreeRefresh<CR>
+nnoremap <leader>tf :NvimTreeFindFile<CR>
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
 " set termguicolors " this variable must be enabled for colors to be applied properly

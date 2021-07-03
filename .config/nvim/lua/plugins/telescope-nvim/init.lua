@@ -30,7 +30,7 @@ require("telescope").setup {
     selection_strategy = "reset",
     layout_strategy = "flex",
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    layout_defaults = {
+    layout_config = {
       horizontal = { mirror = false },
       vertical = { mirror = false },
     },
@@ -45,7 +45,6 @@ require("telescope").setup {
     },
 
     set_env = { ["COLORTERM"] = "truecolor" },
-    prompt_position = "bottom",
     prompt_prefix = "> ",
     selection_caret = "> ",
     entry_prefix = " ",

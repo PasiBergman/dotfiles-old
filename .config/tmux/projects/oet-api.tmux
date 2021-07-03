@@ -24,6 +24,8 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         send-keys 'npm run serve' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
         send-keys "$WINDOW2_NAME" C-m \; \
+        split-window -v -p 40 \; \
+        send-keys 'xplr' C-m \; \
         select-window -t "$WINDOW1_NAME" \; \
         select-pane -t 0 \;
 else
