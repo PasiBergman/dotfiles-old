@@ -1,5 +1,5 @@
 # Path
-export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin:$PATH"
 
 # Localization
 export LC_CTYPE="en_US.UTF-8"

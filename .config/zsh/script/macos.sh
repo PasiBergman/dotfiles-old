@@ -112,6 +112,14 @@ packages() {
     echo "----------------------------------------------"
     python3 -m pip list --format freeze | tee "${SETUP_FOLDER}/macos-python3-pip.txt"
     echo ""
+    echo "List of Lua packages (luarocks)"
+    echo "----------------------------------------------"
+    luarocks list | tee "${SETUP_FOLDER}/macos-luarocks.txt"
+    echo ""
+    echo "List Rust Cargo packages"
+    echo "----------------------------------------------"
+    cargo install --list | tee "${SETUP_FOLDER}/macos-rust-cargo.txt"
+    echo ""
 }
 
 packages-install () {

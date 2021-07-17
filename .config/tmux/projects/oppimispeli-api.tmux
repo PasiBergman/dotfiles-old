@@ -4,7 +4,8 @@ PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.WebAPI"
 SESSION_NAME="Peli-API"
 WINDOW1_NAME="nvim"
 WINDOW2_NAME="lazygit"
-DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2013"
+WINDOW3_NAME="xplr"
+DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2014"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 
@@ -22,6 +23,8 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         send-keys 'clear' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
         send-keys "$WINDOW2_NAME" C-m \; \
+        new-window -c "$PROJECT_DIR" -n "$WINDOW3_NAME" /usr/local/bin/zsh \; \
+        send-keys $WINDOW3_NAME C-m \; \
         select-window -t "$WINDOW1_NAME" \; \
         select-pane -t 0 \;
 else

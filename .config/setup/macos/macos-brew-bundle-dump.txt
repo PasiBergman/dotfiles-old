@@ -8,25 +8,35 @@ brew "azure-cli"
 brew "bat"
 brew "efm-langserver", args: ["HEAD"]
 brew "fd"
+brew "figlet"
 brew "fzf"
 brew "fzy"
 brew "git"
+brew "go"
 brew "htop"
 brew "jq"
 brew "lazygit"
+brew "lua"
+brew "luarocks"
+brew "markdownlint-cli"
 brew "mas"
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 brew "python@3.9"
 brew "ninja"
 brew "nmap"
 brew "nvm"
 brew "pfetch"
+brew "ranger"
 brew "ripgrep"
 brew "rsync"
 brew "shellcheck"
-brew "task"
+brew "shfmt"
+brew "tldr"
 brew "tmux"
 brew "tree"
+brew "wget"
+brew "xplr"
+brew "yarn"
 brew "z"
 brew "zsh"
 brew "zsh-autosuggestions"
@@ -45,7 +55,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-menlo-for-powerline"
 cask "font-meslo-for-powerline"
 cask "font-sauce-code-pro-nerd-font"
-cask "font-source-code-pro"
 cask "google-chrome"
 cask "iterm2"
 cask "microsoft-azure-storage-explorer"
@@ -63,6 +72,7 @@ mas "Affinity Photo", id: 824183456
 mas "Cardhop", id: 1290358394
 mas "CheatSheet", id: 529456740
 mas "com.iwaxx.Debookee-Tools", id: 1110355801
+mas "Copied", id: 1026349850
 mas "CotEditor", id: 1024640650
 mas "Kelir Pro", id: 1186597992
 mas "Lexi", id: 1462580127
@@ -74,6 +84,7 @@ mas "NextDNS", id: 1464122853
 mas "OneDrive", id: 823766827
 mas "PCalc", id: 403504866
 mas "Presentify", id: 1507246666
+mas "Slack", id: 803453959
 mas "ToothFairy", id: 1191449274
 mas "Tweetbot", id: 557168941
 mas "Vimari", id: 1480933944

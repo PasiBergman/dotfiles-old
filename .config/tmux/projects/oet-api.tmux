@@ -4,7 +4,8 @@ PROJECT_DIR="$HOME/Code/Keva/oet-api"
 SESSION_NAME="oet-api"
 WINDOW1_NAME="nvim"
 WINDOW2_NAME="lazygit"
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%210"
+WINDOW3_NAME="xplr"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%214"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 
@@ -24,8 +25,8 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         send-keys 'npm run serve' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
         send-keys "$WINDOW2_NAME" C-m \; \
-        split-window -v -p 40 \; \
-        send-keys 'xplr' C-m \; \
+        new-window -c "$PROJECT_DIR" -n "$WINDOW3_NAME" /usr/local/bin/zsh \; \
+        send-keys $WINDOW3_NAME C-m \; \
         select-window -t "$WINDOW1_NAME" \; \
         select-pane -t 0 \;
 else

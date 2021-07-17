@@ -65,7 +65,7 @@ fi
     source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Use specified node version
-# which nvm 1>/dev/null 2>&1 && nvm use $NODE_VERSION 1>/dev/null
+which nvm 1>/dev/null 2>&1 && nvm use --lts 1>/dev/null
 # System information
 # [ -f $HOME/bin/truecolor-test.sh ] && $HOME/bin/truecolor-test.sh
 # echo " " && which pfetch 1>/dev/null 2>&1 && pfetch
