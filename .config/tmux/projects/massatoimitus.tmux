@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-PROJECT_DIR="$HOME/Code/Keva/Avaintiedot-Massatoimitus"
+PROJECT_DIR="$HOME/Code/Keva/Avaintiedot/Avaintiedot-Massatoimitus"
 SESSION_NAME="Massatoimitus"
-WINDOW1_NAME="nvim"
+WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"
 WINDOW3_NAME="xplr"
 
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_55"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_56"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 
@@ -19,11 +19,9 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
         attach-session -t . -c "$PROJECT_DIR" \; \
         send-keys "$WINDOW1_NAME" C-m \; \
         split-window -v -p 15 \; \
-        send-keys 'clear && git fetch --all && cd ./src/Massatoimitus.UI' C-m \; \
-        send-keys 'npm run serve' C-m \; \
+        send-keys 'clear && npm run serve' C-m \; \
         split-window -h -p 50 \; \
-        send-keys 'clear' C-m \; \
-        send-keys 'dotnet watch --project ./src/Massatoimitus.API run' C-m \; \
+        send-keys 'clrea && dotnet watch --project ./src/Massatoimitus.API run' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
         send-keys "$WINDOW2_NAME" C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW3_NAME" /usr/local/bin/zsh \; \

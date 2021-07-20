@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_DIR="$HOME/Code/Keva/oet-ui"
+PROJECT_DIR="$HOME/Code/Keva/OET-2.0/oet-ui"
 SESSION_NAME="oet-ui"
 WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"

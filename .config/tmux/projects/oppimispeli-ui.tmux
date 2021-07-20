@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.WebUI"
+PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja-oppimispeli/Tyokykypolkuja.WebUI"
 SESSION_NAME="Peli-UI"
 WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"
@@ -16,9 +16,9 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
     tmux start-server
     tmux new-session -s "$SESSION_NAME" -n "$WINDOW1_NAME" -c "$PROJECT_DIR" \; \
         attach-session -t . -c "$PROJECT_DIR" \; \
-        send-keys "cd $PROJECT_DIR && lvim" C-m \; \
+        send-keys "cd $PROJECT_DIR && $WINDOW1_NAME" C-m \; \
         split-window -v -p 15 \; \
-        send-keys 'clear && git fetch --all' C-m \; \
+        send-keys 'clear' C-m \; \
         split-window -h -p 50 \; \
         send-keys 'clear' C-m \; \
         new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \

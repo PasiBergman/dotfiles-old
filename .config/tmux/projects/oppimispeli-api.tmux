@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.WebAPI"
+PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja-oppimispeli/Tyokykypolkuja.WebAPI"
 SESSION_NAME="Peli-API"
 WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"
