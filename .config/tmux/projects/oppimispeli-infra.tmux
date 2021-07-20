@@ -2,7 +2,7 @@
 
 PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.Infra"
 SESSION_NAME="Peli-Infr"
-WINDOW_NAME="Nvim"
+WINDOW_NAME="lvim"
 DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2013"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
@@ -14,7 +14,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
     tmux start-server
     tmux new-session -s "$SESSION_NAME" -n "$WINDOW_NAME" -c "$PROJECT_DIR" \; \
         attach-session -t . -c "$PROJECT_DIR" \; \
-        send-keys "cd $PROJECT_DIR && nvim" C-m \; \
+        send-keys "cd $PROJECT_DIR && lvim" C-m \; \
         split-window -v -p 15 \; \
         send-keys 'clear && git fetch --all' C-m \; \
         split-window -h -p 50 \; \

@@ -2,7 +2,7 @@
 
 PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja.WebUI"
 SESSION_NAME="Peli-UI"
-WINDOW1_NAME="nvim"
+WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"
 WINDOW3_NAME="xplr"
 DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2014"
@@ -16,7 +16,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
     tmux start-server
     tmux new-session -s "$SESSION_NAME" -n "$WINDOW1_NAME" -c "$PROJECT_DIR" \; \
         attach-session -t . -c "$PROJECT_DIR" \; \
-        send-keys "cd $PROJECT_DIR && nvim" C-m \; \
+        send-keys "cd $PROJECT_DIR && lvim" C-m \; \
         split-window -v -p 15 \; \
         send-keys 'clear && git fetch --all' C-m \; \
         split-window -h -p 50 \; \

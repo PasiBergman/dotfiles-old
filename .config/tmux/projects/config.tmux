@@ -2,7 +2,7 @@
 
 PROJECT_DIR="$HOME/.config"
 SESSION_NAME="Config"
-WINDOW1_NAME="nvim"
+WINDOW1_NAME="lvim"
 WINDOW2_NAME="lazygit"
 WINDOW3_NAME="xplr"
 
