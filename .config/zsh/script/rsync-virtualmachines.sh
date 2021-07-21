@@ -3,16 +3,16 @@
 #
 # Variables
 #
-BASEPATH="/Users/pasi"
+BASEPATH="${HOME}"
 PINGHOST="192.168.100.1"
 # SCRIPT_PATH=$(dirname "$0")
 
 if [ -z "$1" ]
 then
     echo "Usage:"
-    echo "./rsync-virtualmachines.sh <username>@<host>:<path>"
+    echo "/path/to/rsync-virtualmachines.sh <username>@<host>:<path>"
     echo "e.g."
-    echo "./rsync-virtualmachines.sh pasi@192.168.100.104:/home/pasi/Data/Parallels/"
+    echo "${BASEPATH}/.config/zsh/script/rsync-virtualmachines.sh pasi@192.168.100.104:/home/pasi/Data/Parallels/"
     exit 1
 fi
 LOG_FILE="$BASEPATH/.cache/rsync-virtualmachines.log"
