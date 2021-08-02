@@ -44,8 +44,8 @@ bindkey -M menuselect 'l' vi-forward-char
 # macOS vs. Linux
 if [[ $(uname) == "Darwin" ]]; then
     ZSH_PLUGINS_DIR="/usr/local/share"
-    # nvm
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && source "/usr/local/opt/nvm/nvm.sh"
+    # fnm
+    eval "$(fnm env)"
 elif [[ $(uname -n) == "lakka" ]]; then
     ZSH_PLUGINS_DIR="$HOME/.local/share"
     # nvm
