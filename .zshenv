@@ -32,7 +32,7 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # Default texteditor
-export EDITOR=nvim
+export EDITOR=lvim
 # .NET, dotnet, Azure Functions, VSCode
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=1
@@ -40,11 +40,11 @@ export ASPNETCORE_ENVIRONMENT=Local
 # export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export VSCODE=code
-# Node & Nvm
-export NODE_VERSION="14.16.0"
+# Node & Nvm - NOTE! nvm has been replaced by fnm
+export NODE_VERSION="lts"
 export NVM_DIR="$HOME/.nvm"
 # Manual
-export MANPAGER="nvim +Man!"
+export MANPAGER="lvim +Man!"
 export MANWIDTH=999
 # Temporary files direcotry
 export TMP="/tmp"
@@ -87,3 +87,5 @@ fi
 # set $_Z_EXCLUDE_DIRS            # to an array of directories to exclude.
 # to your username if you want use z while sudo with $HOME kept
 
+# TERM
+TERM=xterm-kitty

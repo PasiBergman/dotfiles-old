@@ -43,19 +43,18 @@ bindkey -M menuselect 'l' vi-forward-char
 
 # macOS vs. Linux
 if [[ $(uname) == "Darwin" ]]; then
-    ZSH_PLUGINS_DIR="/usr/local/share"
-    # fnm
-    eval "$(fnm env)"
+   ZSH_PLUGINS_DIR="/usr/local/share"
 elif [[ $(uname -n) == "lakka" ]]; then
     ZSH_PLUGINS_DIR="$HOME/.local/share"
-    # nvm
-    [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 else
     # i.e. Linux
     ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
-    # Nvm
-    [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 fi
+
+# fnm (node version manager)
+which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
+# nvm (node version manager)
+[ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # Syntax highlighting
 [ -f "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \
@@ -64,8 +63,8 @@ fi
 [ -f "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
     source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# Use specified node version
-which nvm 1>/dev/null 2>&1 && nvm use --lts 1>/dev/null
 # System information
-# [ -f $HOME/bin/truecolor-test.sh ] && $HOME/bin/truecolor-test.sh
-# echo " " && which pfetch 1>/dev/null 2>&1 && pfetch
+[ -f $HOME/.config/zsh/script/truecolor-test.sh ] && $HOME/.config/zsh/script/truecolor-test.sh
+
+# If not TMUX session and neofetch is installed, show system info
+[ -z "$TMUX" ] &&  which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
