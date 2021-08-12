@@ -1,17 +1,19 @@
+Auxl.app
 Bartender.app
 Batteries.app
 CleanMyMac X.app
 CleanShot X.app
 CodeRunner.app
+Dash.app
 DevUtils.app
 Expressions.app
 ForkLift.app
 Marked.app
-Paletro.app
 PixelSnap.app
 Proxyman.app
 SSH Config Editor.app
-Sip.app
 Swish.app
 TextSniper.app
+TripMode.app
+Unite.app
 iStat Menus.app

@@ -1,6 +1,7 @@
 #!/bin/sh
 alias t-oet-ui='bash ~/.config/tmux/projects/oet-ui.tmux'
 alias t-oet-api='bash ~/.config/tmux/projects/oet-api.tmux'
+alias t-oet-e2e='bash ~/.config/tmux/projects/oet-e2e.tmux'
 alias t-massa='bash ~/.config/tmux/projects/massatoimitus.tmux'
 alias t-peli-ui='bash ~/.config/tmux/projects/oppimispeli-ui.tmux'
 alias t-peli-api='bash ~/.config/tmux/projects/oppimispeli-api.tmux'

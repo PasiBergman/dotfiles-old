@@ -1,2 +1,0 @@
-stylua v0.10.0:
-    stylua
