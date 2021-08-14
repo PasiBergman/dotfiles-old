@@ -2,15 +2,15 @@
 export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin:$PATH"
 
 # Localization
-export LC_CTYPE="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LC_MONETARY="fi_FI.UTF-8"
-export LC_NAME="fi_FI.UTF-8"
-export LC_ADDRESS="fi_FI.UTF-8"
-export LC_TELEPHONE="fi_FI.UTF-8"
-export LC_MEASUREMENT="fi_FI.UTF-8"
-export LC_IDENTIFICATION="fi_FI.UTF-8"
-export LC_ALL=
+# export LC_CTYPE="en_US.UTF-8"
+# export LC_TIME="en_US.UTF-8"
+# export LC_MONETARY="fi_FI.UTF-8"
+# export LC_NAME="fi_FI.UTF-8"
+# export LC_ADDRESS="fi_FI.UTF-8"
+# export LC_TELEPHONE="fi_FI.UTF-8"
+# export LC_MEASUREMENT="fi_FI.UTF-8"
+# export LC_IDENTIFICATION="fi_FI.UTF-8"
+export LC_ALL="fi_FI.UTF-8"
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US
 # Command history
@@ -41,8 +41,8 @@ export ASPNETCORE_ENVIRONMENT=Local
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export VSCODE=code
 # Node & Nvm - NOTE! nvm has been replaced by fnm
-export NODE_VERSION="lts"
-export NVM_DIR="$HOME/.nvm"
+# export NODE_VERSION="lts"
+# export NVM_DIR="$HOME/.nvm"
 # Manual
 export MANPAGER="lvim +Man!"
 export MANWIDTH=999
