@@ -1,0 +1,20 @@
+polybar|notice:  Parsing config file: /home/pasi/.config/polybar/config
+polybar|error: Invalid value for "module/workspaces.label-active-underline", using default value (reason: The reference ${colors.wsbackground} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-occupied-underline", using default value (reason: The reference ${colors.wsbackground} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-urgent-underline", using default value (reason: The reference ${colors.urgent} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-urgent-foreground", using default value (reason: The reference ${colors.urgent} does not exist (no fallback set))
+polybar|error: Disabling module "i3" (reason: Could not find socket: <empty>)
+polybar|error: Disabling module "tray" (reason: Missing section "module/tray")
+polybar|notice:  Loaded font "FiraCode Nerd Font:style=Regular:size=10" (name=FiraCode Nerd Font, offset=0, file=/usr/share/fonts/OTF/Fira Code Regular Nerd Font Complete.otf)
+polybar|error: tray: Failed to put tray above 0x1400002 in the stack (XCB_MATCH (8))
+polybar|notice:  randr_screen_change_notify (1695x1006)... reloading
+polybar|notice:  Termination signal received, shutting down...
+polybar|notice:  Parsing config file: /home/pasi/.config/polybar/config
+polybar|error: Invalid value for "module/workspaces.label-active-underline", using default value (reason: The reference ${colors.wsbackground} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-occupied-underline", using default value (reason: The reference ${colors.wsbackground} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-urgent-underline", using default value (reason: The reference ${colors.urgent} does not exist (no fallback set))
+polybar|error: Invalid value for "module/workspaces.label-urgent-foreground", using default value (reason: The reference ${colors.urgent} does not exist (no fallback set))
+polybar|error: Disabling module "i3" (reason: Could not find socket: <empty>)
+polybar|error: Disabling module "tray" (reason: Missing section "module/tray")
+polybar|notice:  Loaded font "FiraCode Nerd Font:style=Regular:size=10" (name=FiraCode Nerd Font, offset=0, file=/usr/share/fonts/OTF/Fira Code Regular Nerd Font Complete.otf)
+polybar|error: tray: Failed to put tray above 0x1400002 in the stack (XCB_MATCH (8))

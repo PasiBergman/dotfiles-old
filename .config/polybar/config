@@ -1,0 +1,241 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+;background = ${xrdb:color0:#88101010}
+background = #dd1a1a1a
+background-alt = #692b60
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #a0a0a0
+;primary = #FFAF00
+primary = #0087D7
+secondary = #e63e53
+alert = #cd3c50
+underline = #0087D7
+
+[bar/afrodite]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 23
+;offset-x = 1
+;offset-y = 0
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = ${colors.underline}
+
+border-size = 0
+border-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+; font-0 = fixed:pixelsize=9;1
+; font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+; font-2 = siji:pixelsize=9
+; font-0 = mononoki Nerd Font:style=Medium,Regular:size=10
+; font-0 = JetBrainsMono Nerd Font:style=Regular:size=1
+font-0 = FiraCode Nerd Font:style=Regular:size=10
+
+modules-left = workspaces i3 xwindow
+modules-right = netwrk memory cpu openweather datetime powermenu tray
+
+tray-position = right
+tray-padding = 2
+tray-background = #0087D7
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;
+;; Openbox Workspaces ;;
+;;;;;;;;;;;;;;;;;;;;;;;;
+[module/workspaces]
+type = internal/xworkspaces
+; false for awesome window manager true for other wm.
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+format-padding = 0
+; icon-0 = 1;
+; icon-1 = 2;
+; icon-2 = 3;
+; icon-3 = 4;
+; icon-4 = 5;
+; icon-5 = 6;
+; icon-6 = 7;
+; icon-7 = 8;
+; icon-8 = 9;
+; icon-9 = 10;
+icon-default =
+format = <label-state>
+label-active = " %name% "
+label-active-foreground = ${colors.foreground}
+label-active-background = ${colors.background-alt}
+label-active-underline = ${colors.wsbackground}
+label-occupied = " %name% "
+lable-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.foreground}
+label-occupied-underline = ${colors.wsbackground}
+label-urgent = " %name% "
+label-urgent-foreground = ${colors.urgent}
+label-urgent-underline = ${colors.urgent}
+label-empty = " %name% "
+label-empty-background = ${colors.background}
+label-empty-foreground = ${colors.foreground}
+label-empty-underline = ${colors.background}
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+; format = <label-state>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+; ws-icon-0 = "1:Terminal; "
+; ws-icon-1 = "2:Firefox; "
+; ws-icon-2 = "3:Brave; "
+; ws-icon-3 = "4;  "
+; ws-icon-default = 
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+; label-separator = |
+
+[module/netwrk]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/network.sh
+interval = 900
+format-underline = ${colors.underline}
+
+[module/memory]
+type = internal/memory
+interval = 10
+format-prefix = "mem: "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.underline}
+label = %percentage_used%%
+
+[module/cpu]
+type = internal/cpu
+interval = 10
+format-prefix = "cpu: "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.underline}
+label = %percentage:2%%
+
+[module/wttr]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/wttr.sh
+interval = 900
+format-underline = ${colors.underline}
+
+[module/openweather]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/openweather.sh
+interval = 900
+format-underline = ${colors.underline}
+
+[module/datetime]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/datetime.sh
+interval = 10
+format-underline = ${colors.underline}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close = " cancel"
+label-close-foreground = ${colors.secondary}
+label-separator = "|"
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = shutdown -h now
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
