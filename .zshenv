@@ -76,16 +76,19 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 # =========================
 export _Z_CMD="z"  # in .bashrc/.zshrc to change the command (default z).
 export _Z_DATA="$HOME/.cache/.z"
-if [[ "$(uname)" == "Darwin" ]] || [[ "$(uname -n)" == "lakka" ]]; then
-    export _Z_OWNER="pasi"
+if [[ "$(uname -n)" == "lakka" ]]; then
+# TERM
+    export _Z_OWNER="pbe"
 else
     export _Z_OWNER="pasi"
+fi
+if [[ "$(uname -n)" == "HFMAC112" ]]; then
+  export TERM=xterm-kitty
+else
+  export TERM=xterm-color
 fi
 # set $_Z_MAX_SCORE             # lower to age entries out faster (default 9000).
 # set $_Z_NO_RESOLVE_SYMLINKS   # to prevent symlink resolution.
 # set $_Z_NO_PROMPT_COMMAND       # if you're handling PROMPT_COMMAND yourself.
 # set $_Z_EXCLUDE_DIRS            # to an array of directories to exclude.
 # to your username if you want use z while sudo with $HOME kept
-
-# TERM
-TERM=xterm-kitty
