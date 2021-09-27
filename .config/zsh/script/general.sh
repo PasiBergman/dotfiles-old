@@ -49,6 +49,10 @@ alias dotnetclean="find . -name bin -exec rm -R -f {} \; 2>/dev/null && find . -
 alias lazygit="lazygit -ucd $HOME/.config/lazygit"
 alias lg="lazygit -ucd $HOME/.config/lazygit"
 
+# Update LunarVim
+alias update-lvim="cd ~/.local/share/lunarvim/lvim && git pull; cd -"
+alias fetch-lvim="cd ~/.local/share/lunarvim/lvim && git fetch upstream && git merge upstream/rolling; cd -"
+
 # fzh
 source "$HOME/.config/zsh/script/fzh.sh"
 # fzd
