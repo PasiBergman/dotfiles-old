@@ -68,3 +68,7 @@ which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
 
 # If not TMUX session and neofetch is installed, show system info
 [ -z "$TMUX" ] &&  which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
+
+# fnm
+export PATH=/home/pasi/.fnm:$PATH
+eval "`fnm env`"
