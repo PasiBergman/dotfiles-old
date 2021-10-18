@@ -1,4 +1,4 @@
-Auxl.app
+AnyTrans for iOS.app
 Bartender.app
 Batteries.app
 CleanMyMac X.app
@@ -6,13 +6,17 @@ CleanShot X.app
 CodeRunner.app
 Dash.app
 DevUtils.app
+DisplayBuddy.app
 Expressions.app
 ForkLift.app
 Marked.app
 PixelSnap.app
 Proxyman.app
 SSH Config Editor.app
+Sizzy.app
+StarUML.app
 Swish.app
+Tab Finder.app
 TextSniper.app
 TripMode.app
 Unite.app

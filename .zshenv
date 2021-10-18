@@ -1,4 +1,5 @@
 # Path
+export PATH="$HOME/.local/share/nvim/dapinstall/dnetcs_dbg/netcoredbg:$PATH"
 export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin:$PATH"
 
 # Localization
@@ -55,6 +56,11 @@ export I3BLOCKS_SCRIPT_DIR=$HOME/.config/i3/i3blocks/scripts
 # pfetch
 export PF_INFO="ascii title os kernel uptime pkgs memory shell editor palette"
 export PF_ALIGN="12"
+# 
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.

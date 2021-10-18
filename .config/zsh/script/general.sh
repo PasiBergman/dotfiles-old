@@ -34,6 +34,9 @@ alias cpu=$'ps axc -o cmd,%cpu --sort=-%cpu | head -n 15 | awk \'{printf("%-20s 
 # Utils
 alias sää='curl -s "https://wttr.in/Kukkumäki,Espoo?MF1&lang=fi"'
 
+# LunarVim
+alias l=lvim
+
 # Fzf
 alias historyfzf="history 0 | fzf"
 alias fzfhistory="history 0 | fzf"

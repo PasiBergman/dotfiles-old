@@ -1,5 +1,9 @@
-/Users/pasi/.fnm/node-versions/v14.17.4/installation/lib
-├── eslint_d@10.1.3
+/Users/pasi/.fnm/node-versions/v14.18.0/installation/lib
+├── eslint_d@11.0.0
+├── markdownlint-cli@0.29.0
 ├── neovim@4.10.0
-└── npm@6.14.14
+├── npm@6.14.15
+├── prettier@2.4.1
+├── stylelint@13.13.1
+└── yarn@1.22.15
 
