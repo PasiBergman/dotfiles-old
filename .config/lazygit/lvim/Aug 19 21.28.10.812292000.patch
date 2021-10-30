@@ -1,0 +1,10 @@
+--- a/lua/my/json-schemas.lua
++++ b/lua/my/json-schemas.lua
+@@ -51,7 +51,6 @@ M.setup = function()
+     {
+       description = "Azure pipelines v1.174.2",
+       fileMatch = { "azure-pipelines.yml" },
+-      url = "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/v1.174.2/service-schema.json",
+     },
+     {
+       description = "Bootstrap-loader config",

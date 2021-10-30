@@ -1,0 +1,11 @@
+--- a/lua/lv-utils/init.lua
++++ b/lua/lv-utils/init.lua
+@@ -212,8 +212,7 @@ function lv_utils.gsub_args(args)
+   local buffer_filetype = vim.bo.filetype
+   for i = 1, #args do
+     args[i], _ = string.gsub(args[i], "${FILEPATH}", buffer_filepath)
+-    args[i] = string.gsub(args[i], "${FILEPATH}", buffer_filepath)
+     args[i] = string.gsub(args[i], "${FILETYPE}", buffer_filetype)
+   end
+   return args
+ end

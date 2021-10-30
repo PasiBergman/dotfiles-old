@@ -17,7 +17,7 @@
 [mergetool]
 	prompt = false
 [merge]
-    tool = nvimmerge
+	tool = vimdiff
     guitool = nvimmerge
 	conflictStyle = diff3
 [difftool]
@@ -27,3 +27,24 @@
 	autoupdate = true
 [init]
 	defaultBranch = main
+[mergetool "vimdiff"]
+  path = lvim
+[delta]
+  syntax-theme=nord
+  line-numbers=false
+  line-numbers-minus-style = "#FF3300"
+  line-numbers-zero-style = "#555555"
+  line-numbers-plus-style = "#008800"
+  line-numbers-left-format = "{nm:>4}┊"
+  line-numbers-right-format = "{np:>4}│"
+  hunk-header-style = syntax
+  minus-style = red
+  minus-non-emph-style = bold red
+  minus-emph-style = bold "#DDDDDD" "#763C42"
+  minus-empty-line-marker-style = normal "#3f0001"
+  zero-style = normal
+  plus-style = green
+  plus-non-emph-style = bold green
+  plus-emph-style = bold "#DDDDDD" "#4F5D44"
+  plus-empty-line-marker-style = normal "#002800"
+

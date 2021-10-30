@@ -1,0 +1,17 @@
+--- a/src/filters/index.js
++++ b/src/filters/index.js
+@@ -1,13 +1,12 @@
+-"use strict";
+ // import Vue from '@vue/composition-api';
+ // import filesizeExtension from './filesize-extension';
+ // import filesizeNumber from './filesize-number';
+ // import filesize from './filesize';
+ // import uppercase from './uppercase';
+ // import readableNumber from './readable-number';
+ // Vue.filter('filesizeExtension', filesizeExtension);
+ // Vue.filter('filesizeNumber', filesizeNumber);
+ // Vue.filter('filesize', filesize);
+ // Vue.filter('uppercase', uppercase);
+ // Vue.filter('readableNumber', readableNumber);
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file

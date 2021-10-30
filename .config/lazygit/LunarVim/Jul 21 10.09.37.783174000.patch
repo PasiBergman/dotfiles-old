@@ -1,0 +1,10 @@
+--- a/lua/lv-utils/init.lua
++++ b/lua/lv-utils/init.lua
+@@ -57,6 +57,7 @@ function lv_utils.generate_settings()
+ end
+ 
+ function lv_utils.reload_lv_config()
++  vim.cmd "source ~/.config/nvim/lua/keymappings.lua"
+   vim.cmd "source ~/.config/nvim/lua/core/formatter.lua"
+   vim.cmd ":PackerCompile"
+   vim.cmd ":PackerInstall"

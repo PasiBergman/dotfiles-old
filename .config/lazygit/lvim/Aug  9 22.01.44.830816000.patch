@@ -1,0 +1,8 @@
+--- a/config.lua
++++ b/config.lua
+@@ -1,4 +1,5 @@
+ -- Colors
++require "my.colors"
+ -- General lvim configuration
+ require "my.general"
+ 
