@@ -1,4 +1,4 @@
-AnyTrans for iOS.app
+24 Hour Wallpaper.app
 Bartender.app
 Batteries.app
 CleanMyMac X.app
@@ -6,15 +6,17 @@ CleanShot X.app
 CodeRunner.app
 Dash.app
 DevUtils.app
-DisplayBuddy.app
 Expressions.app
+Flow.app
 ForkLift.app
 Marked.app
+Pareto Security.app
+Paste.app
 PixelSnap.app
 Proxyman.app
+Quit All.app
 SSH Config Editor.app
 Sizzy.app
-StarUML.app
 Swish.app
 Tab Finder.app
 TextSniper.app

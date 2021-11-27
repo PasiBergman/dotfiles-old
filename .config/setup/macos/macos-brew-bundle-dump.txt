@@ -6,7 +6,6 @@ tap "homebrew/core"
 tap "isen-ng/dotnet-sdk-versions"
 brew "ack"
 brew "azcopy"
-brew "python@3.9"
 brew "azure-cli"
 brew "bat"
 brew "cloc"
@@ -28,6 +27,7 @@ brew "neofetch"
 brew "neovim"
 brew "ninja"
 brew "nmap"
+brew "python@3.9"
 brew "python@3.8"
 brew "ripgrep"
 brew "rsync"
@@ -43,9 +43,9 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "azure/functions/azure-functions-core-tools@3"
+cask "alfred"
 cask "azure-data-studio"
 cask "cloudapp"
-cask "dotnet-sdk"
 cask "dotnet-sdk3-1-400"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
@@ -64,6 +64,7 @@ mas "CheatSheet", id: 529456740
 mas "com.iwaxx.Debookee-Tools", id: 1110355801
 mas "Copied", id: 1026349850
 mas "CotEditor", id: 1024640650
+mas "GoodNotes", id: 1444383602
 mas "Kelir Pro", id: 1186597992
 mas "Lexi", id: 1462580127
 mas "Microsoft Excel", id: 462058435

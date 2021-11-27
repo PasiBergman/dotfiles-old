@@ -26,7 +26,6 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never
     useConfig: false
   merging:
     manualCommit: false
