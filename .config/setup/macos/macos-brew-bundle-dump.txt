@@ -27,8 +27,8 @@ brew "neofetch"
 brew "neovim"
 brew "ninja"
 brew "nmap"
-brew "python@3.9"
 brew "python@3.8"
+brew "python@3.9"
 brew "ripgrep"
 brew "rsync"
 brew "shellcheck"
@@ -56,28 +56,3 @@ cask "font-sauce-code-pro-nerd-font"
 cask "kitty"
 cask "microsoft-azure-storage-explorer"
 cask "visual-studio-code"
-mas "1Blocker", id: 1365531024
-mas "1Password 7", id: 1333542190
-mas "Affinity Designer", id: 824171161
-mas "Affinity Photo", id: 824183456
-mas "CheatSheet", id: 529456740
-mas "com.iwaxx.Debookee-Tools", id: 1110355801
-mas "Copied", id: 1026349850
-mas "CotEditor", id: 1024640650
-mas "GoodNotes", id: 1444383602
-mas "Kelir Pro", id: 1186597992
-mas "Lexi", id: 1462580127
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "NextDNS", id: 1464122853
-mas "Notability", id: 360593530
-mas "OneDrive", id: 823766827
-mas "PCalc", id: 403504866
-mas "Presentify", id: 1507246666
-mas "Slack", id: 803453959
-mas "ToothFairy", id: 1191449274
-mas "Tweetbot", id: 557168941
-mas "Vimari", id: 1480933944
-mas "Xcode", id: 497799835
