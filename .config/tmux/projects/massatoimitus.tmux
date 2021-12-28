@@ -5,7 +5,7 @@ SESSION_NAME="Massatoimitus"
 WINDOW1_NAME="LunarVim"
 WINDOW2_NAME="LazyGit"
 
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_56"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut-Avaintiedot/_sprints/backlog/Verkkopalvelut-Avaintiedot%20Team/Verkkopalvelut-Avaintiedot/Sprint_60"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 
@@ -20,7 +20,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		split-window -v -p 20 \; \
 		send-keys 'cd ./src/Massatoimitus.UI && npm run serve' C-m \; \
 		split-window -h -p 66 \; \
-		send-keys 'clear && dotnet watch --project ./src/Massatoimitus.API run' C-m \; \
+		send-keys 'killall dotnet; dotnet watch --project ./src/Massatoimitus.API run' C-m \; \
 		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
 		send-keys "lazygit" C-m \; \
 		select-window -t "$WINDOW1_NAME" \; \

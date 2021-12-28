@@ -1,9 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/pasi/Code/Keva/OET-2.0/oet-ui
-- /Users/pasi/Code/LunarVim/LunarVim
-- /Users/pasi/Code/Keva/OET-2.0/oet-api
 - /Users/pasi/.config/lvim-my
+- /Users/pasi/Code/Keva/OET-2.0/oet-ui
+- /Users/pasi/.local/share/lunarvim/lvim
+- /Users/pasi/Code/Keva/OET-2.0/oet-api
+- /Users/pasi/Code/LunarVim/LunarVim
 - /Users/pasi/Code/Keva/Tyokykypolkuja-oppimispeli/Tyokykypolkuja.Infra
 - /Users/pasi/Code/Keva/Anonymisointi/Anonymisointipalvelu
 - /Users/pasi/Code/Keva/Avaintiedot/Avaintiedot-Massatoimitus

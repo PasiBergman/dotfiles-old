@@ -6,7 +6,7 @@ argparse
    0.7.1-1 (installed) - /usr/local/lib/luarocks/rocks-5.4
 
 luacheck
-   0.24.0-2 (installed) - /usr/local/lib/luarocks/rocks-5.4
+   0.25.0-1 (installed) - /usr/local/lib/luarocks/rocks-5.4
 
 luafilesystem
    1.8.0-1 (installed) - /usr/local/lib/luarocks/rocks-5.4

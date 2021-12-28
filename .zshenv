@@ -83,12 +83,11 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 export _Z_CMD="z"  # in .bashrc/.zshrc to change the command (default z).
 export _Z_DATA="$HOME/.cache/.z"
 if [[ "$(uname -n)" == "lakka" ]]; then
-# TERM
     export _Z_OWNER="pbe"
 else
     export _Z_OWNER="pasi"
 fi
-if [[ "$(uname -n)" == "HFMAC112" ]]; then
+if [[ "$(uname -n)" == "HFMAC112"* ]]; then
   export TERM=xterm-kitty
 else
   export TERM=xterm-color
