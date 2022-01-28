@@ -1,19 +1,21 @@
 [core]
-    commentChar = ";"
+  commentChar = ";"
+  excludesfile = ~/.gitignore_global
+  pager = "delta"
 [user]
-    email = pasi.bergman@iki.fi
-    name = Pasi Bergman
+  email = pasi.bergman@hiq.fi
+  name = Pasi Bergman
 [pull]
-    rebase = true
+  rebase = true
 [color]
-    ui = auto
+  ui = auto
 [difftool "nvimdiff"]
-    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [diff]
-    tool = nvimdiff
-    guitool = nvimdiff
+  tool = nvimdiff
+  guitool = nvimdiff
 [mergetool "nvimmerge"]
-    cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+  cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [mergetool]
 	prompt = false
 [merge]
@@ -30,8 +32,8 @@
 [mergetool "vimdiff"]
   path = lvim
 [delta]
-  syntax-theme=nord
-  line-numbers=false
+  syntax-theme=github
+  line-numbers=true
   line-numbers-minus-style = "#FF3300"
   line-numbers-zero-style = "#555555"
   line-numbers-plus-style = "#008800"

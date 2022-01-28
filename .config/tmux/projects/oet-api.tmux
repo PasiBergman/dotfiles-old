@@ -18,7 +18,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		send-keys "lvim" C-m \; \
 		split-window -v -p 20 \; \
 		send-keys 'clear && git fetch --all' C-m \; \
-		send-keys 'kilall dotnet; dotnet watch --project src/Skylla.BE.API run' C-m \; \
+		send-keys 'killall dotnet; dotnet watch --project src/Skylla.BE.API run' C-m \; \
 		split-window -h -p 35 \; \
 		send-keys 'clear && cd ../oet-ui/' C-m \; \
 		send-keys 'killall npm; npm run serve' C-m \; \
