@@ -20,10 +20,10 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		send-keys "lvim" C-m \; \
 		split-window -v -p 20 \; \
 		send-keys 'clear && git fetch --all' C-m \; \
-		send-keys 'kilall npm; npm run serve' C-m \; \
+		send-keys 'killall npm; npm run serve' C-m \; \
 		split-window -h -p 50 \; \
 		send-keys 'cd ../oet-api/ && clear' C-m \; \
-		send-keys 'kilall dotnet; dotnet watch --project src/Skylla.BE.API run' C-m \; \
+		send-keys 'killall dotnet; dotnet watch --project src/Skylla.BE.API run' C-m \; \
 		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
 		select-window -t "$WINDOW1_NAME" \; \
 		select-pane -t 0 \;

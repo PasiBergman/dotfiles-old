@@ -36,9 +36,12 @@ alias devjsoncp="open 'devutils://jsonformatter?copy'"
 alias devurlencode="open 'devutils://urlencode'"
 alias devuuiddecode="open 'devutils://uuidtool'"
 alias devlorem="open 'devutils://loremipsum?copy'"
+alias arduino-cli="/Users/pasi/.local/share/nvim/lsp_servers/arduino_language_server/arduino-cli/arduino-cli"
+alias ino="/Users/pasi/.local/share/nvim/lsp_servers/arduino_language_server/arduino-cli/arduino-cli"
+alias ino-upload-uno="/Users/pasi/.local/share/nvim/lsp_servers/arduino_language_server/arduino-cli/arduino-cli compile --fqbn arduino:avr:uno --upload --port /dev/cu.usbmodem1411401 ./"
 
-alias azure-access="$HOME/.config/zsh/script/azure-access-grant.sh"
-alias azure-access-pasi="$HOME/.config/zsh/script/azure-access-pasi.sh"
+alias azure-access="/Users/pasi/.config/zsh/script/azure-access-grant.sh"
+alias azure-access-pasi="/Users/pasi/.config/zsh/script/azure-access-pasi.sh"
 
 # Temporary Neovim
 # alias nvim="$HOME/bin/nvim-5/bin/nvim"
