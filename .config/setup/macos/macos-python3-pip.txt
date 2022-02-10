@@ -12,8 +12,8 @@ platformdirs==2.4.0
 pycodestyle==2.8.0
 pyflakes==2.4.0
 pynvim==0.4.3
-setuptools==59.0.1
+setuptools==60.5.0
 tomli==1.2.3
 typing_extensions==4.0.1
-wheel==0.37.0
+wheel==0.37.1
 yapf==0.31.0

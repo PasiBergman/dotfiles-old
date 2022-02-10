@@ -24,6 +24,7 @@ brew "lazygit"
 brew "lua"
 brew "luarocks"
 brew "mas"
+brew "minicom"
 brew "neofetch"
 brew "neovim"
 brew "ninja"
@@ -46,6 +47,7 @@ brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 brew "azure/functions/azure-functions-core-tools@3"
 cask "alfred"
+cask "arduino"
 cask "azure-data-studio"
 cask "cloudapp"
 cask "dotnet-sdk3-1-400"
@@ -59,23 +61,3 @@ cask "kitty"
 cask "microsoft-azure-storage-explorer"
 cask "microsoft-teams"
 cask "visual-studio-code"
-mas "1Blocker", id: 1365531024
-mas "1Password 7", id: 1333542190
-mas "CheatSheet", id: 529456740
-mas "com.iwaxx.Debookee-Tools", id: 1110355801
-mas "CotEditor", id: 1024640650
-mas "Kelir Pro", id: 1186597992
-mas "Lexi", id: 1462580127
-mas "Magnet", id: 441258766
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Outlook", id: 985367838
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "NextDNS", id: 1464122853
-mas "Noir", id: 1592917505
-mas "OneDrive", id: 823766827
-mas "PCalc", id: 403504866
-mas "ToothFairy", id: 1191449274
-mas "Vimari", id: 1480933944
-mas "Vinegar", id: 1591303229
-mas "Xcode", id: 497799835
