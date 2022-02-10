@@ -5,7 +5,7 @@ SESSION_NAME="oet-e2e"
 WINDOW1_NAME="LunarVim"
 WINDOW2_NAME="OET 2.0"
 WINDOW3_NAME="LazyGit"
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2021"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2023"
 UIURL="https://localhost:8080"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
