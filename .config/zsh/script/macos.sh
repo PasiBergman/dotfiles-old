@@ -117,9 +117,9 @@ packages() {
 	# echo "----------------------------------------------"
 	# brew list --cask -1 | tee "${SETUP_FOLDER}/macos-brew-list--cask-1.txt"
 	echo ""
-	echo "List of App Store apps"
+	echo "Copy macOS settings"
 	echo "----------------------------------------------"
-	mas list | tee "${SETUP_FOLDER}/macos-mas-list.txt"
+	defaults read | tee "${SETUP_FOLDER}/macos-defaults.txt"
 	echo ""
 	echo "List of Setapp apps"
 	echo "----------------------------------------------"
@@ -147,15 +147,8 @@ packages-install() {
 	SETUP_FOLDER="$HOME/.config/setup/macos"
 	[ -d "$SETUP_FOLDER" ] || mkdir -p "$SETUP_FOLDER"
 	echo ""
-	# echo "Installing Homebrew apps"
-	# brew bundle --file=$SETUP_FOLDER/macos-brew-bundle-dump.txt
-	# echo ""
-	# echo "Installing Mac App Store apps:"
-	while read -r p; do
-		grep "$p" "$SETUP_FOLDER/macos-mas-list.txt"
-		echo "$p"
-		mas install "$p"
-	done <<<$(awk '{print $1}' "$SETUP_FOLDER/macos-mas-list.txt")
+	echo "Installing Homebrew apps"
+	brew bundle --file "$SETUP_FOLDER/macos-brew-bundle-dump.txt"
 }
 
 packages-cleanup() {
@@ -165,4 +158,6 @@ packages-cleanup() {
 	brew bundle cleanup --file "$SETUP_FOLDER/macos-brew-bundle-dump.txt" --verbose
 	read -s -k -r '?Press any key to continue with uninstallation or ctrl-c to stop.'
 	brew bundle cleanup --file "$SETUP_FOLDER/macos-brew-bundle-dump.txt" --verbose --force
+	read -s -k -r '?Press any key to continue with uninstallation of Homebrew or ctrl-c to stop.'
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
 }
