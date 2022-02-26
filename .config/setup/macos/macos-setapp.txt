@@ -1,16 +1,11 @@
-AlDente Pro.app
 Bartender.app
 Batteries.app
 CleanMyMac X.app
 CleanShot X.app
 Dash.app
 DevUtils.app
-Expressions.app
-ForkLift.app
-Marked.app
-Paletro.app
 PixelSnap.app
-Proxyman.app
-Tab Finder.app
-TextSniper.app
+TripMode.app
+WiFi Explorer.app
+iBoysoft MagicMenu.app
 iStat Menus.app
