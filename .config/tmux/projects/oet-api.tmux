@@ -5,10 +5,16 @@ SESSION_NAME="oet-api"
 WINDOW1_NAME="LunarVim"
 WINDOW2_NAME="LazyGit"
 
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2024"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2026"
 
 API_CMD="killall dotnet; dotnet watch --project src/Skylla.BE.API run"
 UI_CMD="killall npm; npm run serve"
+SHELL_PATH="/opt/homebrew/bin/zsh"
+
+if [ -n "$1" ]; then
+	API_CMD=""
+	UI_CMD=""
+fi
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 
@@ -30,7 +36,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		split-window -h -p 35 \; \
 		send-keys 'clear && cd ../oet-ui/' C-m \; \
 		send-keys "$UI_CMD" C-m \; \
-		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /opt/homebrew/bin/zsh \; \
+		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" "$SHELL_PATH" \; \
 		select-window -t "$WINDOW1_NAME" \; \
 		select-pane -t 0 \;
 else
