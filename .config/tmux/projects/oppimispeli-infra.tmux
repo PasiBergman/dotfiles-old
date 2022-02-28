@@ -16,7 +16,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 	tmux new-session -s "$SESSION_NAME" -n "$WINDOW1_NAME" -c "$PROJECT_DIR" \; \
 		attach-session -t . -c "$PROJECT_DIR" \; \
 		send-keys "lvim" C-m \; \
-		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
+		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /opt/homebrew/bin/zsh \; \
 		select-window -t "$WINDOW1_NAME" \; \
 		select-pane -t 0 \;
 else

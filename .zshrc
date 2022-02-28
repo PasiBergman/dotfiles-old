@@ -29,26 +29,25 @@ bindkey -M menuselect 'l' vi-forward-char
 # ------------
 
 # Aliases
-[ -f "$HOME/.config/zsh/script/alias.sh" ] && \
-    source "$HOME/.config/zsh/script/alias.sh"
+[ -f "$HOME/.config/zsh/script/alias.sh" ] &&
+	source "$HOME/.config/zsh/script/alias.sh"
 
 # Tmux projects
-[ -f "$HOME/.config/tmux/aliases.sh" ] && \
-    source "$HOME/.config/tmux/aliases.sh"
+[ -f "$HOME/.config/tmux/aliases.sh" ] &&
+	source "$HOME/.config/tmux/aliases.sh"
 
 # Z
-[ -f "$HOME/.config/zsh/script/z.sh" ] && \
-    source "$HOME/.config/zsh/script/z.sh"
-
+[ -f "$HOME/.config/zsh/script/z.sh" ] &&
+	source "$HOME/.config/zsh/script/z.sh"
 
 # macOS vs. Linux
 if [[ $(uname) == "Darwin" ]]; then
-   ZSH_PLUGINS_DIR="/usr/local/share"
+	ZSH_PLUGINS_DIR="/opt/homebrew/share"
 elif [[ $(uname -n) == "lakka" ]]; then
-    ZSH_PLUGINS_DIR="$HOME/.local/share"
+	ZSH_PLUGINS_DIR="$HOME/.local/share"
 else
-    # i.e. Linux
-    ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
+	# i.e. Linux
+	ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
 fi
 
 # fnm (node version manager)
@@ -57,18 +56,18 @@ which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
 [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
 # Syntax highlighting
-[ -f "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \
-    source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ -f "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
+	source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # Autosuggestions
-[ -f "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && \
-    source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ] &&
+	source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Terminal true color test
-[ -z "$TMUX" ] &&  [ -f $HOME/.config/zsh/script/truecolor-test.sh ] && $HOME/.config/zsh/script/truecolor-test.sh
+[ -z "$TMUX" ] && [ -f $HOME/.config/zsh/script/truecolor-test.sh ] && $HOME/.config/zsh/script/truecolor-test.sh
 
 # If not TMUX session and neofetch is installed, show system info
-[ -z "$TMUX" ] &&  which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
+[ -z "$TMUX" ] && which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
 
 # fnm
 export PATH=/home/pasi/.fnm:$PATH
-eval "`fnm env`"
+eval "$(fnm env)"

@@ -13,7 +13,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		attach-session -t . -c "$PROJECT_DIR" \; \
 		send-keys "lvim" C-m \; \
 		split-window -v -p 20 \; \
-		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
+		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /opt/homebrew/bin/zsh \; \
 		select-window -t "$WINDOW1_NAME" \; \
 		select-pane -t 0 \;
 else

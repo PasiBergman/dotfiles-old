@@ -4,12 +4,17 @@
 #
 if [[ "$(uname)" != "Darwin" ]]; then return; fi
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # ====================
 # Envs and settings
 # ====================
 
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+
+export PATH="/usr/local/share/dotnet/x64:$PATH"
 
 # ====================
 # Aliases

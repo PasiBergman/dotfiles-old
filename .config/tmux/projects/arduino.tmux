@@ -14,7 +14,7 @@ if [[ "$TMUX_SESSIONS" == "0" ]]; then
 		send-keys "lvim" C-m \; \
 		split-window -v -p 20 \; \
 		send-keys 'clear && [ -d ".git" ] && git fetch --all' C-m \; \
-		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /usr/local/bin/zsh \; \
+		new-window -c "$PROJECT_DIR" -n "$WINDOW2_NAME" /opt/homebrew/bin/zsh \; \
 		select-window -t "$WINDOW1_NAME" \; \
 		select-pane -t 0 \;
 else
