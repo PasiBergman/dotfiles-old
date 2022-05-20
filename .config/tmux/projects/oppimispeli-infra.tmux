@@ -4,7 +4,7 @@ PROJECT_DIR="$HOME/Code/Keva/Tyokykypolkuja-oppimispeli/Tyokykypolkuja.Infra"
 SESSION_NAME="Peli-Infra"
 WINDOW1_NAME="LunarVim"
 WINDOW2_NAME="LazyGit"
-DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2015"
+DEVOPS="https://keva.visualstudio.com/Tyokykypolkuja/_sprints/backlog/Tyokykypolkuja%20Team/Tyokykypolkuja/Sprint%2016"
 
 TMUX_SESSIONS=$(tmux list-sessions | grep $SESSION_NAME -c)
 

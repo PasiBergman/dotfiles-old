@@ -1,5 +1,6 @@
 #!/bin/sh
 alias t-anon='bash ~/.config/tmux/projects/anonymisointipalvelu.tmux'
+alias t-anondw='bash ~/.config/tmux/projects/anondw.tmux'
 alias t-cfg='bash ~/.config/tmux/projects/config.tmux'
 alias t-dunit='bash ~/.config/tmux/projects/dunit.tmux'
 alias t-lua='bash ~/.config/tmux/projects/lua.tmux'

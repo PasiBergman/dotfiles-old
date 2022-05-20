@@ -71,3 +71,4 @@ which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
 # fnm
 export PATH=/home/pasi/.fnm:$PATH
 eval "$(fnm env)"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
