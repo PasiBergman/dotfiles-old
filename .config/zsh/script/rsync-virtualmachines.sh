@@ -28,7 +28,7 @@ function BackupVM() {
 		{
 			echo "$(date '+%Y-%m-%d %H:%M:%S') : $VM_NAME virtual machine is stopped. Start backup."
 			/usr/bin/caffeinate -i \
-				/usr/local/bin/rsync --progress --delete --partial --compress --archive \
+				/opt/homebrew/bin/rsync --progress --delete --partial --compress --archive \
 				-e "ssh -i \"$BASEPATH/.ssh/id_rsa\"" \
 				"$BASEPATH/Parallels/$VM_NAME.pvm" "${DestUser}@${DestHost}:${DestPath}"
 			echo "$(date '+%Y-%m-%d %H:%M:%S') : $VM_NAME virtual machine. Backup done."
@@ -61,11 +61,9 @@ if [[ $IPvalid1 -ne true ]]; then
 fi
 echo "$(date '+%Y-%m-%d %H:%M:%S') : Connected to ${DestHost}." >>"$LOG_FILE"
 
-BackupVM "Windows 10 21H2"
-BackupVM "Windows 10 2004"
-BackupVM "Debian 10"
-BackupVM "Arch Linux"
-BackupVM "Arch Awesome"
-BackupVM "Debian 11 Bullseye"
+BackupVM "Windows 11 ARM"
+BackupVM "Debian 11 Cinnamon"
+BackupVM "Debian 11 arm64"
+BackupVM "Arch Linux ARM64"
 
 echo "$(date '+%Y-%m-%d %H:%M:%S') : rsync-virtualmachines.sh run completed." >>"$LOG_FILE"

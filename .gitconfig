@@ -4,7 +4,7 @@
   pager = "delta"
 [user]
 	email = pasi.bergman@hiq.fi
-  name = Pasi Bergman
+	name = Pasi Bergman
 [pull]
   rebase = true
 [color]

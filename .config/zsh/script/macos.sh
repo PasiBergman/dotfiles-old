@@ -50,6 +50,7 @@ alias ino-monitor="minicom -D /dev/cu.usbmodem1411401 -b 9600"
 
 alias azure-access="/Users/pasi/.config/zsh/script/azure-access-grant.sh"
 alias azure-access-pasi="/Users/pasi/.config/zsh/script/azure-access-pasi.sh"
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 # Temporary Neovim
 # alias nvim="$HOME/bin/nvim-5/bin/nvim"

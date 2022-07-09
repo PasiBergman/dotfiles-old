@@ -4,7 +4,7 @@ PROJECT_DIR="$HOME/Code/Keva/OET-2.0/oet-ui"
 SESSION_NAME="oet-ui"
 WINDOW1_NAME="LunarVim"
 WINDOW2_NAME="LazyGit"
-DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2027"
+DEVOPS="https://keva.visualstudio.com/Verkkopalvelut%20-%20OET%202.0/_sprints/backlog/Verkkopalvelut%20-%20OET%202.0%20Team/Verkkopalvelut%20-%20OET%202.0/Sprint%2030"
 UIURL="https://localhost:8080"
 
 API_CMD="killall dotnet; dotnet watch --project src/Skylla.BE.API run"
