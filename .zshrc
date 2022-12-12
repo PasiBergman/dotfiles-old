@@ -71,4 +71,11 @@ which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
 # fnm
 export PATH=/home/pasi/.fnm:$PATH
 eval "$(fnm env)"
+
+# Zoxide
+mkdir -p "$HOME/.cache/zoxide"
+_ZO_DATA_DIR="$HOME/.cache/zoxide"
+_ZO_RESOLVE_SYMLINKS=1
+eval "$(zoxide init zsh)"
+
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
