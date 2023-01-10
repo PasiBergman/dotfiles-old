@@ -30,3 +30,9 @@
 	defaultBranch = main
 [mergetool "vimdiff"]
   path = lvim
+[include]
+  path = ~/.config/delta/themes.gitconfig
+[delta]
+  features = chameleon
+  # features = zebra-dark
+  # features = villsau
