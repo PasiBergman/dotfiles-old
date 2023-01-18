@@ -14,3 +14,5 @@ alias t-www='bash ~/.config/tmux/tmux-sessionizer.sh ~/Code/Personal/pasibergman
 alias t='bash ~/.config/tmux/tmux-sessionizer.sh'
 alias tmux-s='bash ~/.config/tmux/tmux-sessionizer.sh'
 alias fzf-tmux='bash ~/.config/tmux/fzf-tmux.sh'
+
+bindkey -s ^F "bash ~/.config/tmux/tmux-sessionizer.sh\n"

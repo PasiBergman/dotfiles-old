@@ -7,6 +7,9 @@ if [[ "$(uname)" != "Darwin" ]]; then return; fi
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Undercurl support on Tmux/Neovim
+tic -x "$HOME/.config/tmux/screen-256color.ti"
+
 # ====================
 # Envs and settings
 # ====================

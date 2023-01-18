@@ -61,7 +61,12 @@ alias gds='git difftool --staged'
 alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gdw='git difftool --word-diff'
 
+# Change branch
+alias cbr='git branch --sort=-committerdate \
+  | fzf --header "Checkout Recent Branch" --pointer="" --preview-window="nohidden" \
+  --preview "git diff {1} --color=always | delta" \
+  | xargs git checkout'
+
 # -----------------------------------
 # Functions
 # -----------------------------------
-

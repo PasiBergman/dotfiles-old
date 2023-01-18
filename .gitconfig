@@ -1,6 +1,7 @@
 [core]
   commentChar = ";"
   excludesfile = ~/.gitignore_global
+  pager = delta
 [user]
 	email = pasi.bergman@hiq.fi
 	name = Pasi Bergman
@@ -13,13 +14,14 @@
 [diff]
   tool = nvimdiff
   guitool = nvimdiff
+  colorMoved = default
 [mergetool "nvimmerge"]
   cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [mergetool]
 	prompt = false
 [merge]
 	tool = vimdiff
-    guitool = nvimmerge
+  guitool = nvimmerge
 	conflictStyle = diff3
 [difftool]
 	prompt = false
@@ -34,5 +36,6 @@
   path = ~/.config/delta/themes.gitconfig
 [delta]
   features = chameleon
+  navigate = true
   # features = zebra-dark
   # features = villsau
