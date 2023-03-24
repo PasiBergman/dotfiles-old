@@ -7,6 +7,9 @@ if [[ "$(uname)" != "Linux" ]]; then return; fi
 # =============================
 
 alias ls='ls --color=auto'
+if [[ "$(uname -a)" == *"lakka"* ]]; then 
+  alias nvim="~/.local/bin/nvim-linux64/bin/nvim"
+fi
 
 # =============================
 # Functions
