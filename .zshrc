@@ -50,11 +50,6 @@ else
 	ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
 fi
 
-# fnm (node version manager)
-which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
-# nvm (node version manager)
-[ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
 # Syntax highlighting
 [ -f "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
 	source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -68,10 +63,6 @@ which fnm 1>/dev/null 2>&1 && eval "$(fnm env)"
 # If not TMUX session and neofetch is installed, show system info
 [ -z "$TMUX" ] && which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
 
-# fnm
-export PATH=/home/pasi/.fnm:$PATH
-eval "$(fnm env)"
-
 # Zoxide
 mkdir -p "$HOME/.cache/zoxide"
 _ZO_DATA_DIR="$HOME/.cache/zoxide"
@@ -79,3 +70,13 @@ _ZO_RESOLVE_SYMLINKS=1
 eval "$(zoxide init zsh)"
 
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+# fnm (node version manager)
+[ -d "$HOME/.fnm" ] && export PATH="$HOME/.fnm:$PATH"
+[ -d "$HOME/.local/share/fnm" ] && export PATH="$HOME/.local/share/fnm:$PATH"
+if (which fnm 1>/dev/null 2>&1); then
+  eval "$(fnm env)"
+fi
+
+# Add locally installed fzf to path - if found
+[ -d "$HOME/.fzf/bin" ] && export PATH="$HOME/.fzf/bin:$PATH"
