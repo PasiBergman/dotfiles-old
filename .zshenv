@@ -2,18 +2,23 @@
 export PATH="$HOME/.local/share/nvim/dapinstall/dnetcs_dbg/netcoredbg:$PATH"
 export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin:$PATH"
 
-# Localization
-# export LC_CTYPE="en_US.UTF-8"
-# export LC_TIME="en_US.UTF-8"
-# export LC_MONETARY="fi_FI.UTF-8"
-# export LC_NAME="fi_FI.UTF-8"
-# export LC_ADDRESS="fi_FI.UTF-8"
-# export LC_TELEPHONE="fi_FI.UTF-8"
-# export LC_MEASUREMENT="fi_FI.UTF-8"
-# export LC_IDENTIFICATION="fi_FI.UTF-8"
-export LC_ALL="fi_FI.UTF-8"
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US
+# Locales
+# if [ "$(uname)" != "Darwin" ]
+# then
+export LC_ALL=""
+export LANG="en_US.utf8"
+export LC_CTYPE="fi_FI.utf8"
+export LC_NUMERIC="fi_FI.utf8"
+export LC_TIME="fi_FI.utf8"
+export LC_COLLATE="fi_FI.utf8"
+export LC_MONETARY="fi_FI.utf8"
+export LC_PAPER="fi_FI.utf8"
+export LC_ADDRESS="fi_FI.utf8"
+export LC_TELEPHONE="fi_FI.utf8"
+export LC_MEASUREMENT="fi_FI.utf8"
+export LC_IDENTIFICATION="fi_FI.utf8"
+# fi
+
 # Command history
 SAVEHIST=50000
 HISTSIZE=50000

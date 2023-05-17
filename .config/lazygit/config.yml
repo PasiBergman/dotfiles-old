@@ -169,8 +169,8 @@ keybinding:
     update: u
     bulkMenu: b
 os:
-  openCommand: open {{filename}}
-  openLinkCommand: open {{link}}
+  open: open {{filename}}
+  openLink: open {{link}}
 disableStartupPopups: false
 customCommands: []
 services: {}

@@ -86,6 +86,18 @@ chromehistory() {
 	rm -f /tmp/chromehdefault
 }
 
+listening() {
+	if [ $# -eq 0 ]; then
+		sudo lsof -iTCP -sTCP:LISTEN -n -P
+	elif [ $# -eq 1 ]; then
+		sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i -e "COMMAND\|${1}"
+	else
+		echo "Usage   : ${0} [pattern]"
+		echo "Example : ${0} \":5000\""
+	fi
+}
+alias listen="listening"
+
 # browse Safari history
 # Requires full disk access for iTerm2/Terminal
 safarihistory() {

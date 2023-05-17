@@ -77,7 +77,7 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 [ -d "$HOME/.fnm" ] && export PATH="$HOME/.fnm:$PATH"
 [ -d "$HOME/.local/share/fnm" ] && export PATH="$HOME/.local/share/fnm:$PATH"
 if (which fnm 1>/dev/null 2>&1); then
-  eval "$(fnm env)"
+  eval "$(fnm env --use-on-cd)"
 fi
 
 # Add locally installed fzf to path - if found
