@@ -10,7 +10,7 @@
 [color]
   ui = auto
 [difftool "nvimdiff"]
-  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+  cmd = lvim -d \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool = nvimdiff
   guitool = nvimdiff
@@ -32,11 +32,11 @@
 	defaultBranch = main
 [mergetool "vimdiff"]
   path = lvim
-[include]
-  path = ~/.config/delta/themes.gitconfig
-[delta]
-  features = chameleon
-  navigate = true
+#[include]
+#  path = ~/.config/delta/themes.gitconfig
+#[delta]
+#  features = chameleon
+#  navigate = true
   # features = zebra-dark
   # features = villsau
 [filter "lfs"]

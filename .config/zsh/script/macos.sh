@@ -57,7 +57,6 @@ alias ino-monitor="minicom -D /dev/cu.usbmodem1411401 -b 9600"
 
 alias azure-access="/Users/pasi/.config/zsh/script/azure-access-grant.sh"
 alias azure-access-pasi="/Users/pasi/.config/zsh/script/azure-access-pasi.sh"
-alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 # Temporary Neovim
 # alias nvim="$HOME/bin/nvim-5/bin/nvim"
@@ -123,6 +122,13 @@ zf() {
 		cd "$(fd -t d --max-depth 10 | fzf --preview='tree -L 1 {}' --bind='space:toggle-preview' --preview-window=:hidden)" &&
 		echo "$PWD" &&
 		tree -L 1
+}
+
+flushdns() {
+  echo "Flushing DNS cacheh
+	sudo killall -HUP mDNSResponder &&
+		sudo killall mDNSResponderHelper &&
+		sudo dscacheutil -flushcache
 }
 
 packages() {
