@@ -5,18 +5,8 @@ export PATH="$HOME/.local/bin:$HOME/.dotnet:$HOME/.dotnet/tools:$HOME/.cargo/bin
 # Locales
 # if [ "$(uname)" != "Darwin" ]
 # then
-export LC_ALL=""
-export LANG="en_US.utf8"
-export LC_CTYPE="fi_FI.utf8"
-export LC_NUMERIC="fi_FI.utf8"
-export LC_TIME="fi_FI.utf8"
-export LC_COLLATE="fi_FI.utf8"
-export LC_MONETARY="fi_FI.utf8"
-export LC_PAPER="fi_FI.utf8"
-export LC_ADDRESS="fi_FI.utf8"
-export LC_TELEPHONE="fi_FI.utf8"
-export LC_MEASUREMENT="fi_FI.utf8"
-export LC_IDENTIFICATION="fi_FI.utf8"
+LC_ALL="fi_FI.UTF-8"
+LANG="en_US.UTF-8"
 # fi
 
 # Command history

@@ -112,7 +112,7 @@ safarihistory() {
      where i.id=v.history_item and v.load_successful=1
      order by v.visit_time DESC" |
 		awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
-		fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
+		fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open -a Safari
 	rm -f /tmp/s
 }
 
@@ -125,7 +125,7 @@ zf() {
 }
 
 flushdns() {
-  echo "Flushing DNS cacheh
+	echo "Flushing DNS cache"
 	sudo killall -HUP mDNSResponder &&
 		sudo killall mDNSResponderHelper &&
 		sudo dscacheutil -flushcache

@@ -1,7 +1,7 @@
 [core]
   commentChar = ";"
   excludesfile = ~/.gitignore_global
-  pager = delta
+  # pager = delta
 [user]
 	email = pasi.bergman@hiq.fi
 	name = Pasi Bergman

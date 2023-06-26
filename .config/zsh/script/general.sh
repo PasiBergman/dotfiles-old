@@ -45,6 +45,14 @@ batfz() {
     bat "$( fd -t file | fzf )"
 }
 
+# exa
+if command -v exa &>/dev/null
+then
+  alias ls="exa"
+  alias ll="exa --all -al"
+  alias la="exa --all -al"
+fi
+
 # dotnet
 alias dotnetclean="find . -name bin -exec rm -R -f {} \; 2>/dev/null && find . -name obj -exec rm -R -f {} \; 2>/dev/null && dotnet clean 2>/dev/null"
 

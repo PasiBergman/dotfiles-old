@@ -64,7 +64,8 @@ fi
 [ -z "$TMUX" ] && which neofetch 1>/dev/null 2>&1 && echo " " && neofetch
 
 # Zoxide, if exists
-if [ $(which zoxide 1>/dev/null 2>&1) ]; then
+if command -v zoxide &>/dev/null
+then
 	mkdir -p "$HOME/.cache/zoxide"
 	_ZO_DATA_DIR="$HOME/.cache/zoxide"
 	_ZO_RESOLVE_SYMLINKS=1
@@ -82,19 +83,4 @@ fi
 
 # Add locally installed fzf to path - if found
 [ -d "$HOME/.fzf/bin" ] && export PATH="$HOME/.fzf/bin:$PATH"
-
-export LC_ALL=""
-export LANG="en_US.utf8"
-export LC_CTYPE="fi_FI.utf8"
-export LC_NUMERIC="fi_FI.utf8"
-export LC_TIME="fi_FI.utf8"
-export LC_COLLATE="fi_FI.utf8"
-export LC_MONETARY="fi_FI.utf8"
-export LC_PAPER="fi_FI.utf8"
-export LC_ADDRESS="fi_FI.utf8"
-export LC_TELEPHONE="fi_FI.utf8"
-export LC_MEASUREMENT="fi_FI.utf8"
-export LC_IDENTIFICATION="fi_FI.utf8"
-# export LC_MESSAGES="en_US.utf8"
-# export LC_NAME="en_US.utf8"
 
