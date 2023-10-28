@@ -8,11 +8,12 @@ ZSH="$(which zsh)"
 start_tmux_session() {
 	S_NAME="$1"
 	P_DIR="$2"
-	tmux new-session -ds "$S_NAME" -n "$WINDOW_EDITOR" -c "$P_DIR"
-	tmux send-keys -t "$S_NAME" 'clear && git fetch --all' C-m
-	tmux split-window -t "$S_NAME" -v -p 80 -c "$P_DIR"
-	tmux send-keys -t "$S_NAME" "lvim" C-m
-	tmux new-window -t "$S_NAME" -c "$P_DIR" -n "$WINDOW_GIT" "$ZSH"
+	tmux new-session -ds "$S_NAME" -n "$WINDOW_EDITOR" -c "cd ~"
+	tmux send-keys -t "$S_NAME" "cd '${P_DIR}' && clear && git fetch --all" C-m
+	tmux split-window -t "$S_NAME" -v -p 80 -c "cd ~"
+	tmux send-keys -t "$S_NAME" "cd '${P_DIR}' && lvim" C-m
+	tmux new-window -t "$S_NAME" -c "cd ~" -n "$WINDOW_GIT" "$ZSH"
+	tmux send-keys -t "$S_NAME" "cd '${P_DIR}' && eslint_d restart" C-m
 	# tmux send-keys -t "$S_NAME" "lazygit" C-m
 	# If not in a tmux session, attach to the session
 	# else switch client to the session

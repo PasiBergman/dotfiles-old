@@ -36,6 +36,8 @@ export ASPNETCORE_ENVIRONMENT=Local
 # export DOTNET_ROOT=$HOME/.dotnet
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export VSCODE=code
+# Homebrew / brew
+export HOMEBREW_NO_ANALYTICS=1
 # Node & Nvm - NOTE! nvm has been replaced by fnm
 # export NODE_VERSION="lts"
 # export NVM_DIR="$HOME/.nvm"
