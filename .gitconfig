@@ -1,16 +1,15 @@
 [core]
-	commentchar = ";"
+  commentchar = ";"
   excludesfile = ~/.gitignore_global
-  # pager = delta
 [user]
-	email = pasi.bergman@hiq.fi
-	name = Pasi Bergman
+  email = pasi.bergman@hiq.fi
+  name = Pasi Bergman
 [pull]
   rebase = true
 [color]
   ui = auto
 [difftool "nvimdiff"]
-  cmd = lvim -d \"$LOCAL\" \"$REMOTE\"
+  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [diff]
   tool = nvimdiff
   guitool = nvimdiff
@@ -18,31 +17,24 @@
 [mergetool "nvimmerge"]
   cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [mergetool]
-	prompt = false
+  prompt = false
 [merge]
-	tool = vimdiff
+  tool = vimdiff
   guitool = nvimmerge
-	conflictStyle = diff3
+  conflictStyle = diff3
 [difftool]
-	prompt = false
+  prompt = false
 [rerere]
-	enabled = true
-	autoupdate = true
+  enabled = true
+  autoupdate = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [mergetool "vimdiff"]
   path = lvim
-#[include]
-#  path = ~/.config/delta/themes.gitconfig
-#[delta]
-#  features = chameleon
-#  navigate = true
-  # features = zebra-dark
-  # features = villsau
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [format]
-	pretty = oneline
+  pretty = oneline
