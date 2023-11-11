@@ -2,12 +2,3 @@
 Rocks installed for Lua 5.4
 ---------------------------
 
-argparse
-   0.7.1-1 (installed) - /opt/homebrew/lib/luarocks/rocks-5.4
-
-luacheck
-   0.25.0-1 (installed) - /opt/homebrew/lib/luarocks/rocks-5.4
-
-luafilesystem
-   1.8.0-1 (installed) - /opt/homebrew/lib/luarocks/rocks-5.4
-

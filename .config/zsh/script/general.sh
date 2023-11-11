@@ -20,14 +20,18 @@ sha256() {
 # =====================
 
 # Reverse aliases. Open these filetypes with nvim
-alias -s {cs,ts,js,html,htm,md,json,yml,yaml,vue}=nvim
+if which nvim &>/dev/null ; 
+then
+  alias -s {cs,ts,js,vue,html,htm,md,json,yml,yaml,txt,sh}="nvim"
 
-# Nvim
-alias vim="nvim"
-alias vi="nvim"
+  # Nvim
+  alias vim="nvim"
+  alias vi="nvim"
+  # alias n="nvim"
+fi
 
 # Hardware
-alias cpu-info="$HOME/.config/zsh/script/cpu-info.sh"
+alias cpu-info="${HOME}/.config/zsh/script/cpu-info.sh"
 alias mem=$'ps axc -o cmd,%mem --sort=-%mem | head -n 15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
 alias cpu=$'ps axc -o cmd,%cpu --sort=-%cpu | head -n 15 | awk \'{printf("%-20s %5s%\\n", $1, $2)}\''
 
@@ -35,7 +39,7 @@ alias cpu=$'ps axc -o cmd,%cpu --sort=-%cpu | head -n 15 | awk \'{printf("%-20s 
 alias sää='curl -s "https://wttr.in/Kukkumäki,Espoo?MF1&lang=fi"'
 
 # LunarVim
-alias l=lvim
+# alias l=lvim
 
 # Fzf
 alias historyfzf="history 0 | fzf"
@@ -57,17 +61,17 @@ fi
 alias dotnetclean="find . -name bin -exec rm -R -f {} \; 2>/dev/null && find . -name obj -exec rm -R -f {} \; 2>/dev/null && dotnet clean 2>/dev/null"
 
 # Lazygit
-alias lazygit="lazygit -ucd $HOME/.config/lazygit"
-alias lg="lazygit -ucd $HOME/.config/lazygit"
+alias lazygit="lazygit -ucd ${HOME}/.config/lazygit"
+alias lg="lazygit -ucd ${HOME}/.config/lazygit"
 
 # Update LunarVim
 alias update-lvim="cd ~/.local/share/lunarvim/lvim && git pull; cd -"
 alias fetch-lvim="cd ~/.local/share/lunarvim/lvim && git fetch upstream && git merge upstream/rolling; cd -"
 
 # fzh
-source "$HOME/.config/zsh/script/fzh.sh"
+[ -f "${HOME}/.config/zsh/script/fzh.sh" ] && source "${HOME}/.config/zsh/script/fzh.sh"
 # fzd
-source "$HOME/.config/zsh/script/fzd.sh"
+[ -f "${HOME}/.config/zsh/script/fzd.sh" ] && source "${HOME}/.config/zsh/script/fzd.sh"
 
 # Show terminal 256 color map
 terminal-colors () {
