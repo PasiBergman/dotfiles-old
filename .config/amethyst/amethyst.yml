@@ -1,0 +1,38 @@
+---
+layouts:
+  - tall
+  - fullscreen
+  - two-pane
+  - middle-wide
+
+mod1:
+  - shift
+  - option
+mod2:
+  - shift
+  - option
+  - command
+
+relaunch-amethyst:
+  mod: mod2
+  key: r
+
+window-max-count: 4
+
+# Enable focus-follows-mouse
+mouse-follows-focus: false
+focus-follows-mouse: false
+
+# Add 10px margin between windows
+window-margins: true
+window-margin-size: 6
+
+floating-is-blacklist: true
+floating:
+  - com.khanov.BlockerX
+  - com.coconut-flavour.coconutBattery
+  - com.surteesstudios.Bartender
+  - com.objective-see.blockblock.helper
+  - com.parallels.desktop.console
+  - uk.co.tla-systems.pcalc
+  - com.apple.systempreferences
