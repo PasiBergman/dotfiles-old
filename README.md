@@ -1,3 +1,7 @@
+# IMPORTANT NOTICE
+
+**I'm moving to GNU Stow instead of using git bare repository during 11/2023.**
+
 # dotfiles
 
 Collection of macOS/Linux configuration files, including Neovim (Nvim).
